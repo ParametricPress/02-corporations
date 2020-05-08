@@ -1,0 +1,42 @@
+
+
+
+.ReactTable .-pagination button {
+  margin: 0;
+}
+
+
+@media all and (max-width: 1000px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+
+@media all and (max-width: 800px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
+
+}
+
+
+/* hack to get hovering on the graph to work; todo: revisit this; */
+.idyll-scroll-graphic {
+  z-index: 0 !important;
+}
+
+.idyll-scroll-text .idyll-step {
+  padding: 50px 100px 0 0;
+}
+
+.line-graph-container {
+  width: 750px;
+  margin-left: 500px;
+}
+
+.idyll-scroll-text .idyll-step {
+  width: 500px;
+}
