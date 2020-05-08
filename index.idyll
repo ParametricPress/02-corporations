@@ -1,4 +1,4 @@
-[meta title:"TK Article Title" description:"TK Article Description"
+[meta title:"Carbon Majors" description:"The corporations behind climate change"
   shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
   shareImageWidth:"880"
   shareImageHeight:"440" /]
@@ -14,10 +14,15 @@
   dek:"When we measure greenhouse gas emissions, we tend to aggregate the data by the countries where the emissions occurred. But what about the producers: the companies that extracted the fossil fuels in the first place?"
   fullWidth:true
   authors:`[{
-    name: "",
+    name: "Geoffrey Litt",
     role: "",
-    url: ""
-  }]`
+    url: "https://www.geoffreylitt.com"
+  },
+  {
+      name: "Seth Thompson",
+      role: "",
+      url: "https://seththompson.org/"
+    }]`
   doi:"https://doi.org/TK"
   archive:`'https://parametric-press-archives.s3.amazonaws.com/issue-02/' + parametricSlug + '.warc.gz'`
   source:`"https://github.com/ParametricPress/02-" + parametricSlug `
@@ -37,6 +42,7 @@
        "oneCompany",
        "initial",
        "ownership",
+       "investor",
        "investor"
  ][state]` /]
 
@@ -83,7 +89,38 @@
 
      However, they are also accountable to their shareholders. Private investors can directly pressure these companies to support progressive climate policies and invest in renewable energy going forward, providing another avenue for addressing climate change besides encouraging government action.
    [/Step]
+
+   [Step]
+     ## Campaigns of deception
+
+     Todo, no chart for this yet—idea is to overlay deception campaigns
+     onto this timeline
+   [/Step]
  [/Scroller]
+
+## Meta
+
+This is a very rough draft. The goal of this prototype was:
+
+* do enough preprocessing on the CAI data to get it into a usable format for this piece
+* sketch out the backbone of some of the core visualizations
+
+Some design goals to call out, based on previous conversation:
+
+* stacked area chart emphasizes cumulative growth in emissions
+* start with one company's data, explain clearly before zooming out
+* use animation to explain the relationship between graphs
+* use hover on chart to let people explore a bit more about each company
+
+Incomplete list of things that need more work:
+
+* The text copy needs a total rewrite, it's more just there as notes to anchor the visulizations and get the skeleton in place.
+* Want to add more information about deception campaigns led by investor-owned
+* Is continuous scrollytelling (without scrolljacking) irritating because you have to figure out how to scroll to the right spot? Maybe better to split into discrete steps with a way to click nextt?
+* Not sure about the use of color in the charts.
+* The layout sizing is pretty hardcoded, needs a lot of love to be more responsive. Can we do something better with the graphs + text? (maybe find a way to overlay text over graphs?) Also there's some CSS wonkiness with the relationship between the scroll graphic and text.
+* The d3 component for the graphs needs a serious code review + cleanup, I plan to do a first pass there. Some of the messiness comes from coordinating the multiple scroller steps with the graphs, wonder if there are best practices for that
+* generally improve visual design of the charts, make it fit better with the parametric style and make it snazzier
 
 
 [AuthorBio]
