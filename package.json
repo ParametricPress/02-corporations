@@ -14,7 +14,8 @@
     "components": [
       "./components",
       "./node_modules/parametric-components/dist/cjs/issue-02"
-    ]
+    ],
+    "output": "docs"
   },
   "dependencies": {
     "color": "^3.1.2",
