@@ -13,8 +13,8 @@
     "layout": "./node_modules/parametric-styles/issue-02-theme.css",
     "theme": "./node_modules/parametric-styles/issue-02-layout.css",
     "components": [
-      "./components",
-      "./node_modules/parametric-components/dist/cjs/issue-02"
+      "./node_modules/parametric-components/dist/cjs/issue-02",
+      "./components"
     ],
     "output": "dev"
   },
