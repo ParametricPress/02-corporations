@@ -46,10 +46,12 @@
        "investor"
  ][state]` /]
 
+ [AnimatedStackedArea /]
+
  [Scroller currentStep:state]
 
    [Graphic className:"line-graph-container"]
-    [LineGraph className:"line-graph" data:totalEmissions state:state section:scrollerSection /]
+     [LineGraph className:"line-graph" data:totalEmissions state:state section:scrollerSection /]
    [/Graphic]
 
    [Step]
