@@ -4,6 +4,8 @@ const d3 = require('d3');
 const _ = require('lodash');
 const Color = require('color');
 
+const dateRange = [1988, 2015]
+
 class LineGraph extends D3Component {
   getWidth() {
     return 800;
@@ -16,11 +18,11 @@ class LineGraph extends D3Component {
   // Called on initial component creation --
   // Set up data and persistent svg nodes
   initialize(node, props) {
-    const margin = (this.margin = ({top: 20, right: 160, bottom: 40, left: 60}))
+    const margin = (this.margin = ({ top: 20, right: 160, bottom: 40, left: 60 }))
     const height = (this.height = this.getHeight())
     const width = (this.width = this.getWidth())
 
-    const rawData = (this.rawData = props.data.filter(d => d.year >= 1965 && d.year <= 2015));
+    const rawData = (this.rawData = props.data.filter(d => d.year >= dateRange[0] && d.year <= dateRange[1]));
     // Prep data for multi line chart
     // Note to self: a perfect place for synthesis of structure transformation
     // by example...
@@ -84,30 +86,17 @@ class LineGraph extends D3Component {
       return row;
     })
 
-    this.saudiData = years.map(year => {
-      let row = { year: year };
-      this.companies.forEach(c => {
-        let datapoint = totalEmissions.find(d => d.year === year && d.company === c)
-        if (datapoint && c === "Saudi Aramco") {
-          row[c] = datapoint.value
-        } else {
-          row[c] = 500
-        }
-      })
-      return row;
-    })
-
     const data = (this.data = groupedArray)
 
     const svg = (this.svg = d3.select(node).append('svg'))
     svg.attr("width", width).attr("height", height)
 
     this.paths = svg.append("g")
-         .attr("fill", "none")
-         .attr("stroke", "steelblue")
-         .attr("stroke-width", 1.5)
-         .attr("stroke-linejoin", "round")
-         .attr("stroke-linecap", "round")
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 1.5)
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
 
     this.labels = svg.append("g")
       .attr("font-family", "sans-serif")
@@ -121,23 +110,23 @@ class LineGraph extends D3Component {
 
     // axis labels
     svg.append("text")
-          .attr("font-family", "sans-serif")
-          .attr("font-size", 14)
-          .attr("transform",
-                "translate(" + (width/2) + " ," +
-                               (height) + ")")
-          .style("text-anchor", "middle")
-          .text("Year");
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 14)
+      .attr("transform",
+        "translate(" + (width / 2) + " ," +
+        (height) + ")")
+      .style("text-anchor", "middle")
+      .text("Year");
 
     svg.append("text")
-          .attr("font-family", "sans-serif")
-          .attr("font-size", 14)
-          .attr("transform", "rotate(-90)")
-          .attr("y", 0)
-          .attr("x", 0 - (height / 2))
-          .attr("dy", "1em")
-          .style("text-anchor", "middle")
-          .text("Emissions (MtCO2e)");
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 14)
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0)
+      .attr("x", 0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Emissions (MtCO2e)");
 
     // company details
     let companyTooltipPosition = { x: margin.left + 10, y: margin.top + 10 }
@@ -213,7 +202,7 @@ class LineGraph extends D3Component {
     let colorPastel = d3.scaleOrdinal(d3.schemeSet3);
     let colorBold = d3.scaleOrdinal(d3.schemeSet3.slice(3));
 
-    let xRange = [1963, 2015];
+    let xRange = dateRange;
     let yRange = [0, 12000];
 
     if (activeStage === "oneCompany") {
@@ -226,23 +215,23 @@ class LineGraph extends D3Component {
 
     // Set up axes
     let x = d3.scaleLinear()
-    .domain(xRange)
-    .range([margin.left, width - margin.right])
+      .domain(xRange)
+      .range([margin.left, width - margin.right])
 
     let y = d3.scaleLinear()
-        .domain(yRange).nice()
-        .range([height - margin.bottom, margin.top])
+      .domain(yRange).nice()
+      .range([height - margin.bottom, margin.top])
 
     let xAxis = g => g
-        .attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickFormat(d3.format(".4")))
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickFormat(d3.format(".4")))
 
     let yAxis = g => g
-        .attr("transform", `translate(${margin.left},0)`)
-        .transition()
-        .delay(500)
-        .duration(1000)
-        .call(d3.axisLeft(y))
+      .attr("transform", `translate(${margin.left},0)`)
+      .transition()
+      .delay(500)
+      .duration(1000)
+      .call(d3.axisLeft(y))
 
     this.xAxis.call(xAxis);
     this.yAxis.call(yAxis);
@@ -279,9 +268,9 @@ class LineGraph extends D3Component {
         .delay(500)
         .duration(1000)
         .attr("opacity", "1")
-      } else {
-        this.ownershipOverlay.selectAll("text").remove()
-      }
+    } else {
+      this.ownershipOverlay.selectAll("text").remove()
+    }
 
 
     let stackedData;
@@ -293,22 +282,22 @@ class LineGraph extends D3Component {
       ]
     })
 
-    if(activeStage === "ownership" || activeStage === "investor") {
+    if (activeStage === "ownership" || activeStage === "investor") {
       stackedData = d3.stack().keys(this.companies).order(series => {
         let seriesOrder = series.map(d => d.key);
         let newOrder = companiesSortedByOwnership.map(c => seriesOrder.indexOf(c));
         return newOrder;
       })(this.dataPerYear);
     } else if (activeStage === "oneCompany") {
-      stackedData =  d3.stack().keys(this.companies)(this.dataPerYear);
+      stackedData = d3.stack().keys(this.companies)(this.dataPerYear);
     } else {
       stackedData = d3.stack().keys(this.companies)(this.dataPerYear);
     }
 
     let paths = this.paths.selectAll("path")
-        .data(stackedData)
-        .join("path")
-        .attr('fill-opacity', '.85');
+      .data(stackedData)
+      .join("path")
+      .attr('fill-opacity', '.85');
 
     if (activeStage === "investor") {
       // animation order reversed here--
@@ -320,7 +309,7 @@ class LineGraph extends D3Component {
         .attr("d", area)
         .transition()
         .duration(250)
-        .attr("fill", ({key}) => {
+        .attr("fill", ({ key }) => {
           let ownership = this.rawData.find(d => d.company === key).ownership;
           if (ownership === "State") { return "#fff"; }
           else { return colorPastel(key); }
@@ -330,7 +319,7 @@ class LineGraph extends D3Component {
       paths
         .transition()
         .duration(250)
-        .attr("fill", ({key}) => {
+        .attr("fill", ({ key }) => {
           if (activeStage === "ownership") {
             // todo: optimize this
             let ownership = this.rawData.find(d => d.company === key).ownership
@@ -355,21 +344,21 @@ class LineGraph extends D3Component {
       .on('mouseover', function (d, i) {
         // don't allow for hovering on invisible areas
         let path = d3.select(this)
-        if(path.attr('opacity') !== "0" && path.attr('fill') !== "rgb(255, 255, 255)") {
-           d3.select(this)
-                .attr('fill-opacity', '1');
+        if (path.attr('opacity') !== "0" && path.attr('fill') !== "rgb(255, 255, 255)") {
+          d3.select(this)
+            .attr('fill-opacity', '1');
 
-           let metadata = _this.data.find(row => row.name === d.key)
-           _this.companyName.text(d.key);
-           _this.companyOwnership.text(`Ownership: ${metadata.ownership}`)
-           _this.companyCountry.text(`Country: ${metadata.country}`)
-           _this.companyEmissions.text(`Cumulative Emissions: ${d3.format(",")(_.sum(metadata.values.map(d => d.value)))} MtCO2e`)
-           _this.companyTooltip.style("display", "block");
-         }
+          let metadata = _this.data.find(row => row.name === d.key)
+          _this.companyName.text(d.key);
+          _this.companyOwnership.text(`Ownership: ${metadata.ownership}`)
+          _this.companyCountry.text(`Country: ${metadata.country}`)
+          _this.companyEmissions.text(`Cumulative Emissions: ${d3.format(",")(_.sum(metadata.values.map(d => d.value)))} MtCO2e`)
+          _this.companyTooltip.style("display", "block");
+        }
       })
       .on('mouseout', function (d, i) {
         d3.select(this)
-             .attr('fill-opacity', '.75');
+          .attr('fill-opacity', '.75');
         _this.companyTooltip.style("display", "none");
       })
 
@@ -384,14 +373,14 @@ class LineGraph extends D3Component {
       .duration(1000)
       .attr("dy", "0.3em")
       .attr("dx", "0.1em")
-      .attr("x", x(2015))
+      .attr("x", x(dateRange[1]))
       .attr("y", d => y(d3.mean(d.slice(-1)[0])))
       .attr("opacity", d => {
-        if(activeStage === "investor" && this.investorCompanies.indexOf(d.key) === -1) {
+        if (activeStage === "investor" && this.investorCompanies.indexOf(d.key) === -1) {
           return "0"
         }
 
-        if(activeStage === "oneCompany" && d.key !== "Saudi Aramco") {
+        if (activeStage === "oneCompany" && d.key !== "Saudi Aramco") {
           return "0"
         }
 

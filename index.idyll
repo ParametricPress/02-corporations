@@ -8,8 +8,8 @@
 [Nav fullWidth:true /]
 
 [Header
-  title:`["Carbon", "Majors"]`
-  longTitle:`["The corporations", "behind climate change"]`
+  title:`["Corporate", "Cause"]`
+  longTitle:`["The companies", "behind climate change"]`
   date:"May 15, 2020"
   dek:"When we measure greenhouse gas emissions, we tend to aggregate the data by the countries where the emissions occurred. But what about the producers: the companies that extracted the fossil fuels in the first place?"
   fullWidth:true
@@ -27,6 +27,21 @@
   archive:`'https://parametric-press-archives.s3.amazonaws.com/issue-02/' + parametricSlug + '.warc.gz'`
   source:`"https://github.com/ParametricPress/02-" + parametricSlug `
 /]
+
+We’ve all seen the suggestions: to stop climate change, become a vegetarian, ride a bike instead of driving a car, buy a carbon offset for air travel, have fewer children! Amid the endless barrage of ways that consumers can lower their carbon footprint, it might be tempting to assume that individual action is the most direct way to combat climate change. It goes without saying that individuals—especially the wealthiest 10% who disproportionately account for half of all individual emissions—can and should curb their personal carbon emissions. But this narrative of individual responsibility distracts from a different source of responsibility: the 20 fossil fuel corporations that have accounted for 30% of all carbon emissions since 1965. In an effort to find the most direct way to combat climate change, we have placed outsized importance on individuals and absolved the small number of corporations that have the highest emissions, the greatest ability to implement large-scale changes, and the most leverage over the future of the planet’s energy policies.
+
+Since 1965 carbon emissions have risen from X to XXX. These emissions are the single largest contributor to a global temperature rise of 1 degree since the pre-industrial period which has caused major loss of glaciers, permafrost, and sea ice, untold damage to natural ecosystems, drastic weather extremes, and increased global human inequality and loss of life.
+
+The way that we aggregate data shapes  the meaning we take away and the space of resulting actions we consider. Do we break out emissions by continent, country, trade bloc, industry, service, or corporation?  Do we attribute emissions of products to the producers or the consumers? Multiple interpretations are possible since emissions come from a system with many moving parts. Corporate emissions overlap with country-specific emissions, just as they often include downstream emissions from individual consumers of products or goods sold by the company.
+
+ [var name:"disaggregationStep" value:0 /]
+
+[Scroller currentStep:disaggregationStep]
+   [Graphic]
+     [LineGraph className:"line-graph" data:totalEmissions state:state section:scrollerSection /]
+   [/Graphic]
+[/Scroller]
+
 
  Richard Heede and the [Climate Accountability Institute (CAI)](https://climateaccountability.org/carbonmajors.html) have assembled data attributing greenhouse gas emissions to specific fossil fuel producers, which provides a new perspective on the causes of, and solutions to, climate change.
 
