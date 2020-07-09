@@ -86,6 +86,19 @@ class LineGraph extends D3Component {
       return row;
     })
 
+    this.saudiData = years.map(year => {
+      let row = { year: year };
+      this.companies.forEach(c => {
+        let datapoint = totalEmissions.find(d => d.year === year && d.company === c)
+        if (datapoint && c === "Saudi Aramco") {
+          row[c] = datapoint.value
+        } else {
+          row[c] = 500
+        }
+      })
+      return row;
+    })
+
     const data = (this.data = groupedArray)
 
     const svg = (this.svg = d3.select(node).append('svg'))
