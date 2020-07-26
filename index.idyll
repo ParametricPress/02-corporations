@@ -28,6 +28,15 @@
   source:`"https://github.com/ParametricPress/02-" + parametricSlug `
 /]
 
+[data name:'nationalEmissions' source:'national-emissions.csv' /]
+[data name:'entityEmissions' source:'entity-emissions.csv' /]
+
+## National Emissions data table
+[Table data:nationalEmissions /]
+
+## Entity Emissions data table
+[Table data:entityEmissions /]
+
 Latest text draft on [Google Docs](https://docs.google.com/document/d/1oVC-AChYo_a6kxxOjlp4_zsgSAQ8BX2PMFakYctuTDU/edit?usp=sharing)
 
 [Treemap className:"line-graph" data:totalEmissions /]

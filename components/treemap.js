@@ -7,6 +7,16 @@ const Color = require("color");
 const width = 800;
 const height = 600;
 
+const treemap = (data) =>
+  d3
+    .treemap()
+    .tile("d3.treemapBinary")
+    .size([width, height])
+    .padding(1)
+    .round(true);
+
+console.log({ treemap });
+
 class Treemap extends React.Component {
   constructor(props) {
     super(props);
