@@ -15,11 +15,13 @@ const treemap = (data) => {
 
   return d3
     .treemap()
-    .tile(d3.treemapSquarify)
+    .tile(d3.treemapBinary)
     .size([width, height])
     .padding(1)
-    .round(true)(hierarchicalData);
+    .round(false)(hierarchicalData);
 };
+
+const color = d3.scaleOrdinal(d3.schemeCategory10);
 
 class Treemap extends React.Component {
   constructor(props) {
@@ -50,6 +52,8 @@ class Treemap extends React.Component {
         return d.parent;
       })(groupedCountries);
 
+    console.log("root", root);
+
     // todo: don't run on render, precompute?
     const treemapData = treemap(root);
 
@@ -60,13 +64,19 @@ class Treemap extends React.Component {
       <div {...props}>
         <svg width={width} height={height}>
           {treemapData.leaves().map((d) => {
+            const width = d.x1 - d.x0;
+            const height = d.y1 - d.y0;
             return (
               <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
-                <text>{d.data.id}</text>
+                {height > 5 && (
+                  <text dx={5} dy={15} fontSize={10}>
+                    {d.data.id}
+                  </text>
+                )}
                 <rect
-                  width={d.x1 - d.x0}
-                  height={d.y1 - d.y0}
-                  fill="red"
+                  width={width}
+                  height={height}
+                  fill={color(d.data.id)}
                   opacity={0.5}
                   stroke="black"
                 />
