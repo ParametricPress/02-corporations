@@ -39,7 +39,7 @@
 
 Latest text draft on [Google Docs](https://docs.google.com/document/d/1oVC-AChYo_a6kxxOjlp4_zsgSAQ8BX2PMFakYctuTDU/edit?usp=sharing)
 
-[Treemap className:"line-graph" data:totalEmissions /]
+[Treemap className:"treemap" data:nationalEmissions /]
 
 [AuthorBio]
 

@@ -10,12 +10,10 @@ const height = 600;
 const treemap = (data) =>
   d3
     .treemap()
-    .tile("d3.treemapBinary")
+    .tile(d3.treemapBinary)
     .size([width, height])
     .padding(1)
-    .round(true);
-
-console.log({ treemap });
+    .round(true)(d3.hierarchy(data));
 
 class Treemap extends React.Component {
   constructor(props) {
@@ -23,7 +21,33 @@ class Treemap extends React.Component {
   }
 
   render() {
-    const { hasError, idyll, updateProps, clickCount, ...props } = this.props;
+    const {
+      hasError,
+      idyll,
+      updateProps,
+      clickCount,
+      data,
+      ...props
+    } = this.props;
+
+    const groupedCountries = [
+      { country: "World", parent: null },
+      ...data.map((d) => ({ ...d, parent: "World" })),
+    ];
+
+    const root = d3
+      .stratify()
+      .id(function (d) {
+        return d.country;
+      })
+      .parentId(function (d) {
+        return d.parent;
+      })(groupedCountries);
+
+    console.log("rendering");
+    console.log("data", data);
+    console.log("root", root);
+    console.log("treemap", treemap(data));
 
     return (
       <div {...props}>
