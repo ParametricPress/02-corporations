@@ -14,39 +14,22 @@ To run the article locally, make sure you have NodeJS and NPM installed. Then cl
 
 1. Run `npm start` in the root of this project.
 
-## How do I...
+## Data Notes
 
-### Import a dataset?
+Here are notes on reproducing the data pipeline for the article.
 
-- Add your data to the `data` folder, either as a CSV or JSON file.
+### National emissions data
 
-Then use the `[data /]` tag to load it as a variable. For example to
-load a dataset and provide it as input to a table component:
+Original data source: CDIAC
+https://energy.appstate.edu/research/work-areas/cdiac-appstate
 
-```
-[data name:"myDatasetName" source:"my-dataset-file.csv"  /]
+Raw data file: `data/nation.1751_2016.csv`
 
-[Table data:myDatasetName /]
-```
+Aggregated by country in Excel: `data/national-emissions.csv`
 
-### Make a custom component?
+### Corporate emissions data
 
-- Add your component to the `components` folder. Use either of the existing components in there as a guide. If you're familiar with React, start with `custom-component.js`, otherwise if you are more comfortable using a tool like D3 where you manually handle updates / redraws, start with `custom-d3-component.js`.
+Original data source:
+"sum ranking" Excel file from Richard Heede / CAI
 
-- Any component that you put in that folder will immediately be available in the Idyll markup. Files named like `custom-component.js` can be imported as `[CustomComponent /]`.
-
-
-
-### Learn more about existing components
-
-All of Idyll's standard components are available [docs here](https://idyll-lang.org/docs/components).
-
-Additionally, custom Parametric components can be found [here](https://github.com/ParametricPress/parametric-components/tree/master/src/issue-02).
-
-### Modify existing components
-
-To make changes to standard components, copy the source from `node_modules` to the `components` folder.
-
-For example if you wanted to customize the `[Caption /]` component you could run `cp node_modules/parametric-components/src/issue-02/caption.js components/`.
-
-Similarly, to modify a built-in Idyll component you can run e.g. `cp node_modules/idyll-components/src/button.js components/`.
+Extracted Scope 1 emissions column into `data/entity-emissions.csv`
