@@ -31,15 +31,19 @@
 [data name:'nationalEmissions' source:'national-emissions.csv' /]
 [data name:'entityEmissions' source:'entity-emissions.csv' /]
 
-## National Emissions data table
-[Table data:nationalEmissions /]
+Latest text draft is on [Google Docs](https://docs.google.com/document/d/1oVC-AChYo_a6kxxOjlp4_zsgSAQ8BX2PMFakYctuTDU/edit?usp=sharing)
 
-## Entity Emissions data table
-[Table data:entityEmissions /]
+Types of disaggregation:
 
-Latest text draft on [Google Docs](https://docs.google.com/document/d/1oVC-AChYo_a6kxxOjlp4_zsgSAQ8BX2PMFakYctuTDU/edit?usp=sharing)
+## Individuals
+
+## Countries
 
 [Treemap className:"treemap" data:nationalEmissions /]
+
+## Corporate entities
+
+[Treemap className:"treemap" data:entityEmissions /]
 
 [AuthorBio]
 

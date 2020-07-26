@@ -8,12 +8,37 @@ const width = 800;
 const height = 600;
 
 const treemap = (data) => {
+  // CDIAC Total Global Emissions MtCO2e, 1751-2016.
+  // (This defines the total size of the treemap square)
+  const globalEmissionsTotal = 1544812;
+
+  const groupedEntities = [
+    { entity: "Global", parent: null },
+    ...data.map((d) => ({ ...d, parent: "Global" })),
+
+    // Add an extra entity to pad the treemap so that the total adds up to all global emissions
+    {
+      entity: "Other sources",
+      parent: "Global",
+      value: globalEmissionsTotal - d3.sum(data.map((d) => d.value)),
+    },
+  ];
+
+  const root = d3
+    .stratify()
+    .id(function (d) {
+      return d.entity;
+    })
+    .parentId(function (d) {
+      return d.parent;
+    })(groupedEntities);
+
   const hierarchicalData = d3
-    .hierarchy(data)
+    .hierarchy(root)
     .sum((d) => d.data.value)
     .sort((a, b) => b.value - a.value);
 
-  // console.log(hierarchicalData);
+  console.log({ hierarchicalData });
 
   return d3.treemap().size([width, height]).padding(1).round(true)(
     hierarchicalData
@@ -37,27 +62,10 @@ class Treemap extends React.Component {
       ...props
     } = this.props;
 
-    const groupedCountries = [
-      { country: "World", parent: null },
-      ...data.map((d) => ({ ...d, parent: "World" })),
-    ];
-
-    const root = d3
-      .stratify()
-      .id(function (d) {
-        return d.country;
-      })
-      .parentId(function (d) {
-        return d.parent;
-      })(groupedCountries);
-
-    console.log("root", root);
-
     // todo: don't run on render, precompute?
-    const treemapData = treemap(root);
+    const treemapData = treemap(data);
 
-    console.log("rendering");
-    console.log("treemap", treemapData);
+    console.log({ treemapData });
 
     return (
       <div {...props}>
@@ -66,7 +74,7 @@ class Treemap extends React.Component {
             const width = d.x1 - d.x0;
             const height = d.y1 - d.y0;
             return (
-              <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
+              <g key={d.id} transform={`translate(${d.x0},${d.y0})`}>
                 {d.value > 1000 && (
                   <text dx={5} dy={15} fontSize={10}>
                     {d.data.id}
