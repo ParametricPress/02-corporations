@@ -11,14 +11,13 @@ const treemap = (data) => {
   const hierarchicalData = d3
     .hierarchy(data)
     .sum((d) => d.data.value)
-    .sort((a, b) => b.data.value - a.data.value);
+    .sort((a, b) => b.value - a.value);
 
-  return d3
-    .treemap()
-    .tile(d3.treemapBinary)
-    .size([width, height])
-    .padding(1)
-    .round(false)(hierarchicalData);
+  // console.log(hierarchicalData);
+
+  return d3.treemap().size([width, height]).padding(1).round(true)(
+    hierarchicalData
+  );
 };
 
 const color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -68,7 +67,7 @@ class Treemap extends React.Component {
             const height = d.y1 - d.y0;
             return (
               <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
-                {height > 5 && (
+                {d.value > 1000 && (
                   <text dx={5} dy={15} fontSize={10}>
                     {d.data.id}
                   </text>
