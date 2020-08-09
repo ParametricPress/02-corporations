@@ -4,7 +4,6 @@ class CustomComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log('Initializing custom React component.')
   }
 
   handleClick() {

@@ -34,7 +34,7 @@ function XAxisLabel(props) {
 class AnimatedStackedArea extends React.Component {
   constructor(props) {
     super(props);
-    console.log('Initializing custom React component.')
+    console.log('Initializing AnimatedStackedArea component.')
   }
 
   render() {

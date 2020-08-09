@@ -9,7 +9,7 @@
 
 [Header
   title:`["Corporate", "Cause"]`
-  longTitle:`["The companies", "behind climate change"]`
+  longTitle:`["The companies behind climate change"]`
   date:"May 15, 2020"
   dek:"When we measure greenhouse gas emissions, we tend to aggregate the data by the countries where the emissions occurred. But what about the producers: the companies that extracted the fossil fuels in the first place?"
   fullWidth:true
@@ -27,6 +27,10 @@
   archive:`'https://parametric-press-archives.s3.amazonaws.com/issue-02/' + parametricSlug + '.warc.gz'`
   source:`"https://github.com/ParametricPress/02-" + parametricSlug `
 /]
+
+[img src:"static/images/header-placeholder.jpg" /]
+[br/]
+
 
 We’ve all seen the suggestions: to stop climate change, become a vegetarian, ride a bike instead of driving a car, buy a carbon offset for air travel, have fewer children! Amid the endless barrage of ways that consumers can lower their carbon footprint, it might be tempting to assume that individual action is the most direct way to combat climate change. It goes without saying that individuals—especially the wealthiest 10% who disproportionately account for half of all individual emissions—can and should curb their personal carbon emissions. But this narrative of individual responsibility distracts from a different source of responsibility: the 20 fossil fuel corporations that have accounted for 30% of all carbon emissions since 1965. In an effort to find the most direct way to combat climate change, we have placed outsized importance on individuals and absolved the small number of corporations that have the highest emissions, the greatest ability to implement large-scale changes, and the most leverage over the future of the planet’s energy policies.
 
