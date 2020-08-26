@@ -8,10 +8,10 @@
 [Nav fullWidth:true /]
 
 [Header
-  title:`["Corporate", "Cause"]`
-  longTitle:`["The companies behind climate change"]`
+  title:`["Corporate Cause"]`
+  longTitle:`["Corporate Cause"]`
   date:"May 15, 2020"
-  dek:"When we measure greenhouse gas emissions, we tend to aggregate the data by the countries where the emissions occurred. But what about the producers: the companies that extracted the fossil fuels in the first place?"
+  dek:"The companies behind climate change"
   fullWidth:true
   authors:`[{
     name: "Geoffrey Litt",
@@ -31,19 +31,117 @@
 [data name:'nationalEmissions' source:'national-emissions.csv' /]
 [data name:'entityEmissions' source:'entity-emissions.csv' /]
 
-Latest text draft is on [Google Docs](https://docs.google.com/document/d/1oVC-AChYo_a6kxxOjlp4_zsgSAQ8BX2PMFakYctuTDU/edit?usp=sharing)
+_TK: 3d graphic of a person biking past a Shell gas station_
 
-Types of disaggregation:
+---
+
+**Who is responsible for climate change?** There is no simple answer. Global warming is a fiendishly complex problem, deeply rooted in our current economic system. And yet, responsibility matters—not just for assigning blame, but for finding levers of future change.n
+
+As we discuss what individuals and governments can do, we often forget to consider another critical player: fossil fuel companies. These companies operate at truly awesome scale—just 20 massive corporations are responsible for one third (TK: double-check number) of global greenhouse gas emissions since 1965, through the burning of fossil fuel products they extracted and sold. 
+
+Putting the spotlight on these companies emphasizes their historical culpability, and suggests new avenues for future action by pressuring them to change their behavior.
+
+# Attributing responsibility
+
+This square represents all historical man-made greenhouse gas emissions up to 2016: about 1.5 trillion tons of carbon dioxide. Let's explore some different ways for dividing up responsbility for this quantity of emissions.
 
 ## Individuals
+
+_TK: split up square into many tiny pieces_
+
+Become a vegetarian! Ride a bike! Have fewer children! Amid a deluge of suggestions to lower your personal carbon footprint, you might be tempted believe that individual action is the best way to combat climate change.
+
+People can and should take steps to curb their personal emissions, especially the wealthiest 10% who disproportionately account for half of all individual emissions. There is a tempting immediacy in personal action, with no gatekeeper to convince but ourselves.
+
+But the impact of any one person’s actions is ultimately limited. Even collective individual action is limited by existing frameworks of production and policy set at the state or corporate level. One person can choose not to own a car, but an individual can’t reshape urban life around bicycle transit by themselves. The idea that demand alone drives the production of goods and the shape of society is an overly simplistic idea that ignores the power and influence of governments and companies operating under capitalism. 
 
 ## Countries
 
 [Treemap className:"treemap" data:nationalEmissions /]
 
+Another common way to group emissions is by the country or region where the emissions occurred. This method suggests political vectors for change: by electing the right leaders, supporting climate-conscious policy, and advocating for environmental cooperation on the international stage, we hope to reduce emissions at the country scale.
+
+This view is an essential part of addressing climate change, and holds the promise of large scale lasting impact. But relying on government action can also be a frustratingly oblique strategy when legislative gridlock, populist political movements, and widespread fossil fuel lobbying threaten to stagnate or even regress national climate policies.
+
 ## Corporate entities
 
 [Treemap className:"treemap" data:entityEmissions /]
+
+In this article, we explore a third approach: grouping emissions by the corporations that extracted, processed, sold, transported the fossil fuels . Richard Heede and the Climate Accountability Institute have done [pioneering work](https://climateaccountability.org/carbonmajors.html) tracing emissions to individual producers, finding an extreme concentration of emissions among a small number of “carbon majors”— the top 20 companies that are responsible for one third of global emissions since 1965. These corporations have made enormous profits over decades, and have a history of deceptive lobbying around climate change to ensure the persistence of their harmful business models. Furthermore, many of these firms are investor-owned companies, meaning that public financial markets have influence over their actions.
+
+Focusing on these corporate actors offers a new lens on the problem of climate change. Each of these companies offers a leverage point—a non-governmental entity with near unilateral control over a massive portfolio of emissions activity. In Heede's own words: "Even though global consumers from individuals to corporations are the ultimate emitters of carbon dioxide, the Climate Accountability Institute focuses its work on the fossil fuel companies that, in our view, have their collective hand on the throttle and the tiller determining the rate of carbon emissions and the shift to non-carbon fuels."
+
+# Understanding corporate emissions
+
+Let’s begin by focusing on a single company: ExxonMobil, one of the largest publicly traded oil and gas companies in the world. Exxon’s emissions footprint falls into two categories: downstream emissions and direct emissions.
+
+The primary category is downstream emissions. People buy oil and gas from Exxon, and then they burn it to produce energy, releasing carbon dioxide and other GHGs. CAI estimated Exxon’s 2015 downstream emissions at 523 million tons of CO₂ equivalent (MtCO₂e). CO₂ equivalent is a unit that measures quantities of greenhouse gases like CO₂ and methane by considering their contributions to warming. CAI assembled this number by finding production data in financial reports and other sources, and then multiplying the produced quantities by typical downstream emissions for each type of fuel.
+
+A secondary category is direct emissions from the process of fossil fuel extraction and production itself. This includes flaring and venting: burning or releasing unwanted gases into the atmosphere as part of the production process. It also includes other energy like electricity used in the oil extraction process, with corresponding upstream emissions. In 2015, Exxon’s direct emissions were estimated at the equivalent of 54 million tons of CO₂—an order of magnitude smaller than their downstream emissions, but still not insignificant.
+
+Adding together downstream and direct emissions, we arrive at a total greenhouse gas footprint of 577 MtCO₂e, accounting for 1.4% of global industrial greenhouse gas emissions in 2015. To put that number in perspective, in 2015 the United Kingdom estimated national greenhouse gas emissions at 496 MtCO₂e. Exxon’s emissions footprint is country-sized.
+
+You might reasonably ask whether it’s fair to attribute downstream emissions to the company that extracted the fossil fuels. After all, if Exxon hadn’t sold these fuels to these consumers, wouldn’t another company have taken their place? Yes and no. Exxon may not bear sole responsibility for these emissions, but they have enormous control over the available energy options offered to consumers, the rate of production and size of oil reserves, and the downstream cost of the commodity, not to mention the role their marketing, lobbying, and investment arms have in perpetuating oil dependence globally. Just as building more roads often leads to more traffic, the supplier of a commodity often has an outsized influence, whether direct or indirect, on its demand.
+
+# The Top 100
+
+Now let’s zoom out to view this producer emissions data for the top 100 producers worldwide.
+
+CAI has collected data for 100 entities producing oil, gas, coal, and cement. They estimate that these 100 entities account for about 70% of global greenhouse gas emissions between 1751 and 2016, an extraordinary concentration of emissions among a relatively small number of entities. These 100 entities comprise three primary categories: state-owned, privately-owned, and publicly-owned. 
+
+## State-owned companies
+
+State-owned corporations, including China’s coal coalition and Gazprom, comprise the largest historical emitters. Many of these companies were created in the middle of the twentieth-century, as the balance of power shifted towards producers and post-war governments sought to shore up control of domestic oil and coal reserves. In September 1960, Organization of the Petroleum Exporting Countries (OPEC) was created, and many member states created national oil companies. The shift towards state-owned corporations was part of a larger trend towards nationalization in a post-colonial world.
+
+By the late twentieth century, liberalization and privatization broke up many of these state-owned companies. Others became partially privatized as states moved to reduce their ownership in favor of a liberal open market policy.
+
+The overall impact of state-owned companies shows in the data. Historically, state-owned corporations have accounted for XX% of all carbon emissions. For those state-owned companies still in existence, we must consider what levers we have to influence their activity. For one, state-owned companies are not always monopolies. Those that exist in competitive markets are influenced indirectly by actions that affect their competitors. Second, state-owned companies exist within a spectrum of governance types. Although some corporations are effectively under the full control of a government, others operate with varying levels of discretionary decision-making and are thus capable of responding to public outcry and activism in the same manner as privately-owned and publicly-owned corporations. Certainly, state-owned companies bear the same responsibility as other corporations for the effects of climate change, if not moreso given their outsized impact as monolithic actors.
+
+## Investor-owned companies 
+
+Excluding state-owned companies, 20% of historical emissions come from investor-owned corporations. This is still a very significant portion of carbon emissions concentrated in a small number of companies. Crucially, these companies are vulnerable to additional forms of leverage by nature of their commitments to investors.
+
+Investor-owned companies have historically been major players in the emission of greenhouse gases given that they often operated with lighter regulation than their often-restricted nationally-owned counterparts. By the late 1990s, non-OPEC corporations greatly increased their production of fossil fuels and many state-owned companies were privatized. In general, investor-owned companies can enjoy certain operational efficiencies derived from their lack of government political control.
+
+Of these companies, X are privately-owned. These corporations often share the same governance structure: a board of directors assumes control of the corporation and is held accountable by transparent reports and disclosure to the private investors.
+
+Despite lacking public investors, these companies can be held responsible for their carbon emissions by the establishment of standard disclosures that private investors (as well as the public) can be expected to demand. The board of governors of all privately-owned energy companies should be expected to include climate-related risks and opportunities into their corporate strategy. The cost of dealing with the negative effects of climate change down the road should be included upfront in cost/benefit analyses of current business decisions. Furthermore, private investors should demand that corporations publicly acknowledge their emissions, their reduction targets, and their plans to meet such targets.
+
+Activism and awareness around the corporate responsibility to combat climate change can and will impact even those companies that answer only to private investors. It is in the investors’ interest (as it is the public’s) that corporations are transparent about the risks of maintaining current levels of emissions and the opportunities for exploring energy alternatives.
+
+Those companies which are fully or partially owned by public investors are open to further avenues of influence. Publicly-owned companies hold additional obligations to their shareholders.  In the past decade throughout the corporate landscape, there has been growing consciousness on the part of shareholders and a shift in the balance of power between shareholders and boards of directors. Not only do individual shareholders have the ability to make their voice heard in strategic decisions and governance by-laws, but large blocs of shareholders can vote to replace board members and influence the composition of the board itself. 
+
+Publicly-owned companies, which have contributed XX% of total historical emissions, therefore provide a unique angle of leverage in reducing emissions. Shareholders can and should demand that corporations conduct 1.5-2ºC scenario analysis, incorporate carbon pricing into financial statements and forecasts, invest in alternative energy research and development, and shift lobbying strategies towards collaboration with policy makers on positive green legislation.
+
+These actions are particularly important because they are possible today, with enough shareholder interest, and can lead to substantial reductions in overall carbon emissions through a single channel of influence. Moreover, they put the burden of change on the same corporations which are largely responsible for creating the climate crisis.
+
+# Why do energy companies bear so much responsibility?
+
+The data show that a small number of corporations are responsible for a large amount of historic carbon emissions that have caused incalculable damage to the climate and promise to cause permanent, life-altering changes if temperatures rise above 1.5-2ºC. But the actions of these corporations are even more damning than the emissions themselves. Evidence shows that over the last 30 years, most energy companies knew that their operations contributed to human-caused climate change and did nothing or, worse, actively spread misinformation that contradicted the conclusions of their own science.
+
+The idea that emissions could trap heat in the atmosphere and increase the temperature of the global climate goes back to at least the late nineteenth century. By the late 1970s, the risk of climate change was well established. In 1977, congress held hearings attended by executives from all seven of the major companies—BP, Chevron, ConocoPhillips, ExxonMobil, Peabody Energy, and Shell—to discuss the effect of carbon emissions on the climate. Just a decade later James Hansen, director of the ISS at NASA, made history by testifying that there was indisputable evidence of human-caused climate change. There is also ample evidence to show that around the same time, internal scientists at the major fossil fuel companies understood the effect that the companies’ own carbon emissions had on the climate.
+
+_TK: timeline view of deceptive action_
+
+Unfortunately, rather than modify their business strategy or acknowledge the gravity of the issue, fossil fuel companies across the board participated in systematic discrediting of climate scientists and spread misinformation about the cause and effects of climate change. As Mulvey et. al put it, documents from the era show a “corporate intent to deceive.” In gross conflicts of interests, many companies funded boards of contrarian climate “scientists” whose sole purpose was to produce research that contradicted that of the established scientific community. The American Petroleum Institute published internal memos that suggested that “victory” would be attained when the average citizen was convinced of the “uncertainty” of climate change. In one particularly flagrant case, the American Coal Industry forged letters from nonprofit groups to congress, allegedly in support of key legislative issues for the coal industry.
+
+It should be clear from these examples that the largest emitters of carbon both understood their own climate change culpability and insidiously sought to misinform the public rather than commit to solving an issue of their own creation.
+
+Furthermore, the evidence of early understanding of climate change shows that these companies had 30 years that they could have spent coming up with alternative business models around low-carbon energy sources. Rather than invest in research and development or support positive green legislation to course correct for the future, they did nothing except further entrench their business strategy in the production and consumption of fossil fuels.
+
+# What should we demand going forward?
+
+Ultimately, we present the above data in an effort to shift the conversation for solving climate change away from individual action (however important it may be) towards corporate action. We present the following concrete action items as environmentally and morally necessary for the highest emitting corporations:
+
+- Support and fund science and technological expertise that promotes low-carbon energy technologies 
+- Stop flaring natural gas immediately.
+- Support communities disproportionately affected by climate change and share the financial burden of paying for damages
+- Stop misinforming the public about the severity of climate change, stop funding front groups or spin doctors to divert responsibility from the problem
+- Update financial models to plan for low-carbon technologies and a divestment from fossil fuels, disclose to the SEC the risks that climate change poses to the business 
+- cut emissions from current operations
+- proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, renewable fuel standards, and direct emission regulation.
+- Pay reparations for knowingly contributing to climate change while misinforming the public
+
 
 [AuthorBio]
 

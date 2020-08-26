@@ -27,6 +27,8 @@ Raw data file: `data/nation.1751_2016.csv`
 
 Aggregated by country in Excel: `data/national-emissions.csv`
 
+IMPORTANT NOTE: CDIAC data is in units MtC. CAI data is in MtCO2. Multiply by 3.67 to convert from MtC to MtCO2, according to https://github.com/openclimatedata/cdiac-co2-fossil-national and https://archive.thinkprogress.org/the-biggest-source-of-mistakes-c-vs-co2-c0b077313b/
+
 ### Corporate emissions data
 
 Original data source:
