@@ -2331,3 +2331,43 @@ button {
   line-height: 1.2;
   color: #222222;
 }
+
+/* CUSTOM SCROLLER STYLES */
+
+/* These styles set up a sticky graphic next to the text,
+rather than behind the text which is the default behavior */
+
+.idyll-sticky-side-scroll {
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100vw;
+  padding: 0 50px;
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-graphic {
+  flex: 3;
+}
+
+.idyll-sticky-side-scroll .idyll-text-container {
+  flex: 2;
+  margin: 0; /* rely on padding of the scroller instead */
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-text {
+  padding: 0;
+}
+
+/* put much less space between steps, compared to full-screen scroller */
+.idyll-sticky-side-scroll .idyll-scroll-text .idyll-step {
+  margin: 25vh 0;
+  box-shadow: none;
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-text .idyll-step:first-of-type {
+  margin-top: 20vh;
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-text .idyll-step:last-of-type {
+  margin-bottom: 20vh;
+}
