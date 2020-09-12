@@ -307,3 +307,28 @@ button {
   line-height: 1.2;
   color: #222222;
 }
+
+/* CUSTOM SCROLLER STYLES */
+
+/* These styles set up a sticky graphic next to the text,
+rather than behind the text which is the default behavior */
+
+.idyll-sticky-side-scroll {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0;
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-graphic {
+  flex: 1;
+  border: solid thin red;
+}
+
+.idyll-sticky-side-scroll .idyll-text-container {
+  flex: 1;
+  border: solid thin blue;
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-text {
+  padding-top: 0;
+}

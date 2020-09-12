@@ -41,35 +41,48 @@ As we discuss what individuals and governments can do, we often forget to consid
 
 Putting the spotlight on these companies emphasizes their historical culpability, and suggests new avenues for future action by pressuring them to change their behavior.
 
-# Attributing responsibility
+[StickySideScroller currentStep:scrollerIndex]
+  [Graphic]
+    [Treemap className:"treemap" data:nationalEmissions /]
+  [/Graphic]
 
-This square represents all historical man-made greenhouse gas emissions up to 2016: about 1.5 trillion tons of carbon dioxide. Let's explore some different ways for dividing up responsbility for this quantity of emissions.
+  [Step]
+    # Attributing responsibility
 
-## Individuals
+    This square represents all historical man-made greenhouse gas emissions up to 2016: about 1.5 trillion tons of carbon dioxide. Let's explore some different ways for dividing up responsbility for this quantity of emissions.
+  [/Step]
 
-_TK: split up square into many tiny pieces_
+  [Step]
+    ## Individuals
 
-Become a vegetarian! Ride a bike! Have fewer children! Amid a deluge of suggestions to lower your personal carbon footprint, you might be tempted believe that individual action is the best way to combat climate change.
+    _TK: split up square into many tiny pieces_
 
-People can and should take steps to curb their personal emissions, especially the wealthiest 10% who disproportionately account for half of all individual emissions. There is a tempting immediacy in personal action, with no gatekeeper to convince but ourselves.
+    Become a vegetarian! Ride a bike! Have fewer children! Amid a deluge of suggestions to lower your personal carbon footprint, you might be tempted believe that individual action is the best way to combat climate change.
 
-But the impact of any one person’s actions is ultimately limited. Even collective individual action is limited by existing frameworks of production and policy set at the state or corporate level. One person can choose not to own a car, but an individual can’t reshape urban life around bicycle transit by themselves. The idea that demand alone drives the production of goods and the shape of society is an overly simplistic idea that ignores the power and influence of governments and companies operating under capitalism. 
+    People can and should take steps to curb their personal emissions, especially the wealthiest 10% who disproportionately account for half of all individual emissions. There is a tempting immediacy in personal action, with no gatekeeper to convince but ourselves.
 
-## Countries
+    But the impact of any one person’s actions is ultimately limited. Even collective individual action is limited by existing frameworks of production and policy set at the state or corporate level. One person can choose not to own a car, but an individual can’t reshape urban life around bicycle transit by themselves. The idea that demand alone drives the production of goods and the shape of society is an overly simplistic idea that ignores the power and influence of governments and companies operating under capitalism. 
 
-[Treemap className:"treemap" data:nationalEmissions /]
+  [/Step]
+  [Step]
+    ## Countries
 
-Another common way to group emissions is by the country or region where the emissions occurred. This method suggests political vectors for change: by electing the right leaders, supporting climate-conscious policy, and advocating for environmental cooperation on the international stage, we hope to reduce emissions at the country scale.
+    Another common way to group emissions is by the country or region where the emissions occurred. This method suggests political vectors for change: by electing the right leaders, supporting climate-conscious policy, and advocating for environmental cooperation on the international stage, we hope to reduce emissions at the country scale.
 
-This view is an essential part of addressing climate change, and holds the promise of large scale lasting impact. But relying on government action can also be a frustratingly oblique strategy when legislative gridlock, populist political movements, and widespread fossil fuel lobbying threaten to stagnate or even regress national climate policies.
+    This view is an essential part of addressing climate change, and holds the promise of large scale lasting impact. But relying on government action can also be a frustratingly oblique strategy when legislative gridlock, populist political movements, and widespread fossil fuel lobbying threaten to stagnate or even regress national climate policies.
+  [/Step]
+  [Step]
+    ## Corporate entities
 
-## Corporate entities
+    In this article, we explore a third approach: grouping emissions by the corporations that extracted, processed, sold, transported the fossil fuels . Richard Heede and the Climate Accountability Institute have done [pioneering work](https://climateaccountability.org/carbonmajors.html) tracing emissions to individual producers, finding an extreme concentration of emissions among a small number of “carbon majors”— the top 20 companies that are responsible for one third of global emissions since 1965. These corporations have made enormous profits over decades, and have a history of deceptive lobbying around climate change to ensure the persistence of their harmful business models. Furthermore, many of these firms are investor-owned companies, meaning that public financial markets have influence over their actions.
 
-[Treemap className:"treemap" data:entityEmissions /]
+    Focusing on these corporate actors offers a new lens on the problem of climate change. Each of these companies offers a leverage point—a non-governmental entity with near unilateral control over a massive portfolio of emissions activity. In Heede's own words: "Even though global consumers from individuals to corporations are the ultimate emitters of carbon dioxide, the Climate Accountability Institute focuses its work on the fossil fuel companies that, in our view, have their collective hand on the throttle and the tiller determining the rate of carbon emissions and the shift to non-carbon fuels."
+  [/Step]
+[/StickySideScroller]
 
-In this article, we explore a third approach: grouping emissions by the corporations that extracted, processed, sold, transported the fossil fuels . Richard Heede and the Climate Accountability Institute have done [pioneering work](https://climateaccountability.org/carbonmajors.html) tracing emissions to individual producers, finding an extreme concentration of emissions among a small number of “carbon majors”— the top 20 companies that are responsible for one third of global emissions since 1965. These corporations have made enormous profits over decades, and have a history of deceptive lobbying around climate change to ensure the persistence of their harmful business models. Furthermore, many of these firms are investor-owned companies, meaning that public financial markets have influence over their actions.
 
-Focusing on these corporate actors offers a new lens on the problem of climate change. Each of these companies offers a leverage point—a non-governmental entity with near unilateral control over a massive portfolio of emissions activity. In Heede's own words: "Even though global consumers from individuals to corporations are the ultimate emitters of carbon dioxide, the Climate Accountability Institute focuses its work on the fossil fuel companies that, in our view, have their collective hand on the throttle and the tiller determining the rate of carbon emissions and the shift to non-carbon fuels."
+
+
 
 # Understanding corporate emissions
 
@@ -141,6 +154,10 @@ Ultimately, we present the above data in an effort to shift the conversation for
 - cut emissions from current operations
 - proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, renewable fuel standards, and direct emission regulation.
 - Pay reparations for knowingly contributing to climate change while misinforming the public
+
+
+[Treemap className:"treemap" data:nationalEmissions /]
+[Treemap className:"treemap" data:entityEmissions /]
 
 
 [AuthorBio]
