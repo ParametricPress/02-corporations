@@ -40,9 +40,7 @@ const treemap = (data) => {
     .sum((d) => d.data.value)
     .sort((a, b) => {
       // Put "other" at the bottom always
-      console.log("lookin", a, b);
       if (a.data.id === OTHER_NAME) {
-        console.log("found an other");
         return 1;
       } else if (b.data.id === OTHER_NAME) {
         return -1;
@@ -50,8 +48,6 @@ const treemap = (data) => {
         return b.value - a.value;
       }
     });
-
-  console.log({ hierarchicalData });
 
   return d3
     .treemap()
@@ -99,27 +95,39 @@ class Treemap extends React.Component {
         </svg>
       );
     } else if (step.name === "individuals") {
-      const n_rows = height / 10;
-      const n_cols = width / 10;
-
+      // Draw a neon rectangle,
+      // then draw dark lines horizontally and vertically to
+      // divide it up into a grid.
+      // creates the effect of many small squares,
+      // but with n+m elements instead of n*m
       return (
         <svg width={width} height={height}>
-          {Array(n_rows)
+          <rect fill="#d8ffa2" width="100%" height="100%"></rect>
+          {Array(height / 10)
             .fill()
             .map((el, rowIdx) => {
-              return Array(n_cols)
-                .fill()
-                .map((el, colIdx) => {
-                  return (
-                    <rect
-                      fill="#d8ffa2"
-                      width="7px"
-                      height="7px"
-                      y={10 * rowIdx}
-                      x={10 * colIdx}
-                    ></rect>
-                  );
-                });
+              return (
+                <line
+                  x1="0"
+                  y1={10 * rowIdx}
+                  x2="100%"
+                  y2={10 * rowIdx}
+                  style={{ stroke: "#222222", strokeWidth: 3 }}
+                />
+              );
+            })}
+          {Array(width / 10)
+            .fill()
+            .map((el, colIdx) => {
+              return (
+                <line
+                  y1="0"
+                  x1={10 * colIdx}
+                  y2="100%"
+                  x2={10 * colIdx}
+                  style={{ stroke: "#222222", strokeWidth: 3 }}
+                />
+              );
             })}
         </svg>
       );
