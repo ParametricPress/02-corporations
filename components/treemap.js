@@ -4,7 +4,7 @@ const _ = require("lodash");
 const Color = require("color");
 
 // todo: responsive sizing
-const width = 800;
+const width = 600;
 const height = 600;
 
 const treemap = (data) => {
@@ -58,41 +58,100 @@ class Treemap extends React.Component {
       idyll,
       updateProps,
       clickCount,
-      data,
+      step,
       ...props
     } = this.props;
 
-    // todo: don't run on render, precompute?
-    const treemapData = treemap(data);
+    console.log("rendering, step", step);
 
-    console.log({ treemapData });
-
-    return (
-      <div {...props}>
+    // need to handle the case where variable isn't properly passed in
+    // (I think this only happens right on page init?)
+    if (!step) {
+      return <div></div>;
+    }
+    if (step.name === "total") {
+      return (
         <svg width={width} height={height}>
-          {treemapData.leaves().map((d) => {
-            const width = d.x1 - d.x0;
-            const height = d.y1 - d.y0;
-            return (
-              <g key={d.id} transform={`translate(${d.x0},${d.y0})`}>
-                {d.value > 1000 && (
-                  <text dx={5} dy={15} fontSize={10}>
-                    {d.data.id}
-                  </text>
-                )}
-                <rect
-                  width={width}
-                  height={height}
-                  fill={color(d.data.id)}
-                  opacity={0.5}
-                  stroke="black"
-                />
-              </g>
-            );
-          })}
+          <rect fill="#d8ffa2" width="100%" height="100%"></rect>
+          <text
+            style={{ fill: "#222222" }}
+            dx="50%"
+            dy="50%"
+            textAnchor="middle"
+          >
+            1.5 trillion tons of CO
+            <tspan dy="3" font-size=".7em">
+              2
+            </tspan>
+          </text>
         </svg>
-      </div>
-    );
+      );
+    } else if (step.name === "individuals") {
+      const n_rows = height / 10;
+      const n_cols = width / 10;
+
+      console.log({ n_rows, n_cols });
+
+      return (
+        <svg width={width} height={height}>
+          {Array(n_rows)
+            .fill()
+            .map((el, rowIdx) => {
+              return Array(n_cols)
+                .fill()
+                .map((el, colIdx) => {
+                  return (
+                    <rect
+                      fill="#d8ffa2"
+                      width="7px"
+                      height="7px"
+                      y={10 * rowIdx}
+                      x={10 * colIdx}
+                    ></rect>
+                  );
+                });
+            })}
+        </svg>
+      );
+    } else {
+      console.log("raw data", step.data);
+      // todo: don't run on render, precompute?
+      const treemapData = treemap(step.data);
+
+      console.log({ treemapData });
+
+      return (
+        <div {...props}>
+          <svg width={width} height={height}>
+            {treemapData.leaves().map((d) => {
+              const width = d.x1 - d.x0;
+              const height = d.y1 - d.y0;
+              return (
+                <g key={d.id} transform={`translate(${d.x0},${d.y0})`}>
+                  <rect
+                    width={width}
+                    height={height}
+                    // fill={color(d.data.id)}
+                    fill="#d8ffa2"
+                    stroke="black"
+                  />
+                  {d.value > 1000 && (
+                    <text
+                      style={{ fill: "#222222" }}
+                      dx={5}
+                      dy={15}
+                      fontSize={10}
+                    >
+                      {d.data.id}
+                    </text>
+                  )}
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+      );
+    }
   }
 }
 

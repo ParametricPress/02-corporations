@@ -41,9 +41,32 @@ As we discuss what individuals and governments can do, we often forget to consid
 
 Putting the spotlight on these companies emphasizes their historical culpability, and suggests new avenues for future action by pressuring them to change their behavior.
 
+[var name:"scrollerIndex" value:0 /]
+
+// Specify each step of the emissions breakdown chart--
+// a name for that step, and optionally data, if applicable
+[derived name:'emissionsBreakdownStep' value:`[
+      {
+        name: "total",
+        data: null
+      },
+      {
+        name: "individuals",
+        data: null
+      },
+      {
+        name: "countries",
+        data: nationalEmissions
+      },
+      {
+        name: "companies",
+        data: entityEmissions
+      }
+][scrollerIndex]` /]
+
 [StickySideScroller currentStep:scrollerIndex fullWidth: true]
   [Graphic]
-    [Treemap className:"treemap" data:nationalEmissions /]
+    [Treemap className:"treemap" step:emissionsBreakdownStep /]
   [/Graphic]
 
   [Step]
@@ -79,10 +102,6 @@ Putting the spotlight on these companies emphasizes their historical culpability
     Focusing on these corporate actors offers a new lens on the problem of climate change. Each of these companies offers a leverage point—a non-governmental entity with near unilateral control over a massive portfolio of emissions activity. In Heede's own words: "Even though global consumers from individuals to corporations are the ultimate emitters of carbon dioxide, the Climate Accountability Institute focuses its work on the fossil fuel companies that, in our view, have their collective hand on the throttle and the tiller determining the rate of carbon emissions and the shift to non-carbon fuels."
   [/Step]
 [/StickySideScroller]
-
-
-
-
 
 # Understanding corporate emissions
 

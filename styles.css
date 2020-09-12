@@ -323,12 +323,10 @@ rather than behind the text which is the default behavior */
 
 .idyll-sticky-side-scroll .idyll-scroll-graphic {
   flex: 3;
-  border: solid thin red;
 }
 
 .idyll-sticky-side-scroll .idyll-text-container {
   flex: 2;
-  border: solid thin blue;
   margin: 0; /* rely on padding of the scroller instead */
 }
 
@@ -336,6 +334,16 @@ rather than behind the text which is the default behavior */
   padding: 0;
 }
 
+/* put much less space between steps, compared to full-screen scroller */
 .idyll-sticky-side-scroll .idyll-scroll-text .idyll-step {
   margin: 25vh 0;
+  box-shadow: none;
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-text .idyll-step:first-of-type {
+  margin-top: 20vh;
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-text .idyll-step:last-of-type {
+  margin-bottom: 20vh;
 }
