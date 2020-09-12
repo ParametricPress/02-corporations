@@ -4,8 +4,10 @@ const _ = require("lodash");
 const Color = require("color");
 
 // todo: responsive sizing
-const width = 600;
+const width = 400;
 const height = 600;
+
+const OTHER_NAME = "Other";
 
 const treemap = (data) => {
   // CDIAC Total Global Emissions MtCO2e, 1751-2016.
@@ -18,7 +20,7 @@ const treemap = (data) => {
 
     // Add an extra entity to pad the treemap so that the total adds up to all global emissions
     {
-      entity: "Other sources",
+      entity: OTHER_NAME,
       parent: "Global",
       value: globalEmissionsTotal - d3.sum(data.map((d) => d.value)),
     },
@@ -36,16 +38,28 @@ const treemap = (data) => {
   const hierarchicalData = d3
     .hierarchy(root)
     .sum((d) => d.data.value)
-    .sort((a, b) => b.value - a.value);
+    .sort((a, b) => {
+      // Put "other" at the bottom always
+      console.log("lookin", a, b);
+      if (a.data.id === OTHER_NAME) {
+        console.log("found an other");
+        return 1;
+      } else if (b.data.id === OTHER_NAME) {
+        return -1;
+      } else {
+        return b.value - a.value;
+      }
+    });
 
   console.log({ hierarchicalData });
 
-  return d3.treemap().size([width, height]).padding(1).round(true)(
-    hierarchicalData
-  );
+  return d3
+    .treemap()
+    .tile(d3.treemapSlice)
+    .size([width, height])
+    .padding(1)
+    .round(true)(hierarchicalData);
 };
-
-const color = d3.scaleOrdinal(d3.schemeCategory10);
 
 class Treemap extends React.Component {
   constructor(props) {
@@ -61,8 +75,6 @@ class Treemap extends React.Component {
       step,
       ...props
     } = this.props;
-
-    console.log("rendering, step", step);
 
     // need to handle the case where variable isn't properly passed in
     // (I think this only happens right on page init?)
@@ -90,8 +102,6 @@ class Treemap extends React.Component {
       const n_rows = height / 10;
       const n_cols = width / 10;
 
-      console.log({ n_rows, n_cols });
-
       return (
         <svg width={width} height={height}>
           {Array(n_rows)
@@ -114,11 +124,47 @@ class Treemap extends React.Component {
         </svg>
       );
     } else {
-      console.log("raw data", step.data);
-      // todo: don't run on render, precompute?
-      const treemapData = treemap(step.data);
+      let entityData = step.data;
 
-      console.log({ treemapData });
+      // do pre-processing on the data
+
+      if (step.name === "countries") {
+        // Only show largest countries
+        entityData = entityData.filter((d) => d.value > 15000);
+      }
+
+      if (step.name === "corporations") {
+        entityData = [
+          {
+            entity: "Top 100 Fossil Fuel Corporations",
+            value: 677936,
+          },
+        ];
+
+        // entityData = [
+        //   {
+        //     entity: "State-Owned Corporations",
+        //     value: 341512,
+        //   },
+        //   {
+        //     entity: "Investor-Owned Corporations",
+        //     value: 336424,
+        //   },
+        // ];
+      }
+
+      if (step.name === "corporations-detail") {
+        // Our raw data file includes 3 types of entities:
+        // 1) Nation-states ("State")
+        // 2) State-owned corporations ("SOE")
+        // 3) Investor-owned corporations ("IOC")
+        // Only 2 + 3 are considered corporate entities.
+        // So we filter out State here, so the data only includes corporations.
+        entityData = entityData.filter((d) => d.entity_type !== "State");
+      }
+
+      // todo: don't run on render, precompute?
+      const treemapData = treemap(entityData);
 
       return (
         <div {...props}>
@@ -131,19 +177,33 @@ class Treemap extends React.Component {
                   <rect
                     width={width}
                     height={height}
-                    // fill={color(d.data.id)}
+                    opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
                     fill="#d8ffa2"
                     stroke="black"
                   />
-                  {d.value > 1000 && (
+                  {step.name === "corporations" ? (
                     <text
                       style={{ fill: "#222222" }}
-                      dx={5}
-                      dy={15}
-                      fontSize={10}
+                      dx="50%"
+                      dy={140}
+                      textAnchor="middle"
                     >
                       {d.data.id}
                     </text>
+                  ) : (
+                    d.value > 10000 && (
+                      <text
+                        style={{ fill: "#222222" }}
+                        dx={5}
+                        dy={15}
+                        fontSize={14}
+                      >
+                        {d.data.id}
+                        <tspan dx={5} fill="#8e8e8e">
+                          {d3.format(",.0f")(d.value)}
+                        </tspan>
+                      </text>
+                    )
                   )}
                 </g>
               );

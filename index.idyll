@@ -35,7 +35,7 @@ _TK: 3d graphic of a person biking past a Shell gas station_
 
 ---
 
-**Who is responsible for climate change?** There is no simple answer. Global warming is a fiendishly complex problem, deeply rooted in our current economic system. And yet, responsibility matters—not just for assigning blame, but for finding levers of future change.n
+**Who is responsible for climate change?** There is no simple answer. Global warming is a fiendishly complex problem, deeply rooted in our current economic system. And yet, responsibility matters—not just for assigning blame, but for finding levers of future change.
 
 As we discuss what individuals and governments can do, we often forget to consider another critical player: fossil fuel companies. These companies operate at truly awesome scale—just 20 massive corporations are responsible for one third (TK: double-check number) of global greenhouse gas emissions since 1965, through the burning of fossil fuel products they extracted and sold. 
 
@@ -59,7 +59,11 @@ Putting the spotlight on these companies emphasizes their historical culpability
         data: nationalEmissions
       },
       {
-        name: "companies",
+        name: "corporations",
+        data: entityEmissions
+      },
+      {
+        name: "corporations-detail",
         data: entityEmissions
       }
 ][scrollerIndex]` /]
@@ -72,13 +76,11 @@ Putting the spotlight on these companies emphasizes their historical culpability
   [Step]
     # Attributing responsibility
 
-    This square represents all historical man-made greenhouse gas emissions up to 2016: about 1.5 trillion tons of carbon dioxide. Let's explore some different ways for dividing up responsbility for this quantity of emissions.
+    This box represents all historical man-made greenhouse gas emissions up to 2016: about 1.5 trillion tons of carbon dioxide. Let's explore some different ways for dividing up responsbility for this quantity of emissions.
   [/Step]
 
   [Step]
     ## Individuals
-
-    _TK: split up square into many tiny pieces_
 
     Become a vegetarian! Ride a bike! Have fewer children! Amid a deluge of suggestions to lower your personal carbon footprint, you might be tempted believe that individual action is the best way to combat climate change.
 
@@ -97,7 +99,13 @@ Putting the spotlight on these companies emphasizes their historical culpability
   [Step]
     ## Corporate entities
 
-    In this article, we explore a third approach: grouping emissions by the corporations that extracted, processed, sold, transported the fossil fuels . Richard Heede and the Climate Accountability Institute have done [pioneering work](https://climateaccountability.org/carbonmajors.html) tracing emissions to individual producers, finding an extreme concentration of emissions among a small number of “carbon majors”— the top 20 companies that are responsible for one third of global emissions since 1965. These corporations have made enormous profits over decades, and have a history of deceptive lobbying around climate change to ensure the persistence of their harmful business models. Furthermore, many of these firms are investor-owned companies, meaning that public financial markets have influence over their actions.
+    In this article, we explore a third approach: grouping emissions by the corporations that extracted, processed, sold, transported the fossil fuels. Richard Heede and the Climate Accountability Institute have done [pioneering work](https://climateaccountability.org/carbonmajors.html) tracing emissions to individual producers, finding an extreme concentration of emissions among a small number of “carbon majors.”
+    
+    The Top 100 fossil fuel companies are responsible for nearly half of all greenhouse gas emissions in world history.
+  [/Step]
+
+  [Step]
+    These corporations have made enormous profits over decades, and have a history of deceptive lobbying around climate change to ensure the persistence of their harmful business models. Furthermore, many of these firms are investor-owned companies, meaning that public financial markets have influence over their actions.
 
     Focusing on these corporate actors offers a new lens on the problem of climate change. Each of these companies offers a leverage point—a non-governmental entity with near unilateral control over a massive portfolio of emissions activity. In Heede's own words: "Even though global consumers from individuals to corporations are the ultimate emitters of carbon dioxide, the Climate Accountability Institute focuses its work on the fossil fuel companies that, in our view, have their collective hand on the throttle and the tiller determining the rate of carbon emissions and the shift to non-carbon fuels."
   [/Step]
