@@ -315,20 +315,27 @@ rather than behind the text which is the default behavior */
 
 .idyll-sticky-side-scroll {
   display: flex;
-  flex-direction: row-reverse;
   margin-top: 0;
+  margin-bottom: 0;
+  width: 100vw;
+  padding: 0 50px;
 }
 
 .idyll-sticky-side-scroll .idyll-scroll-graphic {
-  flex: 1;
+  flex: 3;
   border: solid thin red;
 }
 
 .idyll-sticky-side-scroll .idyll-text-container {
-  flex: 1;
+  flex: 2;
   border: solid thin blue;
+  margin: 0; /* rely on padding of the scroller instead */
 }
 
 .idyll-sticky-side-scroll .idyll-scroll-text {
-  padding-top: 0;
+  padding: 0;
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-text .idyll-step {
+  margin: 25vh 0;
 }

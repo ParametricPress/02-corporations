@@ -31,10 +31,6 @@ class StickySideScroller extends React.Component {
   constructor(props) {
     super(props);
     this.id = id++;
-    this.state = {
-      graphicHeight: 0,
-      graphicWidth: 0,
-    };
 
     this.SCROLL_STEP_MAP = {};
     this.SCROLL_NAME_MAP = {};
@@ -45,7 +41,6 @@ class StickySideScroller extends React.Component {
     const scrollama = require("scrollama");
     // instantiate the scrollama
     const scroller = scrollama();
-    this.handleResize();
 
     // setup the instance, pass callback functions
     scroller
@@ -60,9 +55,6 @@ class StickySideScroller extends React.Component {
       // .onStepExit(handleStepExit)
       .onContainerEnter(this.handleContainerEnter.bind(this));
     //.onContainerExit(this.handleContainerExit.bind(this));
-
-    // setup resize event
-    window.addEventListener("resize", this.handleResize.bind(this));
   }
 
   handleStepEnter({ element, index, direction }) {
@@ -75,13 +67,6 @@ class StickySideScroller extends React.Component {
     if (index === Object.keys(this.SCROLL_STEP_MAP).length - 1) {
       d3.select("body").style("overflow", "auto");
     }
-  }
-
-  handleResize() {
-    this.setState({
-      graphicHeight: window.innerHeight + "px",
-      graphicWidth: window.innerWidth + "px",
-    });
   }
 
   handleContainerEnter(response) {
@@ -139,7 +124,6 @@ class StickySideScroller extends React.Component {
 
   render() {
     const { hasError, updateProps, idyll, children, ...props } = this.props;
-    const { graphicHeight, graphicWidth } = this.state;
 
     const graphicChildren = filterChildren(children, (c) => {
       return c.type.name && c.type.name.toLowerCase() === "graphic";
@@ -148,28 +132,10 @@ class StickySideScroller extends React.Component {
     return (
       <div
         ref={(ref) => (this.ref = ref)}
-        className="idyll-scroll"
+        className="idyll-scroll idyll-sticky-side-scroll"
         id={`idyll-scroll-${this.id}`}
         style={Object.assign({ position: "relative" })}
       >
-        {graphicChildren && graphicChildren.length ? (
-          <div
-            className="idyll-scroll-graphic"
-            style={Object.assign(
-              { height: graphicHeight },
-              styles.SCROLL_GRAPHIC
-            )}
-          >
-            <div
-              style={Object.assign(
-                { width: graphicWidth },
-                styles.SCROLL_GRAPHIC_INNER
-              )}
-            >
-              {graphicChildren}
-            </div>
-          </div>
-        ) : null}
         <TextContainer idyll={idyll}>
           <div className="idyll-scroll-text">
             {mapChildren(
@@ -184,6 +150,11 @@ class StickySideScroller extends React.Component {
             )}
           </div>
         </TextContainer>
+        {graphicChildren && graphicChildren.length ? (
+          <div className="idyll-scroll-graphic" style={styles.SCROLL_GRAPHIC}>
+            <div style={styles.SCROLL_GRAPHIC_INNER}>{graphicChildren}</div>
+          </div>
+        ) : null}
       </div>
     );
   }

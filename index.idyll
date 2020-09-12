@@ -41,7 +41,7 @@ As we discuss what individuals and governments can do, we often forget to consid
 
 Putting the spotlight on these companies emphasizes their historical culpability, and suggests new avenues for future action by pressuring them to change their behavior.
 
-[StickySideScroller currentStep:scrollerIndex]
+[StickySideScroller currentStep:scrollerIndex fullWidth: true]
   [Graphic]
     [Treemap className:"treemap" data:nationalEmissions /]
   [/Graphic]
