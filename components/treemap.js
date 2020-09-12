@@ -192,11 +192,11 @@ class Treemap extends React.Component {
                   {step.name === "corporations" ? (
                     <text
                       style={{ fill: "#222222" }}
-                      dx="50%"
-                      dy={140}
+                      dx={width / 2}
+                      dy={height / 2}
                       textAnchor="middle"
                     >
-                      {d.data.id}
+                      {d.data.id === OTHER_NAME ? "" : d.data.id}
                     </text>
                   ) : (
                     d.value > 10000 && (
