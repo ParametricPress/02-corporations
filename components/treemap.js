@@ -1,7 +1,6 @@
 const React = require("react");
 const d3 = require("d3");
 const _ = require("lodash");
-const Color = require("color");
 
 // todo: responsive sizing
 const width = 400;
@@ -14,19 +13,22 @@ const OTHER_NAME = "Other";
 const GLOBAL_EMISSIONS_TOTAL = 1544812;
 
 // return a d3 treemap data structure based on some data
-// padTotal: Add an extra entity to pad the treemap so that the total adds up to all global emissions
-//   (if false, the data given will be treated as 100% of the area)
+// padTotal: A number from 0 to 1.
+//   0 = just plot the given data, no extra entities to add
+//   1 = add an extra entity so that the total sums to the global total emissions
+//   in between = scale the extra entity proportionally. (used for animation)
 const treemap = (data, padTotal) => {
   let groupedEntities = [
     { entity: "Global", parent: null },
     ...data.map((d) => ({ ...d, parent: "Global" })),
   ];
 
-  if (padTotal) {
+  if (padTotal > 0) {
     groupedEntities.push({
       entity: OTHER_NAME,
       parent: "Global",
-      value: GLOBAL_EMISSIONS_TOTAL - d3.sum(data.map((d) => d.value)),
+      value:
+        (GLOBAL_EMISSIONS_TOTAL - d3.sum(data.map((d) => d.value))) * padTotal,
     });
   }
 
@@ -141,9 +143,12 @@ class Treemap extends React.Component {
         </svg>
       );
     } else if (stepName === "individuals") {
-      const animationPercent = d3.easeCubic(
-        this.state.relativeAnimationTime / 1000
+      const animationPercent = Math.min(
+        d3.easeCubic(this.state.relativeAnimationTime / 500),
+        1
       );
+
+      const strokeWidth = d3.interpolateNumber(0, 3)(animationPercent);
 
       // Draw a neon rectangle,
       // then draw dark lines horizontally and vertically to
@@ -165,12 +170,7 @@ class Treemap extends React.Component {
                   y2={10 * rowIdx}
                   style={{
                     stroke: "#222222",
-                    // todo: maybe remove this animation, it's mainly here for testing the animation core
-                    opacity: `${d3.interpolateNumber(
-                      0,
-                      100
-                    )(animationPercent)}%`,
-                    strokeWidth: 3,
+                    strokeWidth: strokeWidth,
                   }}
                 />
               );
@@ -187,11 +187,7 @@ class Treemap extends React.Component {
                   x2={10 * colIdx}
                   style={{
                     stroke: "#222222",
-                    opacity: `${d3.interpolateNumber(
-                      0,
-                      100
-                    )(animationPercent)}%`,
-                    strokeWidth: 3,
+                    strokeWidth: strokeWidth,
                   }}
                 />
               );
@@ -210,12 +206,12 @@ class Treemap extends React.Component {
       if (stepName === "countries") {
         // Only show largest countries
         entityData = entityData.filter((d) => d.value > 15000);
+      } else if (stepName === "corporations") {
+        entityData = [top100entity];
       } else if (
-        stepName === "corporations" ||
+        stepName === "corporations-detail" ||
         stepName === "corporations-detail-preview"
       ) {
-        entityData = [top100entity];
-      } else if (stepName === "corporations-detail") {
         // Our raw data file includes 3 types of entities:
         // 1) Nation-states ("State")
         // 2) State-owned corporations ("SOE")
@@ -227,7 +223,14 @@ class Treemap extends React.Component {
 
       // todo: don't run on render, precompute?
 
-      const padTotal = ["countries", "corporations"].includes(stepName);
+      let padTotal;
+
+      if (["countries", "corporations"].includes(stepName)) {
+        padTotal = 1;
+      } else if (stepName === "corporations-detail-preview") {
+        padTotal = 1 - d3.easeCubic(this.state.relativeAnimationTime / 1000);
+      }
+
       const treemapData = treemap(entityData, padTotal);
 
       return (
@@ -246,8 +249,7 @@ class Treemap extends React.Component {
                     stroke="black"
                     key={d.data.id}
                   />
-                  {stepName === "corporations" ||
-                  stepName === "corporations-detail-preview" ? (
+                  {stepName === "corporations" ? (
                     // special styling for the top 100 fossil cos aggregated
                     d.data.id === OTHER_NAME ? null : (
                       <g>
