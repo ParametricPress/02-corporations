@@ -9,22 +9,26 @@ const height = 600;
 
 const OTHER_NAME = "Other";
 
-const treemap = (data) => {
-  // CDIAC Total Global Emissions MtCO2e, 1751-2016.
-  // (This defines the total size of the treemap square)
-  const globalEmissionsTotal = 1544812;
+// CDIAC Total Global Emissions MtCO2e, 1751-2016.
+// (This defines the total size of the treemap square)
+const GLOBAL_EMISSIONS_TOTAL = 1544812;
 
-  const groupedEntities = [
+// return a d3 treemap data structure based on some data
+// padTotal: Add an extra entity to pad the treemap so that the total adds up to all global emissions
+//   (if false, the data given will be treated as 100% of the area)
+const treemap = (data, padTotal) => {
+  let groupedEntities = [
     { entity: "Global", parent: null },
     ...data.map((d) => ({ ...d, parent: "Global" })),
+  ];
 
-    // Add an extra entity to pad the treemap so that the total adds up to all global emissions
-    {
+  if (padTotal) {
+    groupedEntities.push({
       entity: OTHER_NAME,
       parent: "Global",
-      value: globalEmissionsTotal - d3.sum(data.map((d) => d.value)),
-    },
-  ];
+      value: GLOBAL_EMISSIONS_TOTAL - d3.sum(data.map((d) => d.value)),
+    });
+  }
 
   const root = d3
     .stratify()
@@ -60,6 +64,40 @@ const treemap = (data) => {
 class Treemap extends React.Component {
   constructor(props) {
     super(props);
+    this.frame = null;
+    this.startTime = null;
+  }
+
+  animate(timestamp) {
+    const duration = 500;
+    if (!this.startTime) {
+      this.startTime = timestamp;
+    }
+
+    // todo: evaluate if this approach to using setState on rAF is too slow;
+    // consider using react-spring instead?
+    this.setState((state, props) => ({
+      relativeAnimationTime: timestamp - this.startTime,
+    }));
+    window.requestAnimationFrame(this.animate.bind(this));
+  }
+
+  componentDidMount() {
+    this.setState({
+      frame: window.requestAnimationFrame(this.animate.bind(this)),
+    });
+  }
+
+  componentWillUnmount() {
+    if (this.state.frame) {
+      window.cancelAnimationFrame(this.state.frame);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.step !== prevProps.step) {
+      this.startTime = null;
+    }
   }
 
   render() {
@@ -72,12 +110,20 @@ class Treemap extends React.Component {
       ...props
     } = this.props;
 
+    let stepName = step.name;
+    if (
+      stepName === "corporations-detail" &&
+      this.state.relativeAnimationTime < 1000
+    ) {
+      stepName = "corporations-detail-preview";
+    }
+
     // need to handle the case where variable isn't properly passed in
     // (I think this only happens right on page init?)
     if (!step) {
       return <div></div>;
     }
-    if (step.name === "total") {
+    if (stepName === "total") {
       return (
         <svg width={width} height={height}>
           <rect fill="#d8ffa2" width="100%" height="100%"></rect>
@@ -88,13 +134,17 @@ class Treemap extends React.Component {
             textAnchor="middle"
           >
             1.5 trillion tons of CO
-            <tspan dy="3" font-size=".7em">
+            <tspan dy="3" fontSize=".7em">
               2
             </tspan>
           </text>
         </svg>
       );
-    } else if (step.name === "individuals") {
+    } else if (stepName === "individuals") {
+      const animationPercent = d3.easeCubic(
+        this.state.relativeAnimationTime / 1000
+      );
+
       // Draw a neon rectangle,
       // then draw dark lines horizontally and vertically to
       // divide it up into a grid.
@@ -108,11 +158,20 @@ class Treemap extends React.Component {
             .map((el, rowIdx) => {
               return (
                 <line
+                  key={`row${rowIdx}`}
                   x1="0"
                   y1={10 * rowIdx}
                   x2="100%"
                   y2={10 * rowIdx}
-                  style={{ stroke: "#222222", strokeWidth: 3 }}
+                  style={{
+                    stroke: "#222222",
+                    // todo: maybe remove this animation, it's mainly here for testing the animation core
+                    opacity: `${d3.interpolateNumber(
+                      0,
+                      100
+                    )(animationPercent)}%`,
+                    strokeWidth: 3,
+                  }}
                 />
               );
             })}
@@ -121,11 +180,19 @@ class Treemap extends React.Component {
             .map((el, colIdx) => {
               return (
                 <line
+                  key={`col${colIdx}`}
                   y1="0"
                   x1={10 * colIdx}
                   y2="100%"
                   x2={10 * colIdx}
-                  style={{ stroke: "#222222", strokeWidth: 3 }}
+                  style={{
+                    stroke: "#222222",
+                    opacity: `${d3.interpolateNumber(
+                      0,
+                      100
+                    )(animationPercent)}%`,
+                    strokeWidth: 3,
+                  }}
                 />
               );
             })}
@@ -134,34 +201,21 @@ class Treemap extends React.Component {
     } else {
       let entityData = step.data;
 
-      // do pre-processing on the data
+      const top100entity = {
+        entity: "Top 100 fossil fuel corporations",
+        value: 677936,
+      };
 
-      if (step.name === "countries") {
+      // do pre-processing on the data
+      if (stepName === "countries") {
         // Only show largest countries
         entityData = entityData.filter((d) => d.value > 15000);
-      }
-
-      if (step.name === "corporations") {
-        entityData = [
-          {
-            entity: "Top 100 Fossil Fuel Corporations",
-            value: 677936,
-          },
-        ];
-
-        // entityData = [
-        //   {
-        //     entity: "State-Owned Corporations",
-        //     value: 341512,
-        //   },
-        //   {
-        //     entity: "Investor-Owned Corporations",
-        //     value: 336424,
-        //   },
-        // ];
-      }
-
-      if (step.name === "corporations-detail") {
+      } else if (
+        stepName === "corporations" ||
+        stepName === "corporations-detail-preview"
+      ) {
+        entityData = [top100entity];
+      } else if (stepName === "corporations-detail") {
         // Our raw data file includes 3 types of entities:
         // 1) Nation-states ("State")
         // 2) State-owned corporations ("SOE")
@@ -172,7 +226,9 @@ class Treemap extends React.Component {
       }
 
       // todo: don't run on render, precompute?
-      const treemapData = treemap(entityData);
+
+      const padTotal = ["countries", "corporations"].includes(stepName);
+      const treemapData = treemap(entityData, padTotal);
 
       return (
         <div {...props}>
@@ -181,23 +237,39 @@ class Treemap extends React.Component {
               const width = d.x1 - d.x0;
               const height = d.y1 - d.y0;
               return (
-                <g key={d.id} transform={`translate(${d.x0},${d.y0})`}>
+                <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
                   <rect
                     width={width}
                     height={height}
                     opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
                     fill="#d8ffa2"
                     stroke="black"
+                    key={d.data.id}
                   />
-                  {step.name === "corporations" ? (
-                    <text
-                      style={{ fill: "#222222" }}
-                      dx={width / 2}
-                      dy={height / 2}
-                      textAnchor="middle"
-                    >
-                      {d.data.id === OTHER_NAME ? "" : d.data.id}
-                    </text>
+                  {stepName === "corporations" ||
+                  stepName === "corporations-detail-preview" ? (
+                    // special styling for the top 100 fossil cos aggregated
+                    d.data.id === OTHER_NAME ? null : (
+                      <g>
+                        <text
+                          style={{ fill: "#222222" }}
+                          dx={width / 2}
+                          dy={height / 2}
+                          textAnchor="middle"
+                        >
+                          {d.data.id}
+                        </text>
+                        <text
+                          style={{ fill: "#8e8e8e" }}
+                          dx={width / 2}
+                          dy={height / 2 + 30}
+                          textAnchor="middle"
+                          fontSize={14}
+                        >
+                          {d3.format(",.0f")(d.value)}
+                        </text>
+                      </g>
+                    )
                   ) : (
                     d.value > 10000 && (
                       <text

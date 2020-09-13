@@ -182,11 +182,6 @@ Ultimately, we present the above data in an effort to shift the conversation for
 - proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, renewable fuel standards, and direct emission regulation.
 - Pay reparations for knowingly contributing to climate change while misinforming the public
 
-
-[Treemap className:"treemap" data:nationalEmissions /]
-[Treemap className:"treemap" data:entityEmissions /]
-
-
 [AuthorBio]
 
 [b][a href:""]Your Name[/a][/b] is _TK insert bio here_.
