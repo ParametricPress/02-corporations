@@ -97,7 +97,7 @@ class Treemap extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.step !== prevProps.step) {
+    if (this.props.step.name !== prevProps.step.name) {
       this.startTime = null;
     }
   }
@@ -109,6 +109,7 @@ class Treemap extends React.Component {
       updateProps,
       clickCount,
       step,
+      progress,
       ...props
     } = this.props;
 
@@ -194,41 +195,98 @@ class Treemap extends React.Component {
             })}
         </svg>
       );
-    } else {
-      let entityData = step.data;
+    } else if (stepName === "corporations") {
+      const entityData = [
+        {
+          entity: "Top 100 fossil fuel corporations",
+          value: 677936,
+        },
+      ];
+      const treemapData = treemap(entityData, 1);
 
-      const top100entity = {
-        entity: "Top 100 fossil fuel corporations",
-        value: 677936,
-      };
+      // Animate the color of the fossil fuel corps block based on scroll progress
+      const animatedBgColor = d3.interpolateLab(
+        "#d8ffa2",
+        "#1d3e81"
+      )(d3.easeCubic(progress));
 
-      // do pre-processing on the data
-      if (stepName === "countries") {
-        // Only show largest countries
-        entityData = entityData.filter((d) => d.value > 15000);
-      } else if (stepName === "corporations") {
-        entityData = [top100entity];
-      } else if (
-        stepName === "corporations-detail" ||
-        stepName === "corporations-detail-preview"
-      ) {
-        // Our raw data file includes 3 types of entities:
-        // 1) Nation-states ("State")
-        // 2) State-owned corporations ("SOE")
-        // 3) Investor-owned corporations ("IOC")
-        // Only 2 + 3 are considered corporate entities.
-        // So we filter out State here, so the data only includes corporations.
-        entityData = entityData.filter((d) => d.entity_type !== "State");
-      }
+      const animatedTextColor = d3.interpolateLab(
+        "#222222",
+        "#ffffff"
+      )(d3.easeCubic(progress));
 
-      // todo: don't run on render, precompute?
+      return (
+        <div {...props}>
+          <svg width={width} height={height}>
+            {treemapData.leaves().map((d) => {
+              const width = d.x1 - d.x0;
+              const height = d.y1 - d.y0;
+              return (
+                <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
+                  <rect
+                    width={width}
+                    height={height}
+                    opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
+                    fill={
+                      d.data.id === OTHER_NAME ? "#d8ffa2" : animatedBgColor
+                    }
+                    stroke="#222222"
+                    key={d.data.id}
+                  />
+                  {
+                    // special styling for the top 100 fossil cos aggregated
+                    d.data.id === OTHER_NAME ? null : (
+                      <g>
+                        <text
+                          style={{
+                            fill:
+                              d.data.id === OTHER_NAME
+                                ? "#d8ffa2"
+                                : animatedTextColor,
+                          }}
+                          dx={width / 2}
+                          dy={height / 2}
+                          textAnchor="middle"
+                        >
+                          {d.data.id}
+                        </text>
+                        {d.data.id === OTHER_NAME ? null : (
+                          <text
+                            style={{ fill: "#8e8e8e" }}
+                            dx={width / 2}
+                            dy={height / 2 + 30}
+                            textAnchor="middle"
+                            fontSize={14}
+                          >
+                            {d3.format(",.0f")(d.value)}
+                          </text>
+                        )}
+                      </g>
+                    )
+                  }
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+      );
+    } else if (
+      stepName === "corporations-detail" ||
+      stepName === "corporations-detail-preview"
+    ) {
+      // Our raw data file includes 3 types of entities:
+      // 1) Nation-states ("State")
+      // 2) State-owned corporations ("SOE")
+      // 3) Investor-owned corporations ("IOC")
+      // Only 2 + 3 are considered corporate entities.
+      // So we filter out State here, so the data only includes corporations.
+      const entityData = step.data.filter((d) => d.entity_type !== "State");
 
       let padTotal;
-
-      if (["countries", "corporations"].includes(stepName)) {
-        padTotal = 1;
-      } else if (stepName === "corporations-detail-preview") {
+      if (stepName === "corporations-detail-preview") {
         padTotal = 1 - d3.easeCubic(this.state.relativeAnimationTime / 1000);
+      } else {
+        padTotal = 0;
       }
 
       const treemapData = treemap(entityData, padTotal);
@@ -245,47 +303,62 @@ class Treemap extends React.Component {
                     width={width}
                     height={height}
                     opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
-                    fill="#d8ffa2"
-                    stroke="black"
+                    fill={d.data.id === OTHER_NAME ? "#d8ffa2" : "#1d3e81"}
+                    stroke="#222222"
                     key={d.data.id}
                   />
-                  {stepName === "corporations" ? (
-                    // special styling for the top 100 fossil cos aggregated
-                    d.data.id === OTHER_NAME ? null : (
-                      <g>
-                        <text
-                          style={{ fill: "#222222" }}
-                          dx={width / 2}
-                          dy={height / 2}
-                          textAnchor="middle"
-                        >
-                          {d.data.id}
-                        </text>
-                        <text
-                          style={{ fill: "#8e8e8e" }}
-                          dx={width / 2}
-                          dy={height / 2 + 30}
-                          textAnchor="middle"
-                          fontSize={14}
-                        >
-                          {d3.format(",.0f")(d.value)}
-                        </text>
-                      </g>
-                    )
-                  ) : (
-                    d.value > 10000 && (
-                      <text
-                        style={{ fill: "#222222" }}
-                        dx={5}
-                        dy={15}
-                        fontSize={14}
-                      >
-                        {d.data.id}
-                        <tspan dx={5} fill="#8e8e8e">
-                          {d3.format(",.0f")(d.value)}
-                        </tspan>
-                      </text>
-                    )
+                  {d.value > 10000 && (
+                    <text
+                      style={{ fill: "#ffffff" }}
+                      dx={5}
+                      dy={15}
+                      fontSize={14}
+                    >
+                      {d.data.id}
+                      <tspan dx={5} fill="#ffffff">
+                        {d3.format(",.0f")(d.value)}
+                      </tspan>
+                    </text>
+                  )}
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+      );
+    } else if (stepName === "countries") {
+      const entityData = step.data.filter((d) => d.value > 15000);
+
+      const treemapData = treemap(entityData, 1);
+
+      return (
+        <div {...props}>
+          <svg width={width} height={height}>
+            {treemapData.leaves().map((d) => {
+              const width = d.x1 - d.x0;
+              const height = d.y1 - d.y0;
+              return (
+                <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
+                  <rect
+                    width={width}
+                    height={height}
+                    opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
+                    fill="#d8ffa2"
+                    stroke="#222222"
+                    key={d.data.id}
+                  />
+                  {d.value > 10000 && (
+                    <text
+                      style={{ fill: "#222222" }}
+                      dx={5}
+                      dy={15}
+                      fontSize={14}
+                    >
+                      {d.data.id}
+                      <tspan dx={5} fill="#8e8e8e">
+                        {d3.format(",.0f")(d.value)}
+                      </tspan>
+                    </text>
                   )}
                 </g>
               );
