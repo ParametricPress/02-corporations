@@ -42,6 +42,10 @@ class StickySideScroller extends React.Component {
     // instantiate the scrollama
     const scroller = scrollama();
 
+    const handleStepExit = ({ element, index, direction }) => {
+      element.classList.remove("active-step");
+    };
+
     // setup the instance, pass callback functions
     scroller
       .setup({
@@ -52,13 +56,14 @@ class StickySideScroller extends React.Component {
       })
       .onStepEnter(this.handleStepEnter.bind(this))
       .onStepProgress(this.handleStepProgress.bind(this))
-      // .onStepExit(handleStepExit)
+      .onStepExit(handleStepExit)
       .onContainerEnter(this.handleContainerEnter.bind(this));
     //.onContainerExit(this.handleContainerExit.bind(this));
   }
 
   handleStepEnter({ element, index, direction }) {
     this.SCROLL_STEP_MAP[index] && this.SCROLL_STEP_MAP[index]();
+    element.classList.add("active-step");
     let update = { currentStep: index };
     if (this.SCROLL_NAME_MAP[index]) {
       update.currentState = this.SCROLL_NAME_MAP[index];
