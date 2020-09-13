@@ -4,7 +4,10 @@
   "license": "MIT",
   "scripts": {
     "start": "idyll --template _local.html",
-    "build": "idyll build --output docs"
+    "build": "idyll build --output docs",
+    "export-gltf": "node -r esm scripts/export-gltf",
+    "export-all": "./scripts/export-all.sh",
+    "export-all:windows": "./scripts/export-all.bat"
   },
   "idyll": {
     "css": "styles.css",
@@ -21,9 +24,25 @@
   "dependencies": {
     "color": "^3.1.2",
     "d3": "^5.15.0",
+    "drei": "^1.5.6",
     "idyll": "^4.0.7",
     "idyll-d3-component": "^2.0.0",
     "parametric-components": "^2.1.11",
-    "parametric-styles": "^2.1.6"
+    "parametric-styles": "^2.1.6",
+    "react-spring": "^8.0.27",
+    "react-three-fiber": "^4.2.21",
+    "three": "^0.120.1"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "esm": "^3.2.25",
+    "execa": "^4.0.3",
+    "gltfpack": "^0.14.0",
+    "make-dir": "^3.1.0",
+    "minimist": "^1.2.5",
+    "ora": "^5.1.0",
+    "pretty-bytes": "^5.4.1",
+    "tempy": "^0.6.0",
+    "which": "^2.0.2"
   }
 }
