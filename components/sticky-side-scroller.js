@@ -34,6 +34,8 @@ class StickySideScroller extends React.Component {
 
     this.SCROLL_STEP_MAP = {};
     this.SCROLL_NAME_MAP = {};
+
+    this.activeStepIndex = null;
   }
 
   componentDidMount() {
@@ -58,6 +60,7 @@ class StickySideScroller extends React.Component {
   }
 
   handleStepEnter({ element, index, direction }) {
+    this.activeStepIndex = index;
     this.SCROLL_STEP_MAP[index] && this.SCROLL_STEP_MAP[index]();
     let update = { currentStep: index };
     if (this.SCROLL_NAME_MAP[index]) {
@@ -145,6 +148,11 @@ class StickySideScroller extends React.Component {
               (c) => {
                 return React.cloneElement(c, {
                   registerStep: this.registerStep.bind(this),
+                  className:
+                    c.dataset &&
+                    c.dataset.scrollamaIndex === this.activeStepIndex
+                      ? "active-step"
+                      : "",
                 });
               }
             )}
