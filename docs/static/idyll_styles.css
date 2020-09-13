@@ -2360,8 +2360,14 @@ rather than behind the text which is the default behavior */
 
 /* put much less space between steps, compared to full-screen scroller */
 .idyll-sticky-side-scroll .idyll-scroll-text .idyll-step {
-  margin: 25vh 0;
+  padding: 20vh 0;
+  margin: 0;
   box-shadow: none;
+  opacity: 30%; /*bring opacity up only when step is active*/
+}
+
+.idyll-sticky-side-scroll .idyll-scroll-text .idyll-step.active-step {
+  opacity: 100%;
 }
 
 .idyll-sticky-side-scroll .idyll-scroll-text .idyll-step:first-of-type {
