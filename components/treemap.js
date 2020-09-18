@@ -131,11 +131,11 @@ class Treemap extends React.Component {
     if (stepName === "total") {
       return (
         <svg width={width} height={containerHeight}>
-          <rect fill="#d8ffa2" width="100%" height="100%"></rect>
+          <rect fill="#d8ffa2" width="100%" height={height}></rect>
           <text
             style={{ fill: "#222222" }}
-            dx="50%"
-            dy="50%"
+            dx={width / 2}
+            dy={height / 2}
             textAnchor="middle"
           >
             1.5 trillion tons of CO
@@ -160,7 +160,7 @@ class Treemap extends React.Component {
       // but with n+m elements instead of n*m
       return (
         <svg width={width} height={containerHeight}>
-          <rect fill="#d8ffa2" width="100%" height="100%"></rect>
+          <rect fill="#d8ffa2" width="100%" height={height}></rect>
           {Array(height / 10)
             .fill()
             .map((el, rowIdx) => {
