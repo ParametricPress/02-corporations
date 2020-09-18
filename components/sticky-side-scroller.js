@@ -12,7 +12,6 @@ const styles = {
     height: "100vh",
     width: "100%",
     transform: `translate3d(0, 0, 0)`,
-    zIndex: -1,
   },
 
   SCROLL_GRAPHIC_INNER: {

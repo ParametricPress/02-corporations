@@ -5,8 +5,10 @@ const _ = require("lodash");
 // todo: responsive sizing
 const width = 400;
 const height = 600;
+const hoverLabelHeight = 100;
+const containerHeight = height + hoverLabelHeight;
 
-const OTHER_NAME = "Other";
+const OTHER_NAME = "Other Sources";
 
 // CDIAC Total Global Emissions MtCO2e, 1751-2016.
 // (This defines the total size of the treemap square)
@@ -204,20 +206,9 @@ class Treemap extends React.Component {
       ];
       const treemapData = treemap(entityData, 1);
 
-      // Animate the color of the fossil fuel corps block based on scroll progress
-      const animatedBgColor = d3.interpolateLab(
-        "#d8ffa2",
-        "#1d3e81"
-      )(d3.easeCubic(progress));
-
-      const animatedTextColor = d3.interpolateLab(
-        "#222222",
-        "#ffffff"
-      )(d3.easeCubic(progress));
-
       return (
         <div {...props}>
-          <svg width={width} height={height}>
+          <svg width={width} height={containerHeight}>
             {treemapData.leaves().map((d) => {
               const width = d.x1 - d.x0;
               const height = d.y1 - d.y0;
@@ -227,42 +218,37 @@ class Treemap extends React.Component {
                     width={width}
                     height={height}
                     opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
-                    fill={
-                      d.data.id === OTHER_NAME ? "#d8ffa2" : animatedBgColor
-                    }
+                    fill={d.data.id === OTHER_NAME ? "#d8ffa2" : "#F09989"}
                     stroke="#222222"
                     key={d.data.id}
                   />
                   {
                     // special styling for the top 100 fossil cos aggregated
-                    d.data.id === OTHER_NAME ? null : (
-                      <g>
-                        <text
-                          style={{
-                            fill:
-                              d.data.id === OTHER_NAME
-                                ? "#d8ffa2"
-                                : animatedTextColor,
-                          }}
-                          dx={width / 2}
-                          dy={height / 2}
-                          textAnchor="middle"
-                        >
-                          {d.data.id}
-                        </text>
-                        {d.data.id === OTHER_NAME ? null : (
-                          <text
-                            style={{ fill: "#8e8e8e" }}
-                            dx={width / 2}
-                            dy={height / 2 + 30}
-                            textAnchor="middle"
-                            fontSize={14}
-                          >
-                            {d3.format(",.0f")(d.value)}
-                          </text>
-                        )}
-                      </g>
-                    )
+                    // d.data.id === OTHER_NAME ? null : (
+                    <g>
+                      <text
+                        style={{
+                          fill: "#222222",
+                        }}
+                        dx={width / 2}
+                        dy={height / 2}
+                        textAnchor="middle"
+                      >
+                        {d.data.id}
+                      </text>
+
+                      <text
+                        style={{ fill: "#222222", opacity: 0.5 }}
+                        dx={width / 2}
+                        dy={height / 2 + 30}
+                        textAnchor="middle"
+                        fontSize={14}
+                      >
+                        {d3.format(",.0f")(d.value)}
+                        {d.data.id !== OTHER_NAME && " MtCO2"}
+                      </text>
+                    </g>
+                    // )
                   }
                 </g>
               );
@@ -293,8 +279,8 @@ class Treemap extends React.Component {
 
       return (
         <div {...props}>
-          <svg width={width} height={height}>
-            {treemapData.leaves().map((d) => {
+          <svg width={width} height={containerHeight}>
+            {treemapData.leaves().map((d, idx) => {
               const width = d.x1 - d.x0;
               const height = d.y1 - d.y0;
               return (
@@ -303,26 +289,47 @@ class Treemap extends React.Component {
                     width={width}
                     height={height}
                     opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
-                    fill={d.data.id === OTHER_NAME ? "#d8ffa2" : "#1d3e81"}
+                    fill={
+                      d.data.id === OTHER_NAME
+                        ? "#d8ffa2"
+                        : this.state.hoveredEntity &&
+                          this.state.hoveredEntity.data.id === d.data.id
+                        ? "#f6c4bb"
+                        : "#F09989"
+                    }
                     stroke="#222222"
                     key={d.data.id}
+                    onMouseOver={() => this.setState({ hoveredEntity: d })}
+                    onMouseLeave={() => this.setState({ hoveredEntity: null })}
                   />
-                  {d.value > 10000 && (
+                  {height > 15 && d.data.id !== OTHER_NAME && (
                     <text
-                      style={{ fill: "#ffffff" }}
+                      style={{ fill: "#222222" }}
                       dx={5}
                       dy={15}
                       fontSize={14}
                     >
                       {d.data.id}
-                      <tspan dx={5} fill="#ffffff">
+                      <tspan dx={5} fill="#222222" opacity="0.5">
                         {d3.format(",.0f")(d.value)}
+                        {idx == 0 && " MtCO2"}
                       </tspan>
                     </text>
                   )}
                 </g>
               );
             })}
+            {this.state.hoveredEntity && (
+              <g>
+                <text y={height + 20} x={0}>
+                  {this.state.hoveredEntity.data.id}
+                </text>
+                <text y={height + 40} x={0} fontSize={16}>
+                  Emissions traced to corporation:{" "}
+                  {d3.format(",.0f")(this.state.hoveredEntity.value)} MtCO2
+                </text>
+              </g>
+            )}
           </svg>
         </div>
       );
@@ -333,37 +340,60 @@ class Treemap extends React.Component {
 
       return (
         <div {...props}>
-          <svg width={width} height={height}>
-            {treemapData.leaves().map((d) => {
-              const width = d.x1 - d.x0;
-              const height = d.y1 - d.y0;
-              return (
-                <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
-                  <rect
-                    width={width}
-                    height={height}
-                    opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
-                    fill="#d8ffa2"
-                    stroke="#222222"
-                    key={d.data.id}
-                  />
-                  {d.value > 10000 && (
-                    <text
-                      style={{ fill: "#222222" }}
-                      dx={5}
-                      dy={15}
-                      fontSize={14}
-                    >
-                      {d.data.id}
-                      <tspan dx={5} fill="#8e8e8e">
-                        {d3.format(",.0f")(d.value)}
-                      </tspan>
-                    </text>
-                  )}
+          <div className="treemap-container">
+            <svg width={width} height={containerHeight}>
+              {treemapData.leaves().map((d, idx) => {
+                const width = d.x1 - d.x0;
+                const height = d.y1 - d.y0;
+                return (
+                  <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
+                    <rect
+                      width={width}
+                      height={height}
+                      opacity={d.data.id === OTHER_NAME ? "50%" : "100%"}
+                      fill={
+                        this.state.hoveredEntity &&
+                        this.state.hoveredEntity.data.id === d.data.id
+                          ? "#eaffcc"
+                          : "#d8ffa2"
+                      }
+                      stroke="#222222"
+                      key={d.data.id}
+                      onMouseOver={() => this.setState({ hoveredEntity: d })}
+                      onMouseLeave={() =>
+                        this.setState({ hoveredEntity: null })
+                      }
+                    />
+                    {height > 15 && (
+                      <text
+                        style={{ fill: "#222222" }}
+                        dx={5}
+                        dy={15}
+                        fontSize={14}
+                      >
+                        {d.data.id}
+                        <tspan dx={5} fill="#8e8e8e">
+                          {d3.format(",.0f")(d.value)}
+                          {idx == 0 && " MtCO2"}
+                        </tspan>
+                      </text>
+                    )}
+                  </g>
+                );
+              })}
+              {this.state.hoveredEntity && (
+                <g>
+                  <text y={height + 20} x={0}>
+                    {this.state.hoveredEntity.data.id}
+                  </text>
+                  <text y={height + 40} x={0} fontSize={16}>
+                    Total emissions from country:{" "}
+                    {d3.format(",.0f")(this.state.hoveredEntity.value)} MtCO2
+                  </text>
                 </g>
-              );
-            })}
-          </svg>
+              )}
+            </svg>
+          </div>
         </div>
       );
     }
