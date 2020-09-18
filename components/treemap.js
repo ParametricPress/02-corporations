@@ -337,7 +337,7 @@ class Treemap extends React.Component {
         </div>
       );
     } else if (stepName === "countries") {
-      const entityData = step.data.filter((d) => d.value > 15000);
+      const entityData = step.data.filter((d) => d.value > 5000);
 
       const treemapData = treemap(entityData, 1);
 
