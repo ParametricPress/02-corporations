@@ -325,8 +325,8 @@ class Treemap extends React.Component {
                   {this.state.hoveredEntity.data.id}
                 </text>
                 <text y={height + 40} x={0} fontSize={16}>
-                  Emissions traced to corporation:{" "}
                   {d3.format(",.0f")(this.state.hoveredEntity.value)} MtCO2
+                  traced to this corporation
                 </text>
               </g>
             )}
@@ -387,8 +387,8 @@ class Treemap extends React.Component {
                     {this.state.hoveredEntity.data.id}
                   </text>
                   <text y={height + 40} x={0} fontSize={16}>
-                    Total emissions from country:{" "}
                     {d3.format(",.0f")(this.state.hoveredEntity.value)} MtCO2
+                    emitted from this country
                   </text>
                 </g>
               )}
