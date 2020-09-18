@@ -130,7 +130,7 @@ class Treemap extends React.Component {
     }
     if (stepName === "total") {
       return (
-        <svg width={width} height={height}>
+        <svg width={width} height={containerHeight}>
           <rect fill="#d8ffa2" width="100%" height="100%"></rect>
           <text
             style={{ fill: "#222222" }}
@@ -159,7 +159,7 @@ class Treemap extends React.Component {
       // creates the effect of many small squares,
       // but with n+m elements instead of n*m
       return (
-        <svg width={width} height={height}>
+        <svg width={width} height={containerHeight}>
           <rect fill="#d8ffa2" width="100%" height="100%"></rect>
           {Array(height / 10)
             .fill()
