@@ -284,7 +284,12 @@ class Treemap extends React.Component {
               const width = d.x1 - d.x0;
               const height = d.y1 - d.y0;
               return (
-                <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
+                <g
+                  key={d.data.id}
+                  transform={`translate(${d.x0},${d.y0})`}
+                  onMouseOver={() => this.setState({ hoveredEntity: d })}
+                  onMouseLeave={() => this.setState({ hoveredEntity: null })}
+                >
                   <rect
                     width={width}
                     height={height}
@@ -299,8 +304,6 @@ class Treemap extends React.Component {
                     }
                     stroke="#222222"
                     key={d.data.id}
-                    onMouseOver={() => this.setState({ hoveredEntity: d })}
-                    onMouseLeave={() => this.setState({ hoveredEntity: null })}
                   />
                   {height > 15 && d.data.id !== OTHER_NAME && (
                     <text
@@ -346,7 +349,12 @@ class Treemap extends React.Component {
                 const width = d.x1 - d.x0;
                 const height = d.y1 - d.y0;
                 return (
-                  <g key={d.data.id} transform={`translate(${d.x0},${d.y0})`}>
+                  <g
+                    key={d.data.id}
+                    transform={`translate(${d.x0},${d.y0})`}
+                    onMouseOver={() => this.setState({ hoveredEntity: d })}
+                    onMouseLeave={() => this.setState({ hoveredEntity: null })}
+                  >
                     <rect
                       width={width}
                       height={height}
@@ -359,10 +367,6 @@ class Treemap extends React.Component {
                       }
                       stroke="#222222"
                       key={d.data.id}
-                      onMouseOver={() => this.setState({ hoveredEntity: d })}
-                      onMouseLeave={() =>
-                        this.setState({ hoveredEntity: null })
-                      }
                     />
                     {height > 15 && (
                       <text
