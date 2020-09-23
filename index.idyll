@@ -31,13 +31,13 @@
 [data name:'nationalEmissions' source:'national-emissions.csv' /]
 [data name:'entityEmissions' source:'entity-emissions.csv' /]
 
-_TK: 3d graphic of a person biking past a Shell gas station_
 
----
+[IntroIllustration /]
+
 
 **Who is responsible for climate change?** There is no simple answer. Global warming is a fiendishly complex problem, deeply rooted in our current economic system. And yet, responsibility matters—not just for assigning blame, but for finding levers of future change.
 
-As we discuss what individuals and governments can do, we often forget to consider another critical player: fossil fuel companies. These companies operate at truly awesome scale—just 20 massive corporations are responsible for one third (TK: double-check number) of global greenhouse gas emissions since 1965, through the burning of fossil fuel products they extracted and sold. 
+As we discuss what individuals and governments can do, we often forget to consider another critical player: fossil fuel companies. These companies operate at truly awesome scale—just 20 massive corporations are responsible for one third (TK: double-check number) of global greenhouse gas emissions since 1965, through the burning of fossil fuel products they extracted and sold.
 
 Putting the spotlight on these companies emphasizes their historical culpability, and suggests new avenues for future action by pressuring them to change their behavior.
 
@@ -88,7 +88,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
 
     People can and should take steps to curb their personal emissions, especially the wealthiest 10% who disproportionately account for half of all individual emissions. There is a tempting immediacy in personal action, with no gatekeeper to convince but ourselves.
 
-    But the impact of any one person’s actions is ultimately limited. Even collective individual action is limited by existing frameworks of production and policy set at the state or corporate level. One person can choose not to own a car, but an individual can’t reshape urban life around bicycle transit by themselves. The idea that demand alone drives the production of goods and the shape of society is an overly simplistic idea that ignores the power and influence of governments and companies operating under capitalism. 
+    But the impact of any one person’s actions is ultimately limited. Even collective individual action is limited by existing frameworks of production and policy set at the state or corporate level. One person can choose not to own a car, but an individual can’t reshape urban life around bicycle transit by themselves. The idea that demand alone drives the production of goods and the shape of society is an overly simplistic idea that ignores the power and influence of governments and companies operating under capitalism.
 
   [/Step]
   [Step]
@@ -102,7 +102,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
     ## Corporate Fossil Fuel Producers 🏢
 
     In this article, we explore a third approach: grouping emissions by the corporations that extracted, processed, sold, transported the fossil fuels. Richard Heede and the Climate Accountability Institute have done [pioneering work](https://climateaccountability.org/carbonmajors.html) tracing emissions to individual producers, finding an extreme concentration of emissions among a small number of “carbon majors.”
-    
+
     The Top 100 fossil fuel companies are responsible for nearly half of all greenhouse gas emissions in world history.
   [/Step]
 
@@ -130,7 +130,7 @@ You might reasonably ask whether it’s fair to attribute downstream emissions t
 
 Now let’s zoom out to view this producer emissions data for the top 100 producers worldwide.
 
-CAI has collected data for 100 entities producing oil, gas, coal, and cement. They estimate that these 100 entities account for about 70% of global greenhouse gas emissions between 1751 and 2016, an extraordinary concentration of emissions among a relatively small number of entities. These 100 entities comprise three primary categories: state-owned, privately-owned, and publicly-owned. 
+CAI has collected data for 100 entities producing oil, gas, coal, and cement. They estimate that these 100 entities account for about 70% of global greenhouse gas emissions between 1751 and 2016, an extraordinary concentration of emissions among a relatively small number of entities. These 100 entities comprise three primary categories: state-owned, privately-owned, and publicly-owned.
 
 ## State-owned companies
 
@@ -140,7 +140,7 @@ By the late twentieth century, liberalization and privatization broke up many of
 
 The overall impact of state-owned companies shows in the data. Historically, state-owned corporations have accounted for XX% of all carbon emissions. For those state-owned companies still in existence, we must consider what levers we have to influence their activity. For one, state-owned companies are not always monopolies. Those that exist in competitive markets are influenced indirectly by actions that affect their competitors. Second, state-owned companies exist within a spectrum of governance types. Although some corporations are effectively under the full control of a government, others operate with varying levels of discretionary decision-making and are thus capable of responding to public outcry and activism in the same manner as privately-owned and publicly-owned corporations. Certainly, state-owned companies bear the same responsibility as other corporations for the effects of climate change, if not moreso given their outsized impact as monolithic actors.
 
-## Investor-owned companies 
+## Investor-owned companies
 
 Excluding state-owned companies, 20% of historical emissions come from investor-owned corporations. This is still a very significant portion of carbon emissions concentrated in a small number of companies. Crucially, these companies are vulnerable to additional forms of leverage by nature of their commitments to investors.
 
@@ -152,7 +152,7 @@ Despite lacking public investors, these companies can be held responsible for th
 
 Activism and awareness around the corporate responsibility to combat climate change can and will impact even those companies that answer only to private investors. It is in the investors’ interest (as it is the public’s) that corporations are transparent about the risks of maintaining current levels of emissions and the opportunities for exploring energy alternatives.
 
-Those companies which are fully or partially owned by public investors are open to further avenues of influence. Publicly-owned companies hold additional obligations to their shareholders.  In the past decade throughout the corporate landscape, there has been growing consciousness on the part of shareholders and a shift in the balance of power between shareholders and boards of directors. Not only do individual shareholders have the ability to make their voice heard in strategic decisions and governance by-laws, but large blocs of shareholders can vote to replace board members and influence the composition of the board itself. 
+Those companies which are fully or partially owned by public investors are open to further avenues of influence. Publicly-owned companies hold additional obligations to their shareholders.  In the past decade throughout the corporate landscape, there has been growing consciousness on the part of shareholders and a shift in the balance of power between shareholders and boards of directors. Not only do individual shareholders have the ability to make their voice heard in strategic decisions and governance by-laws, but large blocs of shareholders can vote to replace board members and influence the composition of the board itself.
 
 Publicly-owned companies, which have contributed XX% of total historical emissions, therefore provide a unique angle of leverage in reducing emissions. Shareholders can and should demand that corporations conduct 1.5-2ºC scenario analysis, incorporate carbon pricing into financial statements and forecasts, invest in alternative energy research and development, and shift lobbying strategies towards collaboration with policy makers on positive green legislation.
 
@@ -176,11 +176,11 @@ Furthermore, the evidence of early understanding of climate change shows that th
 
 Ultimately, we present the above data in an effort to shift the conversation for solving climate change away from individual action (however important it may be) towards corporate action. We present the following concrete action items as environmentally and morally necessary for the highest emitting corporations:
 
-- Support and fund science and technological expertise that promotes low-carbon energy technologies 
+- Support and fund science and technological expertise that promotes low-carbon energy technologies
 - Stop flaring natural gas immediately.
 - Support communities disproportionately affected by climate change and share the financial burden of paying for damages
 - Stop misinforming the public about the severity of climate change, stop funding front groups or spin doctors to divert responsibility from the problem
-- Update financial models to plan for low-carbon technologies and a divestment from fossil fuels, disclose to the SEC the risks that climate change poses to the business 
+- Update financial models to plan for low-carbon technologies and a divestment from fossil fuels, disclose to the SEC the risks that climate change poses to the business
 - cut emissions from current operations
 - proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, renewable fuel standards, and direct emission regulation.
 - Pay reparations for knowingly contributing to climate change while misinforming the public
