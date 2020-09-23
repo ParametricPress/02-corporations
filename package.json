@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "idyll --template _local.html",
+    "start": "idyll --no-ssr --template _local.html",
     "build": "idyll build --output docs",
     "export-gltf": "node -r esm scripts/export-gltf",
     "export-all": "./scripts/export-all.sh",
