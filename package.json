@@ -29,7 +29,7 @@
     "idyll": "^4.12.1",
     "idyll-d3-component": "^2.0.0",
     "parametric-components": "^2.1.15",
-    "parametric-styles": "^2.2.3",
+    "parametric-styles": "^2.2.4",
     "react-spring": "^8.0.27",
     "react-three-fiber": "^4.2.21",
     "three": "^0.120.1"
