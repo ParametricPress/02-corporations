@@ -1191,10 +1191,6 @@ left: calc(100% - 40px);
 white-space: nowrap;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 .aside {
   font-family: 'Graphik Web';
   font-size: 14px;
@@ -1356,7 +1352,7 @@ a {
   padding: 2em 50px 3em 50px;
   font-family: 'Graphik Web';
   font-size: 16px;
-  width: 100vw;
+  right: 0;
   left: 0;
   position: absolute;
   min-height: 400px;
@@ -1573,6 +1569,328 @@ h2 {
 
 
 
+.idyll-root {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.idyll-mount {
+  overflow-x: hidden;
+}
+
+.parametric-recirc-next-article {
+  /* position: relative; */
+  margin-left: calc(-1 * (100vw - 1440px) / 2);
+  margin-right: calc(-1 * (100vw - 1440px) / 2);
+  width: 100%;
+
+}
+
+.idyll-scroll-graphic > div {
+  max-width: 1440px;
+  padding-right: 50px;
+  padding-top: 150px;
+}
+.pull-number {
+  font-family: 'Editorial New';
+}
+.parametric-header-text {
+  margin: 0;
+  width: calc(100% - 50px);
+}
+body {
+  font-family: 'Graphik Web';
+}
+/** INPUT WIDGETS */
+
+button {
+  background-color: #222222;
+  font-family: 'Graphik Web';
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #D8FFA2;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #D8FFA2;
+  cursor: pointer;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #adadad;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #adadad;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #adadad;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #adadad;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #adadad;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #adadad;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #adadad;
+}
+
+/** ARTICLE NAV */
+
+.parametric-article-nav {
+  font-size: 16px;
+  line-height: 24px;
+  position: sticky;
+  top: 0;
+  border-bottom: solid 1px #222222;
+  background-color: #ADADAD;
+  color: #222222;
+  margin-left: calc((100vw - 1440px) / -2);
+  margin-right: calc((100vw - 1440px) / -2);
+  padding-left: calc((100vw - 1440px) / 2);
+  padding-right: calc((100vw - 1440px) / 2);
+  margin-top: 0;
+}
+
+.parametric-article-nav .parametric-nav-links a {
+  font-weight: 300;
+  color: #222222;
+}
+
+/**
+ DARK  MODE
+*/
+
+.parametric-article-nav {
+  color: #D8FFA2;
+  border-bottom-color: #D8FFA2;
+  background-color: #222222;
+  background: #222222;
+}
+.parametric-article-nav .parametric-nav-links a {
+  color: #D8FFA2;
+}
+
+.parametric-header-hed {
+  width: 100%;
+  color: #ADADAD;
+}
+.article-header a {
+  color: #ADADAD;
+}
+
+h2 {
+  color: #D8FFA2;
+}
+
+.pull-number {
+  color: #ADADAD;
+}
+
+
+body {
+  color: #ADADAD;
+  background-color: #222222;
+}
+.idyll-text-container p {
+  color: #ADADAD;
+}
+.idyll-text-container p a,
+aside a, a {
+  color: #ADADAD;
+  text-decoration: underline;
+}
+
+
+button {
+  background-color: #D8FFA2;
+  color: #222222;
+}
+
+
+.parametric-author-bio a {
+  color: #ADADAD;
+}
+
+.separator {
+  width: 100%;
+  margin-top: 3em;
+}
+.separator-item {
+  width: 100%;
+  border-bottom: dotted 3px #D8FFA2;
+  margin-bottom: 2px;
+}
+
+.idyll-display {
+  color: #ffffff;
+  border-bottom: dotted 2px #D8FFA2;
+}
+
+.parametric-header-hed-text {
+  border-bottom: solid 1px #ADADAD;
+  padding: 2em 0;
+}
+
+.parametric-issue-toc {
+  line-height: 1.2;
+  color: #222222;
+}
+
+.parametric-long-title {
+  font-size: 56px;
+  color: #D8FFA2;
+  width: 100%;
+  font-weight: 500;
+}
+
+.parametric-article-dek {
+  font-family: 'Editorial New';
+  line-height: 1.2;
+  padding-top: 0.5em;
+}
+
+
+.idyll-step p {
+  color: #222222;
+}
+
+
+@media all and (max-width: 1440px) {
+  .parametric-recirc-next-article {
+    position: relative;
+    left: 0;
+    width: 100vw;
+  }
+
+  .parametric-article-nav {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
 
 @media all and (max-width: 1200px) {
   .parametric-metadata-container {
@@ -1616,6 +1934,10 @@ h2 {
   .parametric-recirc-next-article {
     margin-left: 0;
     margin-right: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .parametric-article-nav {
     padding-left: 1em;
     padding-right: 1em;
   }
@@ -1770,8 +2092,9 @@ body {
 .idyll-root {
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 0;
   margin-bottom: 60px;
+  max-width: 1440px;
 }
 
 .idyll-text-container {
@@ -2022,316 +2345,13 @@ input {
     border-top: solid 2px black;
   }
 }
-.idyll-scroll-text .idyll-step {
-  background: #222;
-}
 
-svg text {
-  fill: #adadad;
-}
-
-.idyll-root {
-  padding: 0;
-}
-.pull-number {
-  font-family: "Editorial New";
-}
-.parametric-header-text {
-  margin: 0;
-}
-body {
-  font-family: "Graphik Web";
-}
-/** INPUT WIDGETS */
-
-button {
-  background-color: #222222;
-  font-family: "Graphik Web";
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 500;
-}
-input[type="range"] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
-input[type="range"]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-}
-
-input[type="range"]::-ms-track {
-  width: 100%;
-  cursor: pointer;
-
-  /* Hides the slider so custom styles can be added */
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-/* Special styling for WebKit/Blink */
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-}
-
-/* All the same stuff for Firefox */
-input[type="range"]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #d8ffa2;
-  cursor: pointer;
-}
-
-/* All the same stuff for IE */
-input[type="range"]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #d8ffa2;
-  cursor: pointer;
-}
-input[type="range"] {
-  -webkit-appearance: none;
-  margin: 18px 0;
-  width: 100%;
-}
-input[type="range"]:focus {
-  outline: none;
-}
-input[type="range"]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #adadad;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type="range"]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -14px;
-}
-input[type="range"]:focus::-webkit-slider-runnable-track {
-  background: #adadad;
-}
-input[type="range"]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #adadad;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type="range"]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type="range"]::-ms-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
-}
-input[type="range"]::-ms-fill-lower {
-  background: #adadad;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type="range"]::-ms-fill-upper {
-  background: #adadad;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type="range"]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type="range"]:focus::-ms-fill-lower {
-  background: #adadad;
-}
-input[type="range"]:focus::-ms-fill-upper {
-  background: #adadad;
-}
-
-/** ARTICLE HEADER */
-
-.parametric-long-title {
-  font-size: 56px;
-  color: #d8ffa2;
-  width: 100%;
-  font-weight: 500;
-}
-
-.parametric-nav-toc {
-  color: #d8ffa2;
-}
-
-.parametric-article-dek {
-  font-family: "Editorial New";
-  font-size: 32px;
-  line-height: 48px;
-}
-
-.parametric-header-hed-text {
-  border-bottom: solid 1px #222;
-  padding: 2em 0;
-}
-
-.parametric-header-hed {
-  width: 100%;
-  color: #222222;
-}
-
-.parametric-header-metadata-component > div {
-  margin-right: 2em;
-}
-
-.parametric-header-metadata-component > div > * {
-  margin-right: 0.5em;
-}
-
-/** ARTICLE NAV */
-
-.parametric-article-nav {
-  font-size: 16px;
-  line-height: 24px;
-  position: sticky;
-  top: 0;
-  border-bottom: solid 1px #222222;
-  background-color: #adadad;
-  color: #222222;
-  margin-top: 0;
-}
-
-.parametric-article-nav .parametric-nav-links a {
-  font-weight: 300;
-  color: #222222;
-}
-
-/** BODY COPY ^/
-
-
-
-
-
-/** DARK MODE */
-/** Comment out the code below this to go back to black on #ADADAD background. */
-
-.parametric-article-nav {
-  color: #d8ffa2;
-  border-bottom-color: #d8ffa2;
-  background-color: #222222;
-  background: #222222;
-}
-.parametric-article-nav .parametric-nav-links a {
-  color: #d8ffa2;
-}
-
-.parametric-header-hed {
-  width: 100%;
-  color: #adadad;
-}
-.article-header a {
-  color: #adadad;
-}
-
-h2 {
-  color: #d8ffa2;
-}
-
-.pull-number {
-  color: #adadad;
-}
-
-body {
-  color: #adadad;
-  background-color: #222222;
-}
-.idyll-text-container p {
-  color: #adadad;
-}
-.idyll-text-container p a,
-aside a,
-a {
-  color: #adadad;
-  text-decoration: underline;
-}
-
-button {
-  background-color: #d8ffa2;
-  color: #222222;
-}
-
-.parametric-author-bio a {
-  color: #adadad;
-}
-
-.separator {
-  width: 100%;
-  margin-top: 3em;
-}
-.separator-item {
-  width: 100%;
-  border-bottom: dotted 3px #d8ffa2;
-  margin-bottom: 2px;
-}
-
-.idyll-display {
-  color: #ffffff;
-  border-bottom: dotted 2px #d8ffa2;
-}
-
-.parametric-header-hed-text {
-  border-bottom-color: #adadad;
-}
-
-.parametric-issue-toc {
+h1 {
+  color: #D8FFA2;
+  font-family: 'Editorial New';
+  font-size: 36px;
   line-height: 1.2;
-  color: #222222;
 }
-
 /* CUSTOM SCROLLER STYLES */
 
 /* These styles set up a sticky graphic next to the text,
@@ -2356,6 +2376,14 @@ rather than behind the text which is the default behavior */
 
 .idyll-sticky-side-scroll .idyll-scroll-text {
   padding: 0;
+}
+
+.idyll-scroll-text .idyll-step {
+  background: #222222;
+  color: #adadad;
+}
+.idyll-step p {
+  color: #adadad;
 }
 
 /* put much less space between steps, compared to full-screen scroller */
