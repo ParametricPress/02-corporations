@@ -11,8 +11,8 @@ import { meshopt } from '../../lib/meshopt'
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials } = useLoader(GLTFLoader, '/static/gltf/bicyclist.glb', meshopt())
-  
+  const { nodes, materials } = useLoader(GLTFLoader, './static/gltf/bicyclist.glb', meshopt())
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group position={[5.7912002, 0.1524, 0]}>

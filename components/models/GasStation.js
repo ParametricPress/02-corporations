@@ -10,7 +10,7 @@ import { meshopt } from '../../lib/meshopt'
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials } = useLoader(GLTFLoader, '/static/gltf/gas-station.glb', meshopt())
+  const { nodes, materials } = useLoader(GLTFLoader, './static/gltf/gas-station.glb', meshopt())
 
   const baseMaterial = materials['Base Lightmap'];
   baseMaterial.color = new THREE.Color(0x000000);

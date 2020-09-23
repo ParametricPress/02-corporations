@@ -32,8 +32,9 @@
 [data name:'entityEmissions' source:'entity-emissions.csv' /]
 
 
+[div fullWidth:true style:`{maxWidth: 800}`]
 [IntroIllustration /]
-
+[/div]
 
 **Who is responsible for climate change?** There is no simple answer. Global warming is a fiendishly complex problem, deeply rooted in our current economic system. And yet, responsibility matters—not just for assigning blame, but for finding levers of future change.
 
