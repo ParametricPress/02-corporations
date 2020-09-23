@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "idyll --no-ssr --template _local.html",
-    "build": "idyll build --output docs",
+    "build": "idyll build --no-ssr --output docs",
     "export-gltf": "node -r esm scripts/export-gltf",
     "export-all": "./scripts/export-all.sh",
     "export-all:windows": "./scripts/export-all.bat"
