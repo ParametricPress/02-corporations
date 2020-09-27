@@ -71,7 +71,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
       }
 ][scrollerIndex]` /]
 
-[StickySideScroller currentStep:scrollerIndex progress:scrollerProgress fullWidth: true]
+[Scroller currentStep:scrollerIndex progress:scrollerProgress fullWidth: true]
   [Graphic]
     [Treemap className:"treemap" step:emissionsBreakdownStep progress:scrollerProgress /]
   [/Graphic]
