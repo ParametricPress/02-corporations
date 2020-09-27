@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo } from "react";
 
 import {
   withFadeIn,
@@ -6,14 +6,23 @@ import {
   generateTreemap,
   TreemapRow,
   TreemapSVG,
-  OTHER_NAME
-} from './treemap-base';
+  OTHER_NAME,
+} from "./treemap-base";
 
-function TreemapIndividuals({width, height, data, progress, ...props}) {
+function TreemapCorporationsDetail({
+  width,
+  height,
+  data,
+  progress,
+  ...props
+}) {
   const treemapData = useMemo(() => {
-    const entityData = data.filter((d) => d.entity_type !== "State");
-    return generateTreemap(entityData, 1);  
-  }, [])
+    // Extract the top 20 corporate entities. Excluding national governments
+    const entityData = data
+      .filter((d) => d.entity_type !== "State")
+      .slice(0, 20);
+    return generateTreemap(entityData, 1);
+  }, []);
 
   const leaves = useMemo(() => {
     return treemapData.leaves();
@@ -31,20 +40,22 @@ function TreemapIndividuals({width, height, data, progress, ...props}) {
           height={d.y1 - d.y0}
           x0={d.x0}
           y0={d.y0}
-          status={d.data.id === OTHER_NAME ? 'secondary' : 'primary'}
-          strokeOpacity={d.data.id == OTHER_NAME ? 1 : 1 - 0.8 * (d.y0 / otherY0)}
-          size={'normal'}
+          status={d.data.id === OTHER_NAME ? "secondary" : "primary"}
+          strokeOpacity={
+            d.data.id == OTHER_NAME ? 1 : 1 - 0.8 * (d.y0 / otherY0)
+          }
+          size={"normal"}
           data={d.data.data}
         />
       );
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <TreemapSVG width={width} height={height}>
       {rows}
     </TreemapSVG>
-  )
+  );
 }
 
-export default withFadeIn(TreemapIndividuals);
+export default withFadeIn(TreemapCorporationsDetail);

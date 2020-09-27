@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo } from "react";
 
 import {
   withFadeIn,
@@ -6,19 +6,19 @@ import {
   generateTreemap,
   TreemapRow,
   TreemapSVG,
-  OTHER_NAME
-} from './treemap-base';
+  OTHER_NAME,
+} from "./treemap-base";
 
-function TreemapCorporations({width, height, data, progress, ...props}) {
+function TreemapCorporations({ width, height, data, progress, ...props }) {
   const treemapData = useMemo(() => {
     const entityData = [
       {
-        entity: "Top 100 fossil fuel corporations",
-        value: 677936,
+        entity: "Top 20 fossil fuel corporations",
+        value: 468978,
       },
     ];
     return generateTreemap(entityData, 1);
-  }, [])
+  }, []);
 
   return (
     <TreemapSVG width={width} height={height}>
@@ -32,13 +32,13 @@ function TreemapCorporations({width, height, data, progress, ...props}) {
             height={d.y1 - d.y0}
             x0={d.x0}
             y0={d.y0}
-            status={d.data.id === OTHER_NAME ? 'secondary' : 'primary'}
-            size={'large'}
+            status={d.data.id === OTHER_NAME ? "secondary" : "primary"}
+            size={"large"}
           />
         );
       })}
     </TreemapSVG>
-  )
+  );
 }
 
 export default withFadeIn(TreemapCorporations);
