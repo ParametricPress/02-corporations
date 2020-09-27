@@ -1,104 +1,104 @@
-entity,entity_type,value
-"China, PR (coal & cement only)",State,217771
-FSU (Former Soviet Union),State,118251
-"Saudi Aramco, Saudi Arabia",SOE,54364
-"Chevron, USA",IOC,48513
-"ExxonMobil, USA",IOC,45293
-"Gazprom, Russia",SOE,32281
-"BP, UK",IOC,35451
-"Royal Dutch Shell, Netherlands",IOC,33085
-"National Iranian Oil Co., Iran",SOE,33193
-Poland,State,24345
-"Pemex, Mexico",SOE,21058
-"Coal India, India",SOE,20779
-"British Coal Corporation, UK",SOE,17742
-"ConocoPhillips, USA",IOC,15962
-Russian Federation,State,16678
-"Peabody Energy, USA",IOC,14509
-"Petroleos de Venezuela, Venezuela",SOE,14421
-"PetroChina (CNPC), China",SOE,13813
-"Total, France",IOC,12788
-"Abu Dhabi, United Arab Emirates",SOE,12330
-"Kuwait Petroleum Corp., Kuwait",SOE,12634
-"Iraq National Oil Company, Iraq",SOE,11729
-"Sonatrach, Algeria",SOE,10239
-"BHP Billiton, Australia",IOC,8794
-"CONSOL Energy, USA",IOC,8844
-Czechoslovakia,State,8634
-"Petrobras, Brazil",SOE,7873
-"Nigerian National Petroleum, Nigeria",SOE,7852
-"Qatar Petroleum, Qatar",SOE,6745
-"ENI, Italy",IOC,6592
-"Anglo American, UK",IOC,6864
-"Pertamina, Indonesia",SOE,6643
-"Libya National Oil Corp., Libya",SOE,6893
-"Petronas, Malaysia",SOE,6176
-" Rosneft, Russian Federation",SOE,6548
-"Arch Coal Company, USA",IOC,6439
-"RWE, Germany",IOC,6425
-"Rio Tinto, UK",IOC,6033
-Kazakhstan,State,5783
-"Equinor, Norway",SOE,5441
-"Lukoil, Russia",IOC,5622
-"Anadarko, USA",IOC,5231
-"Contura (AlphaNR, Massey), USA",IOC,5309
-"Occidental, USA",IOC,5255
-"Oil and Gas Corp., India",SOE,4553
-"Repsol, Spain (acq Talisman May2015)",IOC,4377
-Ukraine,State,4204
-"Glencore, Switzerland",IOC,4203
-"Sasol, South Africa",IOC,3986
-North Korea,State,3474
-"Egyptian General Petroleum, Egypt",SOE,3180
-"Petroleum Development Oman, Oman",SOE,3134
-"Marathon, USA",IOC,3032
-"Petoro, Norway ",SOE,2883
-"Sinopec, China",SOE,3041
-"CNOOC, PR China (acq Nexen Jan2013)",SOE,2734
-"Yukos, Russia",IOC,2686
-"LafargeHolcim, France",IOC,2823
-"Hess, USA",IOC,2413
-"TurkmenGaz, Turkmenistan",SOE,2101
-"Sonangol, Angola",SOE,2540
-"Singareni Collieries, India",SOE,2398
-"Ecopetrol, Colombia",SOE,2318
-Czech Republic,State,2308
-"Devon Energy, USA",IOC,2008
-"Suncor, Canada",IOC,2061
-"EnCana, Canada",IOC,1787
-"Westmoreland Mining, USA",IOC,1975
-"Novatek, Russian Federation",IOC,1462
-"Cyprus Amax, USA",IOC,1611
-"Canadian Natural Resources, Canada",IOC,1499
-" Apache, USA",IOC,1374
-"Murray Coal Corporation, USA",IOC,1466
-"Exxaro, South Africa",IOC,1446
-PetroEcuador,SOE,1448
-"Kiewit Mining Group, USA",IOC,1395
-"Syrian Petroleum, Syria",SOE,1393
-"North American Coal, US",IOC,1324
-"HeidelbergCement, Germany",IOC,1452
-"Cloud Peak, USA",IOC,1208
-"Vistra Luminant, USA",IOC,1186
-Bahrain Petroleum Corporation,SOE,1035
-"EOG Resources, USA ",IOC,964
-"RAG, Germany",IOC,1049
-"Chesapeake, USA ",IOC,870
-"Husky, Canada",IOC,880
-"Wintershall, Germany",IOC,766
-"UK Coal, UK",IOC,792
-"Inpex, Japan ",IOC,722
-"YPF, Argentina",IOC,709
-"Cemex, Mexico",IOC,742
-"Woodside, Australia",IOC,563
-"Noble Energy, USA",IOC,566
-"OMV Group, Austria",IOC,565
-"Murphy Oil, USA",IOC,543
-"Polish Oil & Gas, Poland",IOC,502
-"Santos, Australia",IOC,443
-"Southwestern, USA ",IOC,374
-"Taiheiyo, Japan",IOC,502
-"Pioneer, USA ",IOC,397
-"EQT Corporation, USA ",IOC,263
-"Obsidian, Canada ",IOC,280
-"Antero, USA",IOC,149
+entity,country,entity_type,value,market_cap,ticker_symbol,currency
+China (Coal & Cement),China,State,217771,,,
+USSR,USSR,State,118251,,,
+Saudi Aramco,Saudi Arabia,SOE,54364,133.02B,TADAWUL: 2222,SAR
+Chevron,USA,IOC,48513,134.13B,NYSE: CVX,USD
+ExxonMobil,USA,IOC,45293,146.47B,NYSE: XOM,USD
+Gazprom,Russia,SOE,32281,103.93B,OTCMKTS: OGZPY,USD
+BP,UK,IOC,35451,59.68B,NYSE: BP,USD
+Royal Dutch Shell,Netherlands,IOC,33085,96.78B,NYSE: RDS.A,USD
+National Iranian Oil Co.,Iran,SOE,33193,,,
+Poland,Poland,State,24345,,,
+Pemex,Mexico,SOE,21058,,,
+Coal India,India,SOE,20779,721.66B,NSE: COALINDIA,INR
+British Coal Corporation,UK,SOE,17742,,,
+ConocoPhillips,USA,IOC,15962,36.15B,NYSE: COP,USD
+Russian Federation,Russia,State,16678,,,
+Peabody Energy,USA,IOC,14509,298.29M,NYSE: BTU,USD
+Petroleos de Venezuela,Venezuela,SOE,14421,,,
+PetroChina (CNPC),China,SOE,13813,103.98B,NYSE: PTR,USD
+Total,France,IOC,12788,86.76B,NYSE: TOT,USD
+Abu Dhabi,UAE,SOE,12330,155.159B,TAQA:UH,AED
+Kuwait Petroleum Corp.,Kuwait,SOE,12634,,,
+Iraq National Oil Company,Iraq,SOE,11729,,,
+Sonatrach,Algeria,SOE,10239,,,
+BHP Billiton,Australia,IOC,8794,121.71B,NYSE: BBL,USD
+CONSOL Energy,USA,IOC,8844,114.03M,NYSE: CEIX,USD
+Czechoslovakia,Czechoslovakia,State,8634,,,
+Petrobras,Brazil,SOE,7873,47.89B,NYSE: PBR,USD
+Nigerian National Petroleum,Nigeria,SOE,7852,,,
+Qatar Petroleum,Qatar,SOE,6745,17.209B,QFLS.QA,QAR
+ENI,Italy,IOC,6592,56.40B,NYSE: E,USD
+Anglo American,UK,IOC,6864,32.00B,OTCMKTS: NGLOY,USD
+Pertamina,Indonesia,SOE,6643,,,
+Libya National Oil Corp.,Libya,SOE,6893,,,
+Petronas,Malaysia,SOE,6176,32.412B,6033:MK,MYR
+Rosneft,Russia,SOE,6548,66.96B,OTCMKTS: OJSCY,USD
+Arch Coal Company,USA,IOC,6439,704.917M,ARCH:US,USD
+RWE,Germany,IOC,6425,22.54B,OTCMKTS: RWEOY,USD
+Rio Tinto,UK,IOC,6033,,,
+Kazakhstan,Kazakhstan,State,5783,,,
+Equinor,Norway,SOE,5441,47.20B,NYSE: EQNR,USD
+Lukoil,Russia,IOC,5622,40.36B,OTCMKTS: LUKOY,USD
+Anadarko,USA,IOC,5231,,,
+"Contura (AlphaNR, Massey)",USA,IOC,5309,151.42M,NYSE: CTRA,USD
+Occidental,USA,IOC,5255,9.51B,NYSE: OXY,USD
+Oil and Gas Corp.,India,SOE,4553,870.04B,NSE: ONGC,INR
+Repsol,Spain,IOC,4377,10.90B,OTCMKTS: REPYY,USD
+Ukraine,Ukraine,State,4204,,,
+Glencore,Switzerland,IOC,4203,,,
+Sasol,South Africa,IOC,3986,4.95B,NYSE: SSL,USD
+North Korea,North Korea,State,3474,,,
+Egyptian General Petroleum,Egypt,SOE,3180,,,
+Petroleum Development Oman,Oman,SOE,3134,,,
+Marathon,USA,IOC,3032,18.63B,NYSE: MPC,USD
+Petoro ,Norway,SOE,2883,,,
+Sinopec,China,SOE,3041,65.40B,NYSE: SNP,USD
+CNOOC,China,SOE,2734,4.29T,NYSE: CEO,USD
+Yukos,Russia,IOC,2686,,,
+LafargeHolcim,France,IOC,2823,5.48B,OTCMKTS: HCMLY,USD
+Hess,USA,IOC,2413,12.43B,NYSE: HES,YSD
+TurkmenGaz,Turkmenistan,SOE,2101,,,
+Sonangol,Angola,SOE,2540,,,
+Singareni Collieries,India,SOE,2398,,,
+Ecopetrol,Colombia,SOE,2318,408.29B,NYSE: EC,USD
+Czech Republic,Czech Republic,State,2308,,,
+Devon Energy,USA,IOC,2008,3.38B,NYSE: DVN,USD
+Suncor,Canada,IOC,2061,18.90B,NYSE: SU,USD
+EnCana,Canada,IOC,1787,,,
+Westmoreland Mining,USA,IOC,1975,,,
+Novatek,Russia,IOC,1462,41.34B,OTCMKTS: NOVKY,USD
+Cyprus Amax,USA,IOC,1611,,,
+Canadian Natural Resources,Canada,IOC,1499,19.07B,NYSE: CNQ,USD
+Apache,USA,IOC,1374,3.72B,NASDAQ: APA,USD
+Murray Coal Corporation,USA,IOC,1466,,,
+Exxaro,South Africa,IOC,1446,,,
+PetroEcuador,Ecuador,SOE,1448,,,
+Kiewit Mining Group,USA,IOC,1395,,,
+Syrian Petroleum,Syria,SOE,1393,,,
+North American Coal,US,IOC,1324,,,
+HeidelbergCement,Germany,IOC,1452,,,
+Cloud Peak,USA,IOC,1208,,,
+Vistra Luminant,USA,IOC,1186,,,
+Bahrain Petroleum Corporation,Bahrain,SOE,1035,,,
+EOG Resources ,USA,IOC,964,21.81B,NYSE: EOG,USD
+RAG,Germany,IOC,1049,,,
+Chesapeake ,USA,IOC,870,42.06M,OTCMKTS: CHKAQ,USD
+Husky,Canada,IOC,880,2.32B,OTCMKTS: HUSKF,USD
+Wintershall,Germany,IOC,766,,,
+UK Coal,UK,IOC,792,,,
+Inpex ,Japan,IOC,722,,,
+YPF,Argentina,IOC,709,1.45B,NYSE: YPF,USD
+Cemex,Mexico,IOC,742,5.44B,NYSE: CX,USD
+Woodside,Australia,IOC,563,,,
+Noble Energy,USA,IOC,566,,,
+OMV Group,Austria,IOC,565,8.98B,OTCMKTS: OMVKY,USD
+Murphy Oil,USA,IOC,543,1.34B,NYSE: MUR,USD
+Polish Oil & Gas,Poland,IOC,502,28.08B,WSE: PGN,USD
+Santos,Australia,IOC,443,7.47B,OTCMKTS: SSLZY,USD
+Southwestern ,USA,IOC,374,1.50B,NYSE: SWN,USD
+Taiheiyo,Japan,IOC,502,,,
+Pioneer ,USA,IOC,397,14.11B,NYSE: PXD,USD
+EQT Corporation ,USA,IOC,263,3.55B,NYSE: EQT,USD
+Obsidian ,Canada,IOC,280,,,
+Antero,USA,IOC,149,797.59M,NYSE: AR,USD

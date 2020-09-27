@@ -23,6 +23,7 @@
     "output": "dev"
   },
   "dependencies": {
+    "@use-it/event-listener": "^0.1.5",
     "color": "^3.1.2",
     "d3": "^5.15.0",
     "drei": "^1.5.6",

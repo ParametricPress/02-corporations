@@ -23,6 +23,7 @@ Belize,16.75355
 Benin,90.30035
 Bermuda,26.54878
 Bhutan,13.48725
+Bolivia,445.60406
 "Bonaire, Saint Eustatius, And Saba",1.6148
 Bosnia & Herzegovina,381.26529
 Botswana,122.60369
@@ -39,7 +40,7 @@ Cayman Islands,15.18279
 Central African Republic,11.10909
 Chad,22.72831
 Chile,2597.15257
-China (Mainland),194147.9949
+China,194147.9949
 Christmas Island,1.33221
 Colombia,3084.1946
 Comoros,4.05902
@@ -53,14 +54,14 @@ Curacao,28.90492
 Cyprus,255.29254
 Czech Republic,2931.18496
 Czechoslovakia,11241.81555
-Democratic People S Republic Of Korea,4833.96252
-Democratic Republic Of The Congo (Formerly Zaire),184.30373
+Democratic Republic Of The Congo,184.30373
 Democratic Republic Of Vietnam,90.4655
 Denmark,3857.61407
 Djibouti,18.22155
 Dominica,4.19481
 Dominican Republic,660.0862
 East & West Pakistan,337.85653
+East Germany,12189.51598
 Ecuador,1069.26551
 Egypt,5472.59023
 El Salvador,210.20292
@@ -70,16 +71,14 @@ Estonia,434.36285
 Ethiopia,201.43162
 Faeroe Islands,27.85897
 Falkland Islands (Malvinas),4.88844
-Federal Republic Of Germany,27495.13354
 Federated States Of Micronesia,3.10849
 Federation Of Malaya-Singapore,64.25803
 Fiji,46.60533
 Finland,2938.03685
 Former Democratic Yemen,130.22628
-Former German Democratic Republic,12189.51598
 Former Panama Canal Zone,14.78643
 Former Yemen,37.19545
-France (Including Monaco),36213.69931
+France,36213.69931
 French Equatorial Africa,2.66442
 French Guiana,23.12834
 French Indo-China,14.08546
@@ -88,6 +87,7 @@ French West Africa,9.78422
 Gabon,241.0456
 Gambia,11.86144
 Georgia,160.51112
+Germany,27495.13354
 Germany,48294.40713
 Ghana,314.41991
 Gibraltar,12.61379
@@ -101,7 +101,7 @@ Guinea Bissau,8.91443
 Guyana,88.07633
 Haiti,66.10771
 Honduras,222.64789
-Hong Kong Special Adminstrative Region Of China,1469.90106
+Hong Kong,1469.90106
 Hungary,4764.94817
 Iceland,112.70203
 India,46514.1672
@@ -110,10 +110,10 @@ Iraq,3826.9292
 Ireland,2002.27493
 Islamic Republic Of Iran,16098.84769
 Israel,2175.03284
-Italy (Including San Marino),22801.84579
+Italy,22801.84579
 Jamaica,417.33772
+Japan,4021.37314
 Japan,55813.31229
-Japan (Excluding The Ruyuku Islands),4021.37314
 Jordan,613.31205
 Kazakhstan,4856.11831
 Kenya,407.2232
@@ -128,7 +128,7 @@ Lebanon,634.52098
 Leeward Islands,0.17983
 Lesotho,53.53796
 Liberia,48.49905
-Libyan Arab Jamahiriyah,1919.46138
+Libya,1919.46138
 Liechtenstein,0.56518
 Lithuania,362.09321
 Luxembourg,699.56806
@@ -150,7 +150,7 @@ Montenegro,23.99813
 Montserrat,1.47901
 Morocco,1521.0682
 Mozambique,150.48101
-Myanmar (Formerly Burma),484.24916
+Myanmar,484.24916
 Namibia,60.52564
 Nauru,4.62053
 Nepal,108.95863
@@ -163,6 +163,7 @@ Nicaragua,157.42098
 Niger,39.21395
 Nigeria,3449.84037
 Niue,0.24956
+North Korea,4833.96252
 Norway,2524.24435
 Occupied Palestinian Territory,47.40539
 Oman,1017.40107
@@ -175,7 +176,6 @@ Paraguay,148.00376
 Peninsular Malaysia,138.46176
 Peru,1754.63801
 Philippines,2874.22656
-Plurinational State Of Bolivia,445.60406
 Poland,26129.02375
 Portugal,2342.96103
 Puerto Rico,0.20919
@@ -189,7 +189,7 @@ Republic Of Sudan,85.8413
 Reunion,98.74869
 Rhodesia-Nyasaland,126.6517
 Romania,8170.97608
-Russian Federation,41813.7046
+Russia,41813.7046
 Rwanda,24.30641
 Rwanda-Urundi,0.62757
 Ryukyu Islands,20.93368
@@ -222,7 +222,7 @@ Suriname,102.26822
 Swaziland,38.05423
 Sweden,4735.13676
 Switzerland,2788.19809
-Syrian Arab Republic,1759.86042
+Syria,1759.86042
 Taiwan,7786.2353
 Tajikistan,77.75629
 Tanganyika,17.32607
@@ -248,10 +248,10 @@ USSR,112083.9176
 Uzbekistan,2850.20274
 Vanuatu,4.08104
 Venezuela,7425.04858
-Viet Nam,2898.6394
+Vietnam,2898.6394
 Wallis And Futuna Islands,0.4037
 Yemen,424.64836
-Yugoslavia (Former Socialist Federal Republic),3241.69632
+Yugoslavia (Former USSR),3241.69632
 Yugoslavia (Montenegro & Serbia),679.02707
 Zambia,165.80693
 Zanzibar,0.59454
