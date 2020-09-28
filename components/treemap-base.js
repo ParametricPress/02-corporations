@@ -363,7 +363,7 @@ function TreemapSVG({ key, width, height, children, ...props }) {
           width="10"
           height="12"
           stroke="none"
-          fill={"var(--color-green-50)"}
+          fill={"var(--color-green-90)"}
         />
         <rect
           x="10"
@@ -371,7 +371,7 @@ function TreemapSVG({ key, width, height, children, ...props }) {
           width="2"
           height="12"
           stroke="none"
-          fill={"var(--color-green-90)"}
+          fill={"var(--color-green-50)"}
         />
       </pattern>
       <pattern
