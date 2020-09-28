@@ -363,7 +363,7 @@ function TreemapSVG({ key, width, height, children, ...props }) {
           width="10"
           height="12"
           stroke="none"
-          fill={"var(--primary-fill)"}
+          fill={"var(--color-green-50)"}
         />
         <rect
           x="10"
