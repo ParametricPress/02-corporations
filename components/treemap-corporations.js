@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
+import { useSpring, animated, config } from "react-spring";
 
 import {
   withFadeIn,
@@ -9,13 +10,19 @@ import {
   OTHER_NAME,
 } from "./treemap-base";
 
-import TreemapCorporationsOverview from "./treemap-corporations-overview";
-
 function TreemapCorporations({ width, height, data, progress, ...props }) {
-  // we only use the y-values from the d3 treemap;
-  // the x-values are all managed internally here
-  const overviewWidth = 50;
-  const detailWidth = 300;
+  const [animatedProps, set] = useSpring(() => ({
+    overviewWidth: 400,
+    detailWidth: 0,
+    config: config.slow,
+  }));
+  const { overviewWidth, detailWidth } = animatedProps;
+
+  useEffect(() => {
+    set({ overviewWidth: 50 });
+    set({ detailWidth: 300 });
+  }, []);
+
   const detailOffset = 100;
 
   const detailData = useMemo(() => {
@@ -112,14 +119,14 @@ function TreemapCorporations({ width, height, data, progress, ...props }) {
   );
 
   return (
-    <g>
+    <animated.g>
       <TreemapSVG width={width} height={height}>
         {overviewRows}
         {detailRows}
         {topLine}
         {bottomLine}
       </TreemapSVG>
-    </g>
+    </animated.g>
   );
 }
 
