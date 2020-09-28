@@ -34,7 +34,7 @@ function TreemapCorporationsOverview({
             key={d.data.id}
             text={d.data.id}
             detailText={<MtCO2 value={d.value} units={idx == 0} />}
-            width={d.x1 - d.x0}
+            width={width}
             height={d.y1 - d.y0}
             x0={d.x0}
             y0={d.y0}
