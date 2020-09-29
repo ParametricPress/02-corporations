@@ -37,11 +37,6 @@ const styles = {
   "--secondary-fill-hover": "url(#diagonal-stripes-highlight)",
   "--secondary-text": "var(--color-black)",
   "--secondary-detail-text": "var(--color-black-50)",
-  "--highlight-fill": "var(--color-red)",
-  "--highlight-stroke": "var(--color-black)",
-  "--highlight-fill-hover": "var(--color-green-highlight)",
-  "--highlight-text": "var(--color-black)",
-  "--highlight-detail-text": "var(--color-black-50)",
   "--faded-fill": "var(--color-green-50)",
   "--faded-stroke": "var(--color-black)",
   "--faded-fill-hover": "var(--color-green-50)",
@@ -220,6 +215,7 @@ function TreemapLargeRowText({ text, width, height, detailText, status }) {
 
 function TreemapRow({
   width,
+  fillWidth,
   height,
   x0 = 0,
   y0 = 0,
@@ -250,8 +246,6 @@ function TreemapRow({
     setActiveRow(null);
   };
 
-  console.log("treemaprow", { status });
-
   return (
     <g
       transform={`translate(${x0},${y0})`}
@@ -259,8 +253,8 @@ function TreemapRow({
       onMouseEnter={handleMouseEnter}
       onMouseOut={handleMouseOut}
     >
-      <rect
-        width={width}
+      <animated.rect
+        width={fillWidth}
         height={height}
         fill={`var(--${status}-fill${isHovered ? "-hover" : ""})`}
         stroke={`rgb(34, 34, 34, ${strokeOpacity})`}
