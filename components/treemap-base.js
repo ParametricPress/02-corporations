@@ -37,6 +37,16 @@ const styles = {
   "--secondary-fill-hover": "url(#diagonal-stripes-highlight)",
   "--secondary-text": "var(--color-black)",
   "--secondary-detail-text": "var(--color-black-50)",
+  "--highlight-fill": "var(--color-red)",
+  "--highlight-stroke": "var(--color-black)",
+  "--highlight-fill-hover": "var(--color-green-highlight)",
+  "--highlight-text": "var(--color-black)",
+  "--highlight-detail-text": "var(--color-black-50)",
+  "--faded-fill": "var(--color-green-50)",
+  "--faded-stroke": "var(--color-black)",
+  "--faded-fill-hover": "var(--color-green-50)",
+  "--faded-text": "var(--color-black)",
+  "--faded-detail-text": "var(--color-black-50)",
   "--background-fill": "var(--color-red)",
   "--background-stroke": "var(--color-black)",
   "--background-fill-hover": "var(--color-red-highlight)",
@@ -239,6 +249,8 @@ function TreemapRow({
     setIsHovered(false);
     setActiveRow(null);
   };
+
+  console.log("treemaprow", { status });
 
   return (
     <g

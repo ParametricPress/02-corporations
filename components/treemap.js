@@ -11,15 +11,42 @@ import TreemapCorporationsDetail from "./treemap-corporations-detail";
 import { styles } from "./treemap-base";
 
 const TreemapSteps = {
-  total: TreemapTotal,
-  individuals: TreemapIndividuals,
-  countries: TreemapCountries,
-  "corporations-overview": TreemapCorporationsOverview,
-  corporations: TreemapCorporations,
-  "corporations-detail": TreemapCorporationsDetail,
-  "corporations-state": TreemapCorporations,
-  "corporations-investor": TreemapCorporations,
-  deception: TreemapCorporations,
+  total: {
+    component: TreemapTotal,
+  },
+  individuals: {
+    component: TreemapIndividuals,
+  },
+  countries: {
+    component: TreemapCountries,
+  },
+  "corporations-overview": {
+    component: TreemapCorporationsOverview,
+  },
+  corporations: {
+    component: TreemapCorporations,
+  },
+  "corporations-detail": {
+    component: TreemapCorporationsDetail,
+  },
+  "corporations-state": {
+    component: TreemapCorporations,
+    props: {
+      highlight: "state",
+    },
+  },
+  "corporations-investor": {
+    component: TreemapCorporations,
+    props: {
+      highlight: "investor",
+    },
+  },
+  deception: {
+    component: TreemapCorporations,
+    props: {
+      highlight: "investor",
+    },
+  },
 };
 
 function Treemap({ step, width = 400, height = 600 }) {
@@ -28,7 +55,7 @@ function Treemap({ step, width = 400, height = 600 }) {
   const [activeRow, setActiveRow] = useState(null);
   const mouseXY = useRef({ x: 0, y: 0 });
 
-  const TreemapStep = TreemapSteps[step.name];
+  const treemapStep = TreemapSteps[step.name];
 
   return (
     <div
@@ -42,7 +69,12 @@ function Treemap({ step, width = 400, height = 600 }) {
           mouseXY,
         }}
       >
-        <TreemapStep data={step.data} width={width} height={height} />
+        <treemapStep.component
+          data={step.data}
+          width={width}
+          height={height}
+          {...(treemapStep.props || {})}
+        />
       </Context.Provider>
     </div>
   );

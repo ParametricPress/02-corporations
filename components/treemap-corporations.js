@@ -9,9 +9,14 @@ import {
   OTHER_NAME,
 } from "./treemap-base";
 
-import TreemapCorporationsOverview from "./treemap-corporations-overview";
-
-function TreemapCorporations({ width, height, data, progress, ...props }) {
+function TreemapCorporations({
+  width,
+  height,
+  data,
+  progress,
+  highlight,
+  ...props
+}) {
   // we only use the y-values from the d3 treemap;
   // the x-values are all managed internally here
   const overviewWidth = 50;
@@ -61,6 +66,19 @@ function TreemapCorporations({ width, height, data, progress, ...props }) {
   const detailRows = useMemo(() => {
     const otherY0 = detailLeaves[detailLeaves.length - 1].y0;
     return detailLeaves.map((d, idx) => {
+      let status;
+      if (d.data.id === OTHER_NAME) {
+        status = "secondary";
+      } else if (highlight === "state") {
+        status = d.data.data.entity_type === "SOE" ? "primary" : "faded";
+      } else if (highlight === "investor") {
+        status = d.data.data.entity_type === "IOC" ? "primary" : "faded";
+      } else {
+        status = "primary";
+      }
+
+      console.log("status", { d, name: d.data.id, status });
+
       return (
         <TreemapRow
           key={d.data.id}
@@ -70,7 +88,7 @@ function TreemapCorporations({ width, height, data, progress, ...props }) {
           height={d.y1 - d.y0}
           x0={100}
           y0={d.y0}
-          status={d.data.id === OTHER_NAME ? "secondary" : "primary"}
+          status={status}
           strokeOpacity={
             d.data.id == OTHER_NAME ? 1 : 1 - 0.8 * (d.y0 / otherY0)
           }
@@ -79,7 +97,7 @@ function TreemapCorporations({ width, height, data, progress, ...props }) {
         />
       );
     });
-  }, []);
+  }, [highlight]);
 
   const annotationLineWidth = 2;
 
@@ -112,14 +130,12 @@ function TreemapCorporations({ width, height, data, progress, ...props }) {
   );
 
   return (
-    <g>
-      <TreemapSVG width={width} height={height}>
-        {overviewRows}
-        {detailRows}
-        {topLine}
-        {bottomLine}
-      </TreemapSVG>
-    </g>
+    <TreemapSVG width={width} height={height}>
+      {overviewRows}
+      {detailRows}
+      {topLine}
+      {bottomLine}
+    </TreemapSVG>
   );
 }
 
