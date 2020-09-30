@@ -73,7 +73,7 @@ function TreemapCorporations({
         y0={d.y0}
         status={d.data.id === OTHER_NAME ? "secondary" : "primary"}
         size={"large"}
-        hideText={true}
+        compressText={true}
       />
     );
   });

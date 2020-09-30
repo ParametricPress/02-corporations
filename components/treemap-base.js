@@ -213,6 +213,22 @@ function TreemapLargeRowText({ text, width, height, detailText, status }) {
   );
 }
 
+function TreemapRotatedRowText({ width, height, detailText, status }) {
+  return (
+    <text
+      fill={`var(--${status}-text)`}
+      dx={width / 2}
+      dy={height / 2}
+      fontSize={`var(--row-font-size)`}
+      textAnchor="middle"
+      opacity={`var(--text-opacity)`}
+      transform="translate(-62, 95) rotate(270)"
+    >
+      <tspan>Top 20 corporations</tspan>
+    </text>
+  );
+}
+
 function TreemapRow({
   width,
   fillWidth,
@@ -224,12 +240,15 @@ function TreemapRow({
   data = {},
   status,
   size,
-  hideText,
+  compressText,
   strokeOpacity = 1,
   ...props
 }) {
-  const TreemapRowText =
-    size == "large" ? TreemapLargeRowText : TreemapNormalRowText;
+  const TreemapRowText = compressText
+    ? TreemapRotatedRowText
+    : size == "large"
+    ? TreemapLargeRowText
+    : TreemapNormalRowText;
   const { setActiveRow } = useContext(Context);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -264,15 +283,14 @@ function TreemapRow({
         stroke={`rgb(34, 34, 34, ${strokeOpacity})`}
         strokeWidth={`var(--stroke-width)`}
       />
-      {!hideText && (
-        <TreemapRowText
-          text={text}
-          detailText={detailText}
-          width={width}
-          height={height}
-          status={status}
-        />
-      )}
+
+      <TreemapRowText
+        text={text}
+        detailText={detailText}
+        width={fillWidth}
+        height={height}
+        status={status}
+      />
     </animated.g>
   );
 }
