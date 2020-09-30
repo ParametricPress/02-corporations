@@ -1,4 +1,6 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useContext, useEffect } from "react";
+import { useSpring, animated } from "react-spring";
+import Context from "./treemap-context";
 
 import {
   withFadeIn,
@@ -17,11 +19,23 @@ function TreemapCorporations({
   highlight,
   ...props
 }) {
+  const { lastWidth } = useContext(Context);
+
   // we only use the y-values from the d3 treemap;
   // the x-values are all managed internally here
-  const overviewWidth = 50;
   const detailWidth = 300;
-  const detailOffset = 100;
+
+  const [animatedProps, set] = useSpring(() => ({
+    detailOffset: lastWidth === "full" ? 400 : 100,
+    overviewWidth: lastWidth === "full" ? 400 : 50,
+  }));
+
+  const { detailOffset, overviewWidth } = animatedProps;
+
+  useEffect(() => {
+    set({ detailOffset: 100 });
+    set({ overviewWidth: 50 });
+  }, []);
 
   const detailData = useMemo(() => {
     // Extract the top 20 corporate entities. Excluding national governments
@@ -53,6 +67,7 @@ function TreemapCorporations({
         text={d.data.id}
         detailText={<MtCO2 value={d.value} units={idx == 0} />}
         width={overviewWidth}
+        fillWidth={overviewWidth}
         height={d.y1 - d.y0}
         x0={0}
         y0={d.y0}
@@ -63,46 +78,41 @@ function TreemapCorporations({
     );
   });
 
-  const detailRows = useMemo(() => {
-    const otherY0 = detailLeaves[detailLeaves.length - 1].y0;
-    return detailLeaves.map((d, idx) => {
-      let status;
-      if (d.data.id === OTHER_NAME) {
-        status = "secondary";
-      } else if (highlight === "state") {
-        status = d.data.data.entity_type === "SOE" ? "primary" : "faded";
-      } else if (highlight === "investor") {
-        status = d.data.data.entity_type === "IOC" ? "primary" : "faded";
-      } else {
-        status = "primary";
-      }
+  const otherY0 = detailLeaves[detailLeaves.length - 1].y0;
+  const detailRows = detailLeaves.map((d, idx) => {
+    let status;
+    if (d.data.id === OTHER_NAME) {
+      status = "secondary";
+    } else if (highlight === "state") {
+      status = d.data.data.entity_type === "SOE" ? "primary" : "faded";
+    } else if (highlight === "investor") {
+      status = d.data.data.entity_type === "IOC" ? "primary" : "faded";
+    } else {
+      status = "primary";
+    }
 
-      console.log("status", { d, name: d.data.id, status });
-
-      return (
-        <TreemapRow
-          key={d.data.id}
-          text={d.data.id}
-          detailText={<MtCO2 value={d.value} units={idx == 0} />}
-          width={detailWidth}
-          height={d.y1 - d.y0}
-          x0={100}
-          y0={d.y0}
-          status={status}
-          strokeOpacity={
-            d.data.id == OTHER_NAME ? 1 : 1 - 0.8 * (d.y0 / otherY0)
-          }
-          size={"normal"}
-          data={d.data.data}
-        />
-      );
-    });
-  }, [highlight]);
+    return (
+      <TreemapRow
+        key={d.data.id}
+        text={d.data.id}
+        detailText={<MtCO2 value={d.value} units={idx == 0} />}
+        width={detailWidth}
+        fillWidth={detailWidth}
+        height={d.y1 - d.y0}
+        x0={detailOffset}
+        y0={d.y0}
+        status={status}
+        strokeOpacity={d.data.id == OTHER_NAME ? 1 : 1 - 0.8 * (d.y0 / otherY0)}
+        size={"normal"}
+        data={d.data.data}
+      />
+    );
+  });
 
   const annotationLineWidth = 2;
 
   const topLine = (
-    <line
+    <animated.line
       x1={overviewWidth}
       y1={annotationLineWidth}
       x2={detailOffset}
@@ -116,7 +126,7 @@ function TreemapCorporations({
   );
 
   const bottomLine = (
-    <line
+    <animated.line
       x1={overviewWidth}
       y1={overviewData.leaves()[0].y1}
       x2={detailOffset}

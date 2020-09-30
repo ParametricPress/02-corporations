@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import Context from "./treemap-context";
 
@@ -7,45 +7,47 @@ import TreemapIndividuals from "./treemap-individuals";
 import TreemapCountries from "./treemap-countries";
 import TreemapCorporationsOverview from "./treemap-corporations-overview";
 import TreemapCorporations from "./treemap-corporations";
-import TreemapCorporationsDetail from "./treemap-corporations-detail";
 import { styles } from "./treemap-base";
 
 const TreemapSteps = {
   total: {
     component: TreemapTotal,
+    width: "full",
   },
   individuals: {
     component: TreemapIndividuals,
+    width: "full",
   },
   countries: {
     component: TreemapCountries,
+    width: "full",
   },
   "corporations-overview": {
     component: TreemapCorporationsOverview,
+    width: "full",
   },
   corporations: {
     component: TreemapCorporations,
+    width: "split",
   },
   "corporations-detail": {
-    component: TreemapCorporationsDetail,
+    component: TreemapCorporations,
+    width: "split",
   },
   "corporations-state": {
     component: TreemapCorporations,
-    props: {
-      highlight: "state",
-    },
+    props: { highlight: "state" },
+    width: "split",
   },
   "corporations-investor": {
     component: TreemapCorporations,
-    props: {
-      highlight: "investor",
-    },
+    props: { highlight: "investor" },
+    width: "split",
   },
   deception: {
     component: TreemapCorporations,
-    props: {
-      highlight: "investor",
-    },
+    props: { highlight: "investor" },
+    width: "split",
   },
 };
 
@@ -53,9 +55,14 @@ function Treemap({ step, width = 400, height = 600 }) {
   if (!step || !step.name || !TreemapSteps[step.name]) return null;
 
   const [activeRow, setActiveRow] = useState(null);
+  const [lastWidth, setLastWidth] = useState("full");
   const mouseXY = useRef({ x: 0, y: 0 });
 
   const treemapStep = TreemapSteps[step.name];
+
+  useEffect(() => {
+    setLastWidth(TreemapSteps[step.name].width);
+  }, [step.name]);
 
   return (
     <div
@@ -67,6 +74,7 @@ function Treemap({ step, width = 400, height = 600 }) {
           activeRow,
           setActiveRow,
           mouseXY,
+          lastWidth,
         }}
       >
         <treemapStep.component
