@@ -28,7 +28,8 @@ function TreemapCountries({ width, height, data, progress, ...props }) {
           key={d.data.id}
           text={d.data.id}
           detailText={<MtCO2 value={d.value} units={idx == 0} />}
-          width={d.x1 - d.x0}
+          width={400}
+          fillWidth={400}
           height={d.y1 - d.y0}
           x0={d.x0}
           y0={d.y0}

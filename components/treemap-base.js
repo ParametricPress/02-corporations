@@ -247,8 +247,12 @@ function TreemapRow({
   };
 
   return (
-    <g
-      transform={`translate(${x0},${y0})`}
+    <animated.g
+      transform={
+        x0.interpolate
+          ? x0.interpolate((x0) => `translate(${x0},${y0})`)
+          : `translate(${x0},${y0})`
+      }
       {...props}
       onMouseEnter={handleMouseEnter}
       onMouseOut={handleMouseOut}
@@ -269,7 +273,7 @@ function TreemapRow({
           status={status}
         />
       )}
-    </g>
+    </animated.g>
   );
 }
 

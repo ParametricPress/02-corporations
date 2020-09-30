@@ -1,5 +1,5 @@
 import React, { useMemo, useContext, useEffect } from "react";
-import { useSpring, config } from "react-spring";
+import { useSpring, animated } from "react-spring";
 import Context from "./treemap-context";
 
 import {
@@ -23,18 +23,18 @@ function TreemapCorporations({
 
   // we only use the y-values from the d3 treemap;
   // the x-values are all managed internally here
-  const overviewWidth = 50;
-  // const detailWidth = 300;
-  const detailOffset = 100;
+  const detailWidth = 300;
 
   const [animatedProps, set] = useSpring(() => ({
-    detailWidth: lastWidth === "full" ? 0 : 300,
+    detailOffset: lastWidth === "full" ? 400 : 100,
+    overviewWidth: lastWidth === "full" ? 400 : 50,
   }));
 
-  const { detailWidth } = animatedProps;
+  const { detailOffset, overviewWidth } = animatedProps;
 
   useEffect(() => {
-    set({ detailWidth: 300 });
+    set({ detailOffset: 100 });
+    set({ overviewWidth: 50 });
   }, []);
 
   const detailData = useMemo(() => {
@@ -67,6 +67,7 @@ function TreemapCorporations({
         text={d.data.id}
         detailText={<MtCO2 value={d.value} units={idx == 0} />}
         width={overviewWidth}
+        fillWidth={overviewWidth}
         height={d.y1 - d.y0}
         x0={0}
         y0={d.y0}
@@ -95,7 +96,7 @@ function TreemapCorporations({
         key={d.data.id}
         text={d.data.id}
         detailText={<MtCO2 value={d.value} units={idx == 0} />}
-        width={width}
+        width={detailWidth}
         fillWidth={detailWidth}
         height={d.y1 - d.y0}
         x0={detailOffset}
@@ -111,7 +112,7 @@ function TreemapCorporations({
   const annotationLineWidth = 2;
 
   const topLine = (
-    <line
+    <animated.line
       x1={overviewWidth}
       y1={annotationLineWidth}
       x2={detailOffset}
@@ -125,7 +126,7 @@ function TreemapCorporations({
   );
 
   const bottomLine = (
-    <line
+    <animated.line
       x1={overviewWidth}
       y1={overviewData.leaves()[0].y1}
       x2={detailOffset}

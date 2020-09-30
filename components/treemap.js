@@ -7,7 +7,6 @@ import TreemapIndividuals from "./treemap-individuals";
 import TreemapCountries from "./treemap-countries";
 import TreemapCorporationsOverview from "./treemap-corporations-overview";
 import TreemapCorporations from "./treemap-corporations";
-import TreemapCorporationsDetail from "./treemap-corporations-detail";
 import { styles } from "./treemap-base";
 
 const TreemapSteps = {
@@ -32,7 +31,7 @@ const TreemapSteps = {
     width: "split",
   },
   "corporations-detail": {
-    component: TreemapCorporationsDetail,
+    component: TreemapCorporations,
     width: "split",
   },
   "corporations-state": {
