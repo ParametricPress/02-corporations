@@ -1,4 +1,6 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useContext } from "react";
+
+import Context from "./treemap-context";
 
 import {
   withFadeIn,
@@ -6,6 +8,7 @@ import {
   generateTreemap,
   TreemapRow,
   TreemapSVG,
+  HoverDetail,
   OTHER_NAME,
 } from "./treemap-base";
 
@@ -17,6 +20,8 @@ function TreemapCountries({
   progress,
   ...props
 }) {
+  const { activeRow } = useContext(Context);
+
   const treemapData = useMemo(() => {
     const entityData = data.filter((d) => d.value > 10000);
     return generateTreemap(entityData, 1, width, chartHeight);
@@ -53,6 +58,12 @@ function TreemapCountries({
   return (
     <TreemapSVG width={width} height={height}>
       {rows}
+      <HoverDetail
+        activeRow={activeRow}
+        height={height}
+        chartHeight={chartHeight}
+        width={width}
+      />
     </TreemapSVG>
   );
 }
