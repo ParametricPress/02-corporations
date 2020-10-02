@@ -12,6 +12,7 @@ import {
 function TreemapCorporationsOverview({
   width,
   height,
+  chartHeight,
   data,
   progress,
   ...props
@@ -23,7 +24,7 @@ function TreemapCorporationsOverview({
         value: 468978,
       },
     ];
-    return generateTreemap(entityData, 1);
+    return generateTreemap(entityData, 1, width, chartHeight);
   }, []);
 
   return (

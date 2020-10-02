@@ -51,7 +51,9 @@ const TreemapSteps = {
   },
 };
 
-function Treemap({ step, width = 400, height = 600 }) {
+// height = total svg height
+// chartHeight = height of actual rectangular chart body
+function Treemap({ step, width = 400, height = 700, chartHeight = 600 }) {
   if (!step || !step.name || !TreemapSteps[step.name]) return null;
 
   const [activeRow, setActiveRow] = useState(null);
@@ -81,6 +83,7 @@ function Treemap({ step, width = 400, height = 600 }) {
           data={step.data}
           width={width}
           height={height}
+          chartHeight={chartHeight}
           {...(treemapStep.props || {})}
         />
       </Context.Provider>

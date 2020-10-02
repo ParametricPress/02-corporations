@@ -65,7 +65,7 @@ const GLOBAL_EMISSIONS_TOTAL = 1544812;
 //   0 = just plot the given data, no extra entities to add
 //   1 = add an extra entity so that the total sums to the global total emissions
 //   in between = scale the extra entity proportionally. (used for animation)
-const generateTreemap = (data, padTotal = 0) => {
+const generateTreemap = (data, padTotal = 0, width, chartHeight) => {
   let groupedEntities = [
     { entity: "Global", parent: null },
     ...data.map((d) => ({ ...d, parent: "Global" })),
@@ -103,9 +103,11 @@ const generateTreemap = (data, padTotal = 0) => {
       }
     });
 
-  return d3.treemap().tile(d3.treemapSlice).size([WIDTH, HEIGHT]).round(true)(
-    hierarchicalData
-  );
+  return d3
+    .treemap()
+    .tile(d3.treemapSlice)
+    .size([width, chartHeight])
+    .round(true)(hierarchicalData);
 };
 
 function withFadeIn(Component) {

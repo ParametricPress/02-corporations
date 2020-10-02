@@ -9,11 +9,17 @@ import {
   OTHER_NAME,
 } from "./treemap-base";
 
-function TreemapCountries({ width, height, data, progress, ...props }) {
+function TreemapCountries({
+  width,
+  height,
+  chartHeight,
+  data,
+  progress,
+  ...props
+}) {
   const treemapData = useMemo(() => {
     const entityData = data.filter((d) => d.value > 10000);
-    // const entityData = data;
-    return generateTreemap(entityData, 1);
+    return generateTreemap(entityData, 1, width, chartHeight);
   }, []);
 
   const leaves = useMemo(() => {

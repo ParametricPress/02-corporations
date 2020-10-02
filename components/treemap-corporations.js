@@ -14,6 +14,7 @@ import {
 function TreemapCorporations({
   width,
   height,
+  chartHeight,
   data,
   progress,
   highlight,
@@ -42,7 +43,7 @@ function TreemapCorporations({
     const entityData = data
       .filter((d) => d.entity_type !== "State")
       .slice(0, 20);
-    return generateTreemap(entityData, 0);
+    return generateTreemap(entityData, 0, width, chartHeight);
   }, []);
 
   const detailLeaves = useMemo(() => {
@@ -57,7 +58,7 @@ function TreemapCorporations({
         value: 468978,
       },
     ];
-    return generateTreemap(entityData, 1);
+    return generateTreemap(entityData, 1, width, chartHeight);
   }, []);
 
   const overviewRows = overviewData.leaves().map((d, idx) => {
@@ -130,7 +131,7 @@ function TreemapCorporations({
       x1={overviewWidth}
       y1={overviewData.leaves()[0].y1}
       x2={detailOffset}
-      y2={height}
+      y2={chartHeight}
       style={{
         stroke: "#adadad",
         strokeWidth: annotationLineWidth,

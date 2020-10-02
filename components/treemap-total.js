@@ -2,7 +2,14 @@ import React from "react";
 
 import { withFadeIn, CO2, TreemapRow, TreemapSVG } from "./treemap-base";
 
-function TreemapTotal({ width, height, data, progress, ...props }) {
+function TreemapTotal({
+  width,
+  height,
+  chartHeight,
+  data,
+  progress,
+  ...props
+}) {
   return (
     <TreemapSVG width={width} height={height}>
       <TreemapRow
@@ -13,7 +20,7 @@ function TreemapTotal({ width, height, data, progress, ...props }) {
         }
         width={width}
         fillWidth={width}
-        height={height}
+        height={chartHeight}
         status={"primary"}
         size={"large"}
       />
