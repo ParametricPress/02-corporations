@@ -9,6 +9,7 @@ import {
   TreemapRow,
   TreemapSVG,
   OTHER_NAME,
+  HoverDetail,
 } from "./treemap-base";
 
 function TreemapCorporations({
@@ -20,11 +21,12 @@ function TreemapCorporations({
   highlight,
   ...props
 }) {
-  const { lastWidth } = useContext(Context);
+  const { lastWidth, activeRow } = useContext(Context);
 
   // we only use the y-values from the d3 treemap;
   // the x-values are all managed internally here
   const detailWidth = 300;
+  const finalDetailOffset = 100;
 
   const [animatedProps, set] = useSpring(() => ({
     detailOffset: lastWidth === "full" ? 400 : 100,
@@ -34,7 +36,7 @@ function TreemapCorporations({
   const { detailOffset, overviewWidth } = animatedProps;
 
   useEffect(() => {
-    set({ detailOffset: 100 });
+    set({ detailOffset: finalDetailOffset });
     set({ overviewWidth: 50 });
   }, []);
 
@@ -75,6 +77,7 @@ function TreemapCorporations({
         status={d.data.id === OTHER_NAME ? "secondary" : "primary"}
         size={"large"}
         compressText={true}
+        data={d.data.data}
       />
     );
   });
@@ -146,6 +149,13 @@ function TreemapCorporations({
       {detailRows}
       {topLine}
       {bottomLine}
+      <HoverDetail
+        activeRow={activeRow}
+        height={height}
+        chartHeight={chartHeight}
+        width={width}
+        xOffset={finalDetailOffset}
+      />
     </TreemapSVG>
   );
 }

@@ -359,10 +359,10 @@ function TreemapMatrix({ width, height, cellWidth, cellHeight, strokeWidth }) {
   );
 }
 
-function HoverDetail({ activeRow, height, chartHeight, ...props }) {
+function HoverDetail({ activeRow, height, chartHeight, xOffset, ...props }) {
   if (activeRow) {
     return (
-      <g transform={`translate(0, ${chartHeight + 20})`}>
+      <g transform={`translate(${xOffset || 0}, ${chartHeight + 25})`}>
         <text fill="#adadad">{activeRow.text}</text>
         <text fill="#adadad" dy={20} fontSize="0.7em">
           <MtCO2 value={activeRow.data.value} units />
