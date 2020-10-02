@@ -4,6 +4,7 @@ import { useSpring, animated, config } from "react-spring";
 import useEventListener from "@use-it/event-listener";
 
 import Context from "./treemap-context";
+import { active } from "d3";
 
 const WIDTH = 400;
 const HEIGHT = 600;
@@ -363,10 +364,22 @@ function HoverDetail({ activeRow, height, chartHeight, xOffset, ...props }) {
   if (activeRow) {
     return (
       <g transform={`translate(${xOffset || 0}, ${chartHeight + 25})`}>
-        <text fill="#adadad">{activeRow.text}</text>
+        <text fill="#adadad">
+          {activeRow.text}
+          {activeRow.data.ticker_symbol && (
+            <tspan dx={15} fontSize="0.7em">
+              {activeRow.data.ticker_symbol}
+            </tspan>
+          )}
+        </text>
         <text fill="#adadad" dy={20} fontSize="0.7em">
           <MtCO2 value={activeRow.data.value} units />
         </text>
+        {activeRow.data.market_cap && (
+          <text fill="#adadad" dy={40} fontSize="0.7em">
+            Market Cap: {activeRow.data.market_cap} {activeRow.data.currency}
+          </text>
+        )}
       </g>
     );
   } else {
