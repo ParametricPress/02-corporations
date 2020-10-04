@@ -405,7 +405,12 @@ function TreemapSVG({ key, width, height, children, ...props }) {
   });
 
   return (
-    <svg ref={svgEl} width={width} height={height} {...props}>
+    <svg
+      ref={svgEl}
+      viewBox={`0 0 ${width} ${height}`}
+      className="emissions-treemap"
+      {...props}
+    >
       <pattern
         id="diagonal-stripes"
         x="0"

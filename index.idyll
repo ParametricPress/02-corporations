@@ -58,6 +58,14 @@ Putting the spotlight on these companies emphasizes their historical culpability
         data: null
       },
       {
+        name: "individuals",
+        data: null
+      },
+      {
+        name: "countries",
+        data: nationalEmissions
+      },
+      {
         name: "countries",
         data: nationalEmissions
       },
@@ -108,6 +116,8 @@ Putting the spotlight on these companies emphasizes their historical culpability
     Become a vegetarian! Ride a bike! Have fewer children! Amid a deluge of suggestions to lower your personal carbon footprint, you might be tempted believe that individual action is the best way to combat climate change.
 
     People can and should take steps to curb their personal emissions, especially the wealthiest 10% who disproportionately account for half of all individual emissions. There is a tempting immediacy in personal action, with no gatekeeper to convince but ourselves.
+  [/Step]
+  [Step]
 
     But the impact of any one person’s actions is ultimately limited. Even collective individual action is limited by existing frameworks of production and policy set at the state or corporate level. One person can choose not to own a car, but an individual can’t reshape urban life around bicycle transit by themselves. The idea that demand alone drives the production of goods and the shape of society is an overly simplistic idea that ignores the power and influence of governments and companies operating under capitalism.
 
@@ -116,7 +126,8 @@ Putting the spotlight on these companies emphasizes their historical culpability
     ## National Emissions 🇺🇸
 
     Another common way to group emissions is by the country or region where the emissions occurred. This method suggests political vectors for change: by electing the right leaders, supporting climate-conscious policy, and advocating for environmental cooperation on the international stage, we hope to reduce emissions at the country scale.
-
+  [/Step]
+  [Step]
     This view is an essential part of addressing climate change, and holds the promise of large scale lasting impact. But relying on government action can also be a frustratingly oblique strategy when legislative gridlock, populist political movements, and widespread fossil fuel lobbying threaten to stagnate or even regress national climate policies.
   [/Step]
   [Step]

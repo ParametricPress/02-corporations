@@ -53,12 +53,14 @@ const TreemapSteps = {
 
 // height = total svg height
 // chartHeight = height of actual rectangular chart body
-function Treemap({ step, width = 400, height = 700, chartHeight = 600 }) {
+function Treemap({ step, width = 400, height = 700 }) {
   if (!step || !step.name || !TreemapSteps[step.name]) return null;
 
   const [activeRow, setActiveRow] = useState(null);
   const [lastWidth, setLastWidth] = useState("full");
   const mouseXY = useRef({ x: 0, y: 0 });
+
+  const chartHeight = height - 100;
 
   const treemapStep = TreemapSteps[step.name];
 
@@ -67,10 +69,7 @@ function Treemap({ step, width = 400, height = 700, chartHeight = 600 }) {
   }, [step.name]);
 
   return (
-    <div
-      className="treemap-container"
-      style={{ transform: "translate(0, -50px)", ...styles }}
-    >
+    <div className="treemap-container" style={{ ...styles }}>
       <Context.Provider
         value={{
           activeRow,
