@@ -13,6 +13,7 @@ const CONTAINER_HEIGHT = HEIGHT + HOVER_LABEL_HEIGHT;
 
 const styles = {
   "--color-green": "rgb(216, 255, 162)",
+  "--color-green-30": "rgb(216, 255, 162, 0.3)",
   "--color-green-50": "rgb(216, 255, 162, 0.5)",
   "--color-green-90": "rgb(216, 255, 162, 0.9)",
   "--color-green-highlight": "rgb(234, 255, 204)",
@@ -38,9 +39,9 @@ const styles = {
   "--secondary-fill-hover": "url(#diagonal-stripes-highlight)",
   "--secondary-text": "var(--color-black)",
   "--secondary-detail-text": "var(--color-black-50)",
-  "--faded-fill": "var(--color-green-50)",
+  "--faded-fill": "var(--color-green-30)",
   "--faded-stroke": "var(--color-black)",
-  "--faded-fill-hover": "var(--color-green-50)",
+  "--faded-fill-hover": "var(--color-green-30)",
   "--faded-text": "var(--color-black)",
   "--faded-detail-text": "var(--color-black-50)",
   "--background-fill": "var(--color-red)",

@@ -30,9 +30,10 @@ const TreemapSteps = {
     component: TreemapCorporations,
     width: "split",
   },
-  "corporations-detail": {
+  "corporations-exxon": {
     component: TreemapCorporations,
     width: "split",
+    props: { highlight: "exxon" },
   },
   "corporations-state": {
     component: TreemapCorporations,

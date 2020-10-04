@@ -11,7 +11,7 @@
   title:`["Corporate Cause"]`
   longTitle:`["Corporate Cause"]`
   date:"May 15, 2020"
-  dek:"The companies behind climate change"
+  dek:"The fossil fuels companies behind climate change"
   fullWidth:true
   authors:`[{
     name: "Geoffrey Litt",
@@ -36,9 +36,9 @@
 [IntroIllustration /]
 [/div]
 
-**Who is responsible for climate change?** There is no simple answer. Global warming is a fiendishly complex problem, deeply rooted in our current economic system. And yet, responsibility matters—not just for assigning blame, but for finding levers of future change.
+**Who is responsible for climate change?** Of course, there is no simple answer; global warming is a fiendishly complex problem. And yet, responsibility matters—not just for assigning blame, but for finding levers of future change.
 
-As we discuss what individuals and governments can do, we often forget to consider another critical player: fossil fuel companies. These companies operate at truly awesome scale—just 20 massive corporations are responsible for one third (TK: double-check number) of global greenhouse gas emissions since 1965, through the burning of fossil fuel products they extracted and sold.
+As we discuss the responsibilities of individual consumers and national governments, we often forget to consider another critical player: **fossil fuel companies**. These companies operate at massive scale—just 20 corporations are linked to 30% of all CO₂ emissions, through the burning of fossil fuel products they extracted and sold.
 
 Putting the spotlight on these companies emphasizes their historical culpability, and suggests new avenues for future action by pressuring them to change their behavior.
 
@@ -78,7 +78,19 @@ Putting the spotlight on these companies emphasizes their historical culpability
         data: entityEmissions
       },
       {
-        name: "corporations-detail",
+        name: "corporations-exxon",
+        data: entityEmissions
+      },
+            {
+        name: "corporations-exxon",
+        data: entityEmissions
+      },
+            {
+        name: "corporations-exxon",
+        data: entityEmissions
+      },
+            {
+        name: "corporations-exxon",
         data: entityEmissions
       },
       {
@@ -105,9 +117,9 @@ Putting the spotlight on these companies emphasizes their historical culpability
   [/Graphic]
 
   [Step]
-    # Attributing responsibility
+    # Dividing up responsibility
 
-    This box represents all historical man-made greenhouse gas emissions up to 2016: about 1.5 trillion tons of carbon dioxide. Let's explore some different ways for dividing up responsbility for this quantity of emissions.
+    This box represents all historical man-made carbon dioxide emissions up to 2016: approximately 1.5 trillion tons. Let's explore some different approaches to dividing up responsbility for this staggering quantity of emissions.
   [/Step]
 
   [Step]
@@ -128,45 +140,70 @@ Putting the spotlight on these companies emphasizes their historical culpability
     Another common way to group emissions is by the country or region where the emissions occurred. This method suggests political vectors for change: by electing the right leaders, supporting climate-conscious policy, and advocating for environmental cooperation on the international stage, we hope to reduce emissions at the country scale.
   [/Step]
   [Step]
-    This view is an essential part of addressing climate change, and holds the promise of large scale lasting impact. But relying on government action can also be a frustratingly oblique strategy when legislative gridlock, populist political movements, and widespread fossil fuel lobbying threaten to stagnate or even regress national climate policies.
+    While this view is an essential part of addressing climate change, it also has its limits. Relying on government action can also be a frustratingly oblique strategy when legislative gridlock, political movements, and fossil fuel lobbying threaten to stagnate or even regress national climate policies.
   [/Step]
   [Step]
     ## Corporate Fossil Fuel Producers 🏢
 
-    In this article, we explore a third approach: grouping emissions by the corporations that extracted, processed, sold, transported the fossil fuels. Richard Heede and the Climate Accountability Institute have done [pioneering work](https://climateaccountability.org/carbonmajors.html) tracing emissions to individual producers, finding an extreme concentration of emissions among a small number of “carbon majors.”
+    In this article, we explore a third approach to assigning responsibility: considering the corporations that extracted and sold the fossil fuels. We'll use data [collected by](https://climateaccountability.org/carbonmajors.html) Richard Heede and the Climate Accountability Institute, which traces emissions to fossil fuel producers through records of their sales and activites.
 
-    The Top 20 fossil fuel companies are responsible for over 30% of all greenhouse gas emissions in world history.
+    This data shows a heavy concentration of emissions linked to a small number of companies: **over 30% of all CO₂ emissions in world history can be linked to just 20 fossil fuel corporations**.
   [/Step]
 
   [Step]
-    ## The Top 20
-    These corporations have made enormous profits over decades, and have a history of deceptive lobbying around climate change to ensure the persistence of their harmful business models. Furthermore, many of these firms are investor-owned companies, meaning that public financial markets have influence over their actions.
+    Here we see the top 20 corporations, along with their associated emissions quantities.
 
-    Focusing on these corporate actors offers a new lens on the problem of climate change. Each of these companies offers a leverage point—a non-governmental entity with near unilateral control over a massive portfolio of emissions activity. In Heede's own words: "Even though global consumers from individuals to corporations are the ultimate emitters of carbon dioxide, the Climate Accountability Institute focuses its work on the fossil fuel companies that, in our view, have their collective hand on the throttle and the tiller determining the rate of carbon emissions and the shift to non-carbon fuels."
+    Focusing on these corporate actors offers a new lens on the problem of climate change. Each of these companies offers a leverage point—a non-governmental entity with unilateral control over a massive portfolio of emissions activity.
+
+    In Heede's words: "Even though global consumers from individuals to corporations are the ultimate emitters of carbon dioxide, the Climate Accountability Institute focuses its work on the fossil fuel companies that, in our view, have their collective hand on the throttle and the tiller determining the rate of carbon emissions and the shift to non-carbon fuels."
   [/Step]
 
   [Step]
   # Understanding corporate emissions
 
-    Let’s begin by focusing on a single company: ExxonMobil, one of the largest publicly traded oil and gas companies in the world. Exxon’s emissions footprint falls into two categories: downstream emissions and direct emissions.
+    What does it mean, exactly, for a company to be associated with CO₂ emissions? Let’s explore this question by focusing on a single company: ExxonMobil, one of the largest publicly traded oil and gas companies in the world.
+    
+    Exxon’s emissions footprint falls into two categories: downstream emissions and direct emissions.
+  [/Step]
+  [Step]
 
-    The primary category is downstream emissions. People buy oil and gas from Exxon, and then they burn it to produce energy, releasing carbon dioxide and other GHGs. CAI estimated Exxon’s 2015 downstream emissions at 523 million tons of CO₂ equivalent (MtCO₂e). CO₂ equivalent is a unit that measures quantities of greenhouse gases like CO₂ and methane by considering their contributions to warming. CAI assembled this number by finding production data in financial reports and other sources, and then multiplying the produced quantities by typical downstream emissions for each type of fuel.
+    [ParametricGraphic source:"Photo by Iwona Castiello d'Antonio on Unsplash"]
+      [img src:"static/images/traffic-jam.jpg" /]
+    [/ParametricGraphic]
 
-    A secondary category is direct emissions from the process of fossil fuel extraction and production itself. This includes flaring and venting: burning or releasing unwanted gases into the atmosphere as part of the production process. It also includes other energy like electricity used in the oil extraction process, with corresponding upstream emissions. In 2015, Exxon’s direct emissions were estimated at the equivalent of 54 million tons of CO₂—an order of magnitude smaller than their downstream emissions, but still not insignificant.
+    Most of the emissions linked to Exxon are **downstream emissions**: the combustion of fossil fuels sold by the company, for powering things like cars and factories.
+    
+    Exxon’s 2015 downstream emissions were estimated at 523 million tons of CO₂ equivalent (MtCO₂e), making up about 90% of its total emissions.
+  [/Step]
+  [Step]
+    [ParametricGraphic source:"Photo by WORKSITE Ltd. on Unsplash"]
+      [img src:"static/images/oil-rig.jpg" /]
+    [/ParametricGraphic]
 
-    Adding together downstream and direct emissions, we arrive at a total greenhouse gas footprint of 577 MtCO₂e, accounting for 1.4% of global industrial greenhouse gas emissions in 2015. To put that number in perspective, in 2015 the United Kingdom estimated national greenhouse gas emissions at 496 MtCO₂e. Exxon’s emissions footprint is country-sized.
+    A secondary category is direct emissions from the process of fossil fuel extraction and production itself. This includes flaring and venting: burning or releasing unwanted gases into the atmosphere as part of the production process. It also includes other energy like electricity used in the oil extraction process, with corresponding upstream emissions.
+    
+    Exxon’s 2015 direct emissions were estimated at 54 million tons of CO₂e—an order of magnitude smaller than their downstream emissions, but still significant.
+  [/Step]
+  [Step]
+    You might ask whether it’s fair to attribute downstream emissions to fossil fuel companies. After all, if Exxon hadn’t sold these fuels, wouldn’t another company have taken their place?
 
-    You might reasonably ask whether it’s fair to attribute downstream emissions to the company that extracted the fossil fuels. After all, if Exxon hadn’t sold these fuels to these consumers, wouldn’t another company have taken their place? Yes and no. Exxon may not bear sole responsibility for these emissions, but they have enormous control over the available energy options offered to consumers, the rate of production and size of oil reserves, and the downstream cost of the commodity, not to mention the role their marketing, lobbying, and investment arms have in perpetuating oil dependence globally. Just as building more roads often leads to more traffic, the supplier of a commodity often has an outsized influence, whether direct or indirect, on its demand.
+    It's true that Exxon doesn't bear sole responsibility for these emissions, but the company still exercises enormous influence. Their marketing, lobbying, and investment arms play a role in perpetuating oil dependence globally; as we'll see later, Exxon and other companies have a history of deceiving the public about the realities of climate change. Exxon's future research investments can also meaningfully shift the course of progress away from fossil fuels.
+
+    Companies like Exxon can't solve climate change on their own. But their massive emissions portfolios represent a unique opportunity for leverage to move the needle on the problem.
   [/Step]
 
   [Step]
-    ## Ownership structures
+    # Investor ownership
 
-    Let's zoom back out to the top 20 producers. When thinking about vectors for influencing the behavior of these companies, it's important to consider their ownership: are they owned by a state government or private investors?
+    Now that we see the origins of the data, let's again consider the top 20 producers.
+    
+    When considering vectors for influencing the behavior of these companies, it's important to consider their ownership, distinguishing between state-owned and investor-owned corporations.
   [/Step]
 
   [Step]
-   ### State-owned companies
+   ## State-owned companies
+
+   todo: clarify background vs conclusion
 
 State-owned corporations, including China’s coal coalition and Gazprom, comprise the largest historical emitters. Many of these companies were created in the middle of the twentieth-century, as the balance of power shifted towards producers and post-war governments sought to shore up control of domestic oil and coal reserves. In September 1960, Organization of the Petroleum Exporting Countries (OPEC) was created, and many member states created national oil companies. The shift towards state-owned corporations was part of a larger trend towards nationalization in a post-colonial world.
 
@@ -176,7 +213,9 @@ The overall impact of state-owned companies shows in the data. Historically, sta
   [/Step]
 
   [Step]
-    ### Investor-owned companies
+    ## Investor-owned companies
+  
+todo: drop public private, clarify the direct influence
 
 Excluding state-owned companies, 20% of historical emissions come from investor-owned corporations. This is still a very significant portion of carbon emissions concentrated in a small number of companies. Crucially, these companies are vulnerable to additional forms of leverage by nature of their commitments to investors.
 
@@ -233,7 +272,9 @@ Ultimately, we present the above data in an effort to shift the conversation for
 
 [AuthorBio]
 
-[b][a href:""]Your Name[/a][/b] is _TK insert bio here_.
+[b][a href:"https://www.geoffreylitt.com/"]Geoffrey Litt[/a][/b] is a researcher exploring tools for democratizing programming. He is currently pursuing a PhD in Computer Science at MIT.
+
+[b][a href:"https://seththompson.org/"]Seth Thompson[/a][/b] is an artist, designer, and software engineer based in New Haven, CT.
 
 Edited by TK editor list.
 [/AuthorBio]

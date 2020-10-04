@@ -91,6 +91,8 @@ function TreemapCorporations({
       status = d.data.data.entity_type === "SOE" ? "primary" : "faded";
     } else if (highlight === "investor") {
       status = d.data.data.entity_type === "IOC" ? "primary" : "faded";
+    } else if (highlight === "exxon") {
+      status = d.data.data.entity === "ExxonMobil" ? "primary" : "faded";
     } else {
       status = "primary";
     }
