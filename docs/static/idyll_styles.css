@@ -2382,7 +2382,7 @@ rather than behind the text which is the default behavior */
 }
 
 .idyll-scroll-text .idyll-step {
-  background: rgba(34, 34, 34, 0.9);
+  background: rgba(34, 34, 34, 0.95);
   color: #adadad;
   box-shadow: none;
 }
