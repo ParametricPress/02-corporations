@@ -1,6 +1,6 @@
-// This is a copy of the stock Idyll scroller.
-// It's been modified to show a "sticky graphic" next to text,
-// rather than having the graphic behind the text.
+// This is a copy of the stock Idyll scroller with minor changes:
+// Added an offset param to control when scrollama switches steps.
+// (Option could easily be added to idyll itself)
 
 const React = require("react");
 const { filterChildren, mapChildren } = require("idyll-component-children");
@@ -16,6 +16,9 @@ const styles = {
     height: "100vh",
     width: "100%",
     transform: `translate3d(0, 0, 0)`,
+
+    // todo: explore how to mess with z-index to allow hovering?
+    zIndex: -1,
   },
 
   SCROLL_GRAPHIC_INNER: {
@@ -30,10 +33,14 @@ const styles = {
 
 let id = 0;
 
-class StickySideScroller extends React.Component {
+class MobileScroller extends React.Component {
   constructor(props) {
     super(props);
     this.id = id++;
+    this.state = {
+      graphicHeight: 0,
+      graphicWidth: 0,
+    };
 
     this.SCROLL_STEP_MAP = {};
     this.SCROLL_NAME_MAP = {};
@@ -44,10 +51,7 @@ class StickySideScroller extends React.Component {
     const scrollama = require("scrollama");
     // instantiate the scrollama
     const scroller = scrollama();
-
-    const handleStepExit = ({ element, index, direction }) => {
-      element.classList.remove("active-step");
-    };
+    this.handleResize();
 
     // setup the instance, pass callback functions
     scroller
@@ -56,17 +60,24 @@ class StickySideScroller extends React.Component {
         container: `#idyll-scroll-${this.id}`, // required (for sticky)
         graphic: `#idyll-scroll-${this.id} .idyll-scroll-graphic`, // required (for sticky)
         progress: this.props.progress !== undefined ? true : false,
+
+        // we want steps to trigger pretty far down the screen,
+        // so that you can still see the graph before the text
+        // totally covers it up
+        offset: 0.7,
       })
       .onStepEnter(this.handleStepEnter.bind(this))
       .onStepProgress(this.handleStepProgress.bind(this))
-      .onStepExit(handleStepExit)
+      // .onStepExit(handleStepExit)
       .onContainerEnter(this.handleContainerEnter.bind(this));
     //.onContainerExit(this.handleContainerExit.bind(this));
+
+    // setup resize event
+    window.addEventListener("resize", this.handleResize.bind(this));
   }
 
   handleStepEnter({ element, index, direction }) {
     this.SCROLL_STEP_MAP[index] && this.SCROLL_STEP_MAP[index]();
-    element.classList.add("active-step");
     let update = { currentStep: index };
     if (this.SCROLL_NAME_MAP[index]) {
       update.currentState = this.SCROLL_NAME_MAP[index];
@@ -75,6 +86,13 @@ class StickySideScroller extends React.Component {
     if (index === Object.keys(this.SCROLL_STEP_MAP).length - 1) {
       d3.select("body").style("overflow", "auto");
     }
+  }
+
+  handleResize() {
+    this.setState({
+      graphicHeight: window.innerHeight + "px",
+      graphicWidth: window.innerWidth + "px",
+    });
   }
 
   handleContainerEnter(response) {
@@ -132,6 +150,7 @@ class StickySideScroller extends React.Component {
 
   render() {
     const { hasError, updateProps, idyll, children, ...props } = this.props;
+    const { graphicHeight, graphicWidth } = this.state;
 
     const graphicChildren = filterChildren(children, (c) => {
       return c.type.name && c.type.name.toLowerCase() === "graphic";
@@ -140,10 +159,28 @@ class StickySideScroller extends React.Component {
     return (
       <div
         ref={(ref) => (this.ref = ref)}
-        className="idyll-scroll idyll-sticky-side-scroll"
+        className="idyll-scroll"
         id={`idyll-scroll-${this.id}`}
         style={Object.assign({ position: "relative" })}
       >
+        {graphicChildren && graphicChildren.length ? (
+          <div
+            className="idyll-scroll-graphic"
+            style={Object.assign(
+              { height: graphicHeight },
+              styles.SCROLL_GRAPHIC
+            )}
+          >
+            <div
+              style={Object.assign(
+                { width: graphicWidth },
+                styles.SCROLL_GRAPHIC_INNER
+              )}
+            >
+              {graphicChildren}
+            </div>
+          </div>
+        ) : null}
         <TextContainer idyll={idyll}>
           <div className="idyll-scroll-text">
             {mapChildren(
@@ -158,48 +195,43 @@ class StickySideScroller extends React.Component {
             )}
           </div>
         </TextContainer>
-        {graphicChildren && graphicChildren.length ? (
-          <div className="idyll-scroll-graphic" style={styles.SCROLL_GRAPHIC}>
-            <div style={styles.SCROLL_GRAPHIC_INNER}>{graphicChildren}</div>
-          </div>
-        ) : null}
       </div>
     );
   }
 }
 
-// StickySideScroller._idyll = {
-//   name: "Scroller",
-//   tagType: "open",
-//   children: [
-//     `
-//   [Graphic] This graphic stays fixed in the background.[/Graphic]
-//   [Step]This is the content for step 1[/Step]
-//   [Step]This is the content for step 2[/Step]
-//   [Step]This is the content for step 3[/Step]`,
-//   ],
-//   props: [
-//     {
-//       name: "currentStep",
-//       type: "integer",
-//       example: "0",
-//       description: "The index of the currently selected step.",
-//     },
-//     {
-//       name: "currentState",
-//       type: "object",
-//       example: "`{}`",
-//       description:
-//         "The state value associated with the currently selected step. Note you must set the state property on the step components for this value to update.",
-//     },
-//     {
-//       name: "progress",
-//       type: "number",
-//       example: "0",
-//       description:
-//         "The percent of completion (0-1) of the currently selected step",
-//     },
-//   ],
-// };
+MobileScroller._idyll = {
+  name: "MobileScroller",
+  tagType: "open",
+  children: [
+    `
+  [Graphic] This graphic stays fixed in the background.[/Graphic]
+  [Step]This is the content for step 1[/Step]
+  [Step]This is the content for step 2[/Step]
+  [Step]This is the content for step 3[/Step]`,
+  ],
+  props: [
+    {
+      name: "currentStep",
+      type: "integer",
+      example: "0",
+      description: "The index of the currently selected step.",
+    },
+    {
+      name: "currentState",
+      type: "object",
+      example: "`{}`",
+      description:
+        "The state value associated with the currently selected step. Note you must set the state property on the step components for this value to update.",
+    },
+    {
+      name: "progress",
+      type: "number",
+      example: "0",
+      description:
+        "The percent of completion (0-1) of the currently selected step",
+    },
+  ],
+};
 
-export default StickySideScroller;
+export default MobileScroller;

@@ -1,7 +1,6 @@
-
 h1 {
-  color: #D8FFA2;
-  font-family: 'Editorial New';
+  color: #d8ffa2;
+  font-family: "Editorial New";
   font-size: 36px;
   line-height: 1.2;
 }
@@ -9,6 +8,20 @@ h1 {
 
 /* These styles set up a sticky graphic next to the text,
 rather than behind the text which is the default behavior */
+
+.idyll-scroll-text .idyll-text-container {
+  width: 100%;
+  margin: 0;
+}
+
+.idyll-scroll-text .idyll-step {
+  background: rgba(34, 34, 34, 0.9);
+  color: #adadad;
+  box-shadow: none;
+}
+.idyll-step p {
+  color: #adadad;
+}
 
 .idyll-sticky-side-scroll {
   display: flex;
@@ -31,19 +44,10 @@ rather than behind the text which is the default behavior */
   padding: 0;
 }
 
-.idyll-scroll-text .idyll-step {
-  background: #222222;
-  color: #adadad;
-}
-.idyll-step p {
-  color: #adadad;
-}
-
 /* put much less space between steps, compared to full-screen scroller */
 .idyll-sticky-side-scroll .idyll-scroll-text .idyll-step {
   padding: 20vh 0;
   margin: 0;
-  box-shadow: none;
   opacity: 30%; /*bring opacity up only when step is active*/
 }
 

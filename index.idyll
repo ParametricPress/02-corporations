@@ -91,7 +91,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
       },
 ][scrollerIndex]` /]
 
-[StickySideScroller currentStep:scrollerIndex progress:scrollerProgress fullWidth: true]
+[ScrollerSwitcher currentStep:scrollerIndex progress:scrollerProgress fullWidth: true]
   [Graphic]
     [Treemap className:"treemap" step:emissionsBreakdownStep progress:scrollerProgress /]
   [/Graphic]
@@ -199,7 +199,7 @@ It should be clear from these examples that the largest emitters of carbon both 
 
 Furthermore, the evidence of early understanding of climate change shows that these companies had 30 years that they could have spent coming up with alternative business models around low-carbon energy sources. Rather than invest in research and development or support positive green legislation to course correct for the future, they did nothing except further entrench their business strategy in the production and consumption of fossil fuels.
   [/Step]
-[/StickySideScroller]
+[/ScrollerSwitcher]
 
 
 # What should we demand going forward?
