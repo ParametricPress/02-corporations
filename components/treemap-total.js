@@ -1,6 +1,8 @@
 import React from "react";
 
-import { withFadeIn, CO2, TreemapRow, TreemapSVG } from "./treemap-base";
+import { withFadeIn, CO2, MtCO2, TreemapRow, TreemapSVG } from "./treemap-base";
+
+const GLOBAL_TOTAL = 1500000;
 
 function TreemapTotal({
   width,
@@ -15,14 +17,16 @@ function TreemapTotal({
       <TreemapRow
         text={
           <tspan>
-            1.5 trillion tons of <CO2 />
+            Global cumulative <CO2 /> <tspan dy="-0.3em">emissions</tspan>
           </tspan>
         }
+        detailText={<MtCO2 value={GLOBAL_TOTAL} units />}
         width={width}
         fillWidth={width}
         height={chartHeight}
         status={"primary"}
         size={"large"}
+        data={{ value: GLOBAL_TOTAL }}
       />
     </TreemapSVG>
   );
