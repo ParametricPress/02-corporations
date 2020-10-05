@@ -1251,10 +1251,16 @@ a {
 }
 
 .parametric-recirc-next-article a:hover .highlight-hover {
-  color: #adadad;
+  text-decoration: underline;
   /* text-shadow: none; */
 }
 
+.parametric-issue-toc a {
+  text-decoration: none;
+}
+.parametric-issue-toc a:hover {
+  text-decoration: underline;
+}
 
 
 .parametric-issue-toc {
@@ -1465,6 +1471,7 @@ a {
 .parametric-graphic-source-citation {
   font-size: 12px;
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .parametric-graphic-source-watermark {
@@ -1603,8 +1610,13 @@ h2 {
   margin: 0;
   width: calc(100% - 50px);
 }
+
 body {
   font-family: 'Graphik Web';
+}
+
+ul, ol {
+  font-family: 'Tiempos Text'
 }
 /** INPUT WIDGETS */
 
@@ -1780,6 +1792,15 @@ input[type=range]:focus::-ms-fill-upper {
   font-weight: 300;
   color: #222222;
 }
+
+
+body {
+  overflow-x: hidden !important;
+}
+.parametric-article-nav {
+  overflow-x: visible;
+}
+
 
 /**
  DARK  MODE
