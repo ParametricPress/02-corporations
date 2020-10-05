@@ -23,7 +23,7 @@ function Scene() {
       <ambientLight intensity={0.5} />
       <pointLight position={[31, 26, 7]} intensity={2.0} />
       <Suspense fallback={null}>
-        <group position={[0, -1, 0]} rotation={[0, Math.PI, 0]}>
+        <group position={[0, -1.5, 0]} rotation={[0, Math.PI, 0]}>
           <GasStation />
           <Bicyclist />
         </group>
@@ -34,12 +34,8 @@ function Scene() {
 
 export default function Intro() {
   return (
-    <div className="scene-wrapper" style={{"width" : "100%", "position": "relative", "paddingBottom": "56.25%"}}>
-      <div style={{"position": "absolute", "top": 0, "bottom": 0, "left": 0, "right": 0}}>
-        <Canvas colorManagement>
-          <Scene />
-        </Canvas>
-      </div>
-    </div>
+    <Canvas colorManagement>
+      <Scene />
+    </Canvas>
   )
 }

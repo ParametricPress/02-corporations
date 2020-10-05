@@ -76,3 +76,67 @@ svg.emissions-treemap {
 .idyll-step h1 {
   margin-top: 10px;
 }
+
+.outro-scene-title,
+.outro-scene-caption {
+  color: rgba(34, 34, 34);
+  margin: 1rem;
+  padding: 1rem;
+  /* based on <Html/> zIndexRange [950,0] */
+  z-index: 960;
+}
+
+.outro-scene-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #D8FFA2;
+  width: 20%;
+}
+
+.outro-scene-title h5 {
+  margin-top: 0;
+}
+
+.outro-scene-caption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  background: #ADADAD;
+  width: 30%;
+}
+
+.outro-scene-caption-body {
+  border-top: 1px solid #2C2C2C;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.outro-scene-caption-title {
+  font-weight: 600;
+}
+
+.outro-scene-caption-controls {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.outro-scene-caption-controls button {
+  margin: unset;
+  padding: 0.2em 0.8em;
+  border-radius: 1em;
+}
+
+.outro-scene-label {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+  background: #ADADAD;
+  color: rgba(34, 34, 34);
+  padding: 0.4em 0.8em;
+  border-radius: 1em;
+}

@@ -25,15 +25,11 @@ function Scene() {
 
 export default function Outro() {
   return (
-    <div className="scene-wrapper" style={{"width" : "100%", "position": "relative", "paddingBottom": "56.25%"}}>
-      <div style={{"position": "absolute", "top": 0, "bottom": 0, "left": 0, "right": 0}}>
-        <Canvas
-          camera={{ position: [20, 30, 120], fov: 35 }}
-          colorManagement
-        >
-          <Scene />
-        </Canvas>
-      </div>
-    </div>
+    <Canvas
+      camera={{ position: [20, 30, 120], fov: 35 }}
+      colorManagement
+    >
+      <Scene />
+    </Canvas>
   )
 }

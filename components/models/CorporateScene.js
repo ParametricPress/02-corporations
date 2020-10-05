@@ -6,11 +6,16 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useLoader } from 'react-three-fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { HTML } from 'drei'
+import { Html } from 'drei'
 
-const styles = {
-  color: 'white',
-  width: '100px'
+function HtmlLabel({number, text}) {
+  return (
+    <Html zIndexRange={[950, 0]} style={{position: "relative"}}>
+      <div className="outro-scene-label">
+        <span className="outro-scene-label-number">{number}.</span> {text}
+      </div>
+    </Html>
+  )
 }
 
 export default function Model(props) {
@@ -31,76 +36,50 @@ export default function Model(props) {
           side={THREE.DoubleSide}
         />
       </mesh>
-      <mesh
-        position={[20, 55, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
-        <HTML scaleFactor={100}>
-          <div style={styles}>
-            <span>1. Board Room</span>
-          </div>
-        </HTML>
-      </mesh>
-      <mesh
-        position={[0, 45, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
-        <HTML scaleFactor={100}>
-          <div style={styles}>
-            <span>2. Finance</span>
-          </div>
-        </HTML>
-      </mesh>
-      <mesh
-        position={[25, 35, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
-        <HTML scaleFactor={100}>
-          <div style={styles}>
-            <span>3. Marketing</span>
-          </div>
-        </HTML>
-      </mesh>
-      <mesh
-        position={[-10, 25, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
-        <HTML scaleFactor={100}>
-          <div style={styles}>
-            <span>4. Lab</span>
-          </div>
-        </HTML>
-      </mesh>
-      <mesh
-        position={[50, 20, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
-        <HTML scaleFactor={100}>
-          <div style={styles}>
-            <span>5. Refinery</span>
-          </div>
-        </HTML>
-      </mesh>
-      <mesh
-        position={[-40, 10, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
-        <HTML scaleFactor={100}>
-          <div style={styles}>
-            <span>6. Community</span>
-          </div>
-        </HTML>
-      </mesh>
-      <mesh
-        position={[5, 5, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
-        <HTML scaleFactor={100}>
-          <div style={styles}>
-            <span>7. Lobby</span>
-          </div>
-        </HTML>
-      </mesh>
+      <group>
+        <group
+          position={[25, 55, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <HtmlLabel number={1} text={"Board Room"} />
+        </group>
+        <group
+          position={[0, 45, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <HtmlLabel number={2} text={"Financial Analysis"} />
+        </group>
+        <group
+          position={[25, 35, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <HtmlLabel number={3} text={"Marketing Department"} />
+        </group>
+        <group
+          position={[-10, 25, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <HtmlLabel number={4} text={"Research Lab"} />
+        </group>
+        <group
+          position={[50, 20, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <HtmlLabel number={5} text={"Refinery"} />
+        </group>
+        <group
+          position={[-40, 10, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <HtmlLabel number={6} text={"Community"} />
+        </group>
+        <group
+          position={[5, 5, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <HtmlLabel number={7} text={"Lobby"} />
+        </group>
+      </group>
     </group>
   )
 }
