@@ -45,9 +45,14 @@ const TreemapSteps = {
     props: { highlight: "investor" },
     width: "split",
   },
-  deception: {
+  "deception-api": {
     component: TreemapCorporations,
-    props: { highlight: "investor" },
+    props: { highlight: "deception-api" },
+    width: "split",
+  },
+  "deception-accce": {
+    component: TreemapCorporations,
+    props: { highlight: "deception-accce" },
     width: "split",
   },
 };

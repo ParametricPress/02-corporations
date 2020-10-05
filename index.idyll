@@ -106,7 +106,19 @@ Putting the spotlight on these companies emphasizes their historical culpability
         data: entityEmissions
       },
       {
-        name: "deception",
+        name: "corporations",
+        data: entityEmissions
+      },
+      {
+        name: "deception-api",
+        data: entityEmissions
+      },
+      {
+        name: "deception-accce",
+        data: entityEmissions
+      },
+      {
+        name: "corporations",
         data: entityEmissions
       },
 ][scrollerIndex]` /]
@@ -223,19 +235,23 @@ These actions are particularly important because they are possible today, with e
   [/Step]
 
   [Step]
-    ## Why do energy companies bear so much responsibility?
+    ## A history of deception
 
-The data show that a small number of corporations are responsible for a large amount of historic carbon emissions that have caused incalculable damage to the climate and promise to cause permanent, life-altering changes if temperatures rise above 1.5-2ºC. But the actions of these corporations are even more damning than the emissions themselves. Evidence shows that over the last 30 years, most energy companies knew that their operations contributed to human-caused climate change and did nothing or, worse, actively spread misinformation that contradicted the conclusions of their own science.
+For decades after learning about the risks of climate change, most of these companies did nothing or, worse, actively spread misinformation that contradicted the conclusions of their own science.
 
-The idea that emissions could trap heat in the atmosphere and increase the temperature of the global climate goes back to at least the late nineteenth century. By the late 1970s, the risk of climate change was well established. In 1977, congress held hearings attended by executives from all seven of the major companies—BP, Chevron, ConocoPhillips, ExxonMobil, Peabody Energy, and Shell—to discuss the effect of carbon emissions on the climate. Just a decade later James Hansen, director of the ISS at NASA, made history by testifying that there was indisputable evidence of human-caused climate change. There is also ample evidence to show that around the same time, internal scientists at the major fossil fuel companies understood the effect that the companies’ own carbon emissions had on the climate.
+By the late 1970s, the risk of climate change was well established. In 1977, Congress held hearings attended by executives from seven of the major companies—BP, Chevron, ConocoPhillips, ExxonMobil, Peabody Energy, and Shell—to discuss the effect of carbon emissions on the climate. A decade later James Hansen, director of the ISS at NASA, made history by testifying that there was indisputable evidence of human-caused climate change. There is also evidence which shows that around the same time, internal scientists at the major fossil fuel companies understood the effect that the companies’ own carbon emissions had on the climate.
 
-_TK: timeline view of deceptive action_
+Unfortunately, rather than modify their business strategy or acknowledge the gravity of the issue, fossil fuel companies participated in systematic discrediting of climate scientists and spread misinformation about the cause and effects of climate change.
+    [/Step]
+    [Step]
+For example, in 1998, the American Petroleum Institute—a major oil trade association including BP, ConocoPhillips, Chevron, ExxonMobil, and Shell—published an internal memo that suggested that “victory” would be attained when average citizens and the media came to “understand uncertainties in climate science." They explicitly sought to frame supporters of the Kyoto climate treaty as "out of touch with reality."
+    [/Step]
+    [Step]
 
-Unfortunately, rather than modify their business strategy or acknowledge the gravity of the issue, fossil fuel companies across the board participated in systematic discrediting of climate scientists and spread misinformation about the cause and effects of climate change. As Mulvey et. al put it, documents from the era show a “corporate intent to deceive.” In gross conflicts of interests, many companies funded boards of contrarian climate “scientists” whose sole purpose was to produce research that contradicted that of the established scientific community. The American Petroleum Institute published internal memos that suggested that “victory” would be attained when the average citizen was convinced of the “uncertainty” of climate change. In one particularly flagrant case, the American Coal Industry forged letters from nonprofit groups to congress, allegedly in support of key legislative issues for the coal industry.
-
-It should be clear from these examples that the largest emitters of carbon both understood their own climate change culpability and insidiously sought to misinform the public rather than commit to solving an issue of their own creation.
-
-Furthermore, the evidence of early understanding of climate change shows that these companies had 30 years that they could have spent coming up with alternative business models around low-carbon energy sources. Rather than invest in research and development or support positive green legislation to course correct for the future, they did nothing except further entrench their business strategy in the production and consumption of fossil fuels.
+In another particularly flagrant case, a lobbying group called the American Coalition for Clean Coal Electricity (ACCCE) forged letters from nonprofit groups to Congress, allegedly in support of key legislative issues for the coal industry. The ACCCE counted among its members several major American coal companies, including Peabody energy.
+    [/Step]
+    [Step]
+After learning about climate change forty years ago, these corporations could have invested in R&D and green legislation to course correct for the future. Instead, they tried to perpetuate their existing business models and entrench their business strategy in the production and consumption of fossil fuels.
   [/Step]
 [/ScrollerSwitcher]
 

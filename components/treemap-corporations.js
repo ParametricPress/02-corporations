@@ -93,6 +93,19 @@ function TreemapCorporations({
       status = d.data.data.entity_type === "IOC" ? "primary" : "faded";
     } else if (highlight === "exxon") {
       status = d.data.data.entity === "ExxonMobil" ? "primary" : "faded";
+    } else if (highlight === "deception-api") {
+      status =
+        [
+          "ExxonMobil",
+          "Chevron",
+          "BP",
+          "ConocoPhillips",
+          "Royal Dutch Shell",
+        ].indexOf(d.data.data.entity) !== -1
+          ? "primary"
+          : "faded";
+    } else if (highlight === "deception-accce") {
+      status = d.data.data.entity === "Peabody Energy" ? "primary" : "faded";
     } else {
       status = "primary";
     }
