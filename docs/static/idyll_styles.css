@@ -2453,7 +2453,7 @@ rather than behind the text which is the default behavior */
 
 svg.emissions-treemap {
   max-width: 100vw;
-  max-height: calc(100vh - 65px);
+  max-height: calc(100vh - 85px);
 }
 
 .idyll-scroll-graphic > div {
