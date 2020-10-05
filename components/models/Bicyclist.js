@@ -11,15 +11,27 @@ import { meshopt } from '../../lib/meshopt'
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials } = useLoader(GLTFLoader, './static/gltf/bicyclist.glb', meshopt())
+  const pedals = useRef()
+  const { nodes, materials, animations } = useLoader(GLTFLoader, './static/gltf/bicyclist.glb', meshopt())
 
-  const clock = new THREE.Clock();
-  const speed = 0.75;
-  let delta = 0;
-  useFrame(() => {
-    delta = clock.getDelta();
-    group.current.rotation.y += speed * delta;
+  const bicyclistSpeed = 0.75;
+  // 1 revolution should take 20 frames at 30 fps
+  const pedalsSpeed = 2 * Math.PI / 20 * 30;
+
+  const actions = useRef()
+  const [mixer] = useState(() => new THREE.AnimationMixer())
+  useEffect(() => {
+    actions.current = { pedaling: mixer.clipAction(animations[0], group.current) }
+    actions.current.pedaling.play()
+    return () => animations.forEach(clip => mixer.uncacheClip(clip))
+  }, [])
+
+  useFrame((state, delta) => {
+    mixer.update(delta)
+    group.current.rotation.y += bicyclistSpeed * delta;
+    pedals.current.rotation.x -= pedalsSpeed * delta;
     group.current.updateMatrix();
+    pedals.current.updateMatrix();
   });
 
   return (
@@ -55,7 +67,7 @@ export default function Model(props) {
             position={[-1.5893227, -2.8028951, -4.6520796]}
             scale={[0.0006418, 0.0006418, 0.0006418]}
           />
-          <group rotation={[Math.PI / 2, -1e-7, -Math.PI / 2]} scale={[0.2346881, 0.2346881, 0.2346881]}>
+          <group ref={pedals} rotation={[-1 * Math.PI / 4, -1e-7, -Math.PI / 2]} scale={[0.2346881, 0.2346881, 0.2346881]}>
             <group position={[-1.5893227, -2.8028951, -4.6520796]} scale={[0.0006418, 0.0006418, 0.0006418]}>
               <mesh material={materials.metal} geometry={nodes.mesh_3_0.geometry} />
               <mesh material={materials.rubber} geometry={nodes.mesh_3_1.geometry} />
@@ -88,6 +100,7 @@ export default function Model(props) {
               <mesh material={materials.rubber} geometry={nodes.mesh_6_1.geometry} />
             </group>
           </group>
+          <Shadow scale={[1, 3, 1]} opacity={0.4} position={[0, -0.3, 0]} rotation={[-Math.PI / 2, 0, 0]} />
         </group>
       </group>
     </group>
