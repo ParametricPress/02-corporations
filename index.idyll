@@ -135,7 +135,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
   [/Step]
 
   [Step]
-    ## Personal Emissions 🙋‍♀️
+    ## Personal Emissions
 
     Become a vegetarian! Ride a bike! Have fewer children! Amid a deluge of suggestions to lower your personal carbon footprint, you might be tempted believe that individual action is the best way to combat climate change.
 
@@ -147,7 +147,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
 
   [/Step]
   [Step]
-    ## National Emissions 🇺🇸
+    ## National Emissions
 
     Another common way to group emissions is by the country or region where the emissions occurred. This method suggests political vectors for change: by electing the right leaders, supporting climate-conscious policy, and advocating for environmental cooperation on the international stage, we hope to reduce emissions at the country scale.
   [/Step]
@@ -155,7 +155,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
     While this view is an essential part of addressing climate change, it also has its limits. Relying on government action can also be a frustratingly oblique strategy when legislative gridlock, political movements, and fossil fuel lobbying threaten to stagnate or even regress national climate policies.
   [/Step]
   [Step]
-    ## Corporate Fossil Fuel Producers 🏢
+    ## Corporate Fossil Fuel Producers
 
     In this article, we explore a third approach to assigning responsibility: considering the corporations that extracted and sold the fossil fuels. We'll use data [collected by](https://climateaccountability.org/carbonmajors.html) Richard Heede and the Climate Accountability Institute, which traces emissions to fossil fuel producers through records of their sales and activites.
 
@@ -258,16 +258,21 @@ After learning about climate change forty years ago, these corporations could ha
 
 # What should we demand going forward?
 
-Ultimately, we present the above data in an effort to shift the conversation for solving climate change away from individual action (however important it may be) towards corporate action. We present the following concrete action items as environmentally and morally necessary for the highest emitting corporations:
+Ultimately, we present the above data in an effort to shift the conversation for solving climate change away from individual action (however important it may be) towards corporate action.
 
-- Support and fund science and technological expertise that promotes low-carbon energy technologies
-- Stop flaring natural gas immediately.
-- Support communities disproportionately affected by climate change and share the financial burden of paying for damages
-- Stop misinforming the public about the severity of climate change, stop funding front groups or spin doctors to divert responsibility from the problem
-- Update financial models to plan for low-carbon technologies and a divestment from fossil fuels, disclose to the SEC the risks that climate change poses to the business
-- cut emissions from current operations
-- proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, renewable fuel standards, and direct emission regulation.
-- Pay reparations for knowingly contributing to climate change while misinforming the public
+First and foremost, we demand that fossil fuel companies stop misinforming the public about the severity of climate change, including their own role in bringing it about. The first concrete step involves publicly accepting responsibility for decades of dangerous and irresponsible emissions. It goes without saying that companies must stop funding front groups and public relations spin doctors to divert attention away from the fundamental issues at hand.  
+
+Corporations must immediately cut carbon emissions from current operations and stop dangerous practices like flaring natural gas. Many fossil fuel corporations have yet to make concrete commitments to curb emissions or set dates by which they will become carbon neutral.
+
+On a policy level, fossil fuel companies must proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, renewable fuel standards, and direct emission regulation. By participating constructively and in good faith in policy creation and legislation, corporations can play a role in determining the guidelines and constraints that will eventually enforce future green business practices.
+
+Climate change disproportionately affects poor, marginalized, and politically disenfranchised communities who bear the burden and cost of destruction caused by extreme weather, health issues from food shortages and heat stress, and environmental displacement. Fossil fuel corporations must pay reparations to divert historical profits from irreparably harming the environment to those who are currently most affected and least able to afford the catastrophic costs of climate change. 
+
+In the interest of envisioning a carbon-free future, fossil fuel companies should support and fund science and technological research into alternative energy technologies, carbon abatement technology, and other green technology solutions to ensure that their bottom line is not dependent on perpetuating outdated and dangerous forms of energy production. 
+
+Finally, corporations must update financial models to plan for a low-carbon future and a divestment from fossil fuels. It is in the interest of investors and the public that fossil fuel companies disclose the risks and future costs that climate change poses to the world at large, and by proxy their own businesses.
+
+Borrowing the visual language of educational posters showing individual tips for reducing emissions, we have helpfully compiled these demands into the following interactive graphic. We hope that it provides a helpful roadmap to the fossil fuel executives, boards of directors, and investors who are responsible for their corporations' enormous historic CO₂ emissions.
 
 [div fullWidth:true style:`{width: '100%'}`]
   [OutroIllustration /]
@@ -278,7 +283,7 @@ Ultimately, we present the above data in an effort to shift the conversation for
 
 [b][a href:"https://www.geoffreylitt.com/"]Geoffrey Litt[/a][/b] is a researcher exploring tools for democratizing programming. He is currently pursuing a PhD in Computer Science at MIT.
 
-[b][a href:"https://seththompson.org/"]Seth Thompson[/a][/b] is an artist, designer, and software engineer based in New Haven, CT.
+[b][a href:"https://seththompson.org/"]Seth Thompson[/a][/b] is the founder of A Lot of Moving Parts, a design studio that specializes in telling stories about complicated systems at the intersection of architecture and technology.
 
 // Edited by TK editor list.
 [/AuthorBio]
