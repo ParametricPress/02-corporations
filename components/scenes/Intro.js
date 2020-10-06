@@ -6,7 +6,22 @@ import { OrbitControls, PerspectiveCamera } from 'drei'
 import Bicyclist from '../models/Bicyclist'
 import GasStation from '../models/GasStation'
 
-function Scene() {
+function Scene({onInteractionStart, onInteractionEnd}) {
+  const controls = useRef();
+
+  useEffect(() => {
+    if (controls.current) {
+      controls.current.addEventListener('start', onInteractionStart)
+      controls.current.addEventListener('end', onInteractionEnd)
+    }
+    return () => {
+      if (controls.current) {
+        controls.current.removeEventListener('start', onInteractionStart)
+        controls.current.removeEventListener('end', onInteractionEnd)
+      }  
+    }
+  }, []);
+
   return (
     <React.Fragment>
       <PerspectiveCamera
@@ -15,6 +30,7 @@ function Scene() {
         fov={4}
       />
       <OrbitControls
+        ref={controls}
         enablePan={false}
         enableZoom={false}
         minPolarAngle={2 * Math.PI / 5}
@@ -32,10 +48,15 @@ function Scene() {
   )
 }
 
-export default function Intro() {
+export default function Intro({onInteractionStart, onInteractionEnd}) {
+  const canvas = useRef();
+
   return (
-    <Canvas colorManagement>
-      <Scene />
+    <Canvas colorManagement >
+      <Scene
+        onInteractionStart={onInteractionStart}
+        onInteractionEnd={onInteractionEnd}
+      />
     </Canvas>
   )
 }
