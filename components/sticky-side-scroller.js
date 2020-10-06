@@ -43,14 +43,14 @@ class StickySideScroller extends React.Component {
     require("intersection-observer");
     const scrollama = require("scrollama");
     // instantiate the scrollama
-    const scroller = scrollama();
+    this.scroller = scrollama();
 
     const handleStepExit = ({ element, index, direction }) => {
       element.classList.remove("active-step");
     };
 
     // setup the instance, pass callback functions
-    scroller
+    this.scroller
       .setup({
         step: `#idyll-scroll-${this.id} .idyll-step`, // required
         container: `#idyll-scroll-${this.id}`, // required (for sticky)
@@ -62,6 +62,10 @@ class StickySideScroller extends React.Component {
       .onStepExit(handleStepExit)
       .onContainerEnter(this.handleContainerEnter.bind(this));
     //.onContainerExit(this.handleContainerExit.bind(this));
+  }
+
+  componentWillUnmount() {
+    this.scroller.destroy();
   }
 
   handleStepEnter({ element, index, direction }) {

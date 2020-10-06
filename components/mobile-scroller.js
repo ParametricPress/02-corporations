@@ -44,17 +44,19 @@ class MobileScroller extends React.Component {
 
     this.SCROLL_STEP_MAP = {};
     this.SCROLL_NAME_MAP = {};
+
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
     require("intersection-observer");
     const scrollama = require("scrollama");
     // instantiate the scrollama
-    const scroller = scrollama();
+    this.scroller = scrollama();
     this.handleResize();
 
     // setup the instance, pass callback functions
-    scroller
+    this.scroller
       .setup({
         step: `#idyll-scroll-${this.id} .idyll-step`, // required
         container: `#idyll-scroll-${this.id}`, // required (for sticky)
@@ -73,7 +75,12 @@ class MobileScroller extends React.Component {
     //.onContainerExit(this.handleContainerExit.bind(this));
 
     // setup resize event
-    window.addEventListener("resize", this.handleResize.bind(this));
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+    this.scroller.destroy();
   }
 
   handleStepEnter({ element, index, direction }) {
