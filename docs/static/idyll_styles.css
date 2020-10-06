@@ -2465,6 +2465,14 @@ svg.emissions-treemap {
   margin-top: 10px;
 }
 
+.intro-scene-wrapper {
+  cursor: grab;
+}
+
+.intro-scene-wrapper.dragging {
+  cursor: grabbing;
+}
+
 .outro-scene-title,
 .outro-scene-caption {
   color: rgba(34, 34, 34);
@@ -2534,6 +2542,9 @@ button.outro-scene-label.outro-scene-label-active {
   background: #d8ffa2;
 }
 
+canvas:focus {
+  outline: none;
+}
 /* Hack for author names in header */
 .parametric-header-metadata-component > div > *{
   margin-right: 0.5em;
