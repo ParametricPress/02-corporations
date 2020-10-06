@@ -8,7 +8,7 @@ function OutroIllustration() {
   return (
     <div className="outro-scene-wrapper" style={{"width" : "100%", "position": "relative", "paddingBottom": "56.25%"}}>
       <div style={{"position": "absolute", "top": 0, "bottom": 0, "left": 0, "right": 0}}>
-        <Outro />
+        <Outro demands={demands} demand={demand} setDemand={setDemand} />
       </div>
       <div className="outro-scene-title">
         <h5>8 Simple Demands for Fossil Fuel Corporations</h5>

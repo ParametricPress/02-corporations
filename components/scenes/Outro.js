@@ -4,7 +4,7 @@ import { Canvas } from 'react-three-fiber'
 import { OrbitControls, Stats } from 'drei';
 import CorporateScene from '../models/CorporateScene'
 
-function Scene() {
+function Scene({...props}) {
   return (
     <React.Fragment>
       <OrbitControls
@@ -17,19 +17,19 @@ function Scene() {
         maxAzimuthAngle={Math.PI / 48}
       />
       <Suspense fallback={null}>
-        <CorporateScene />
+        <CorporateScene {...props} />
       </Suspense>    
     </React.Fragment>  
   )
 }
 
-export default function Outro() {
+export default function Outro({...props}) {
   return (
     <Canvas
       camera={{ position: [20, 30, 120], fov: 35 }}
       colorManagement
     >
-      <Scene />
+      <Scene {...props} />
     </Canvas>
   )
 }

@@ -131,7 +131,7 @@ svg.emissions-treemap {
   border-radius: 1em;
 }
 
-.outro-scene-label {
+button.outro-scene-label {
   font-size: 14px;
   line-height: 16px;
   font-weight: 600;
@@ -139,4 +139,9 @@ svg.emissions-treemap {
   color: rgba(34, 34, 34);
   padding: 0.4em 0.8em;
   border-radius: 1em;
+  text-transform: unset;
+}
+
+button.outro-scene-label.outro-scene-label-active {
+  background: #d8ffa2;
 }

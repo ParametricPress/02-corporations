@@ -8,17 +8,20 @@ import { useLoader } from 'react-three-fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { Html } from 'drei'
 
-function HtmlLabel({number, text}) {
+function HtmlLabel({active, demand, setDemand}) {
   return (
     <Html zIndexRange={[950, 0]} style={{position: "relative"}}>
-      <div className="outro-scene-label">
-        <span className="outro-scene-label-number">{number}.</span> {text}
-      </div>
+      <button 
+        className={`outro-scene-label${ active ? ' outro-scene-label-active' : '' }`}
+        onClick={() => setDemand(demand)}
+      >
+        <span className="outro-scene-label-number">{demand.index + 1}.</span> {demand.location}
+      </button>
     </Html>
   )
 }
 
-export default function Model(props) {
+export default function Model({demands, demand, setDemand, ...props}) {
   const group = useRef()
   const { nodes } = useLoader(GLTFLoader, './static/gltf/corporate-scene.gltf')
   const matcap = useLoader(THREE.TextureLoader, './static/textures/matcap.jpg')
@@ -37,48 +40,19 @@ export default function Model(props) {
         />
       </mesh>
       <group>
-        <group
-          position={[25, 55, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <HtmlLabel number={1} text={"Board Room"} />
+        {demands.list().map(currentDemand => (
+          <group
+            key={currentDemand.id}
+            position={currentDemand.position}
+            rotation={[Math.PI / 2, 0, 0]}
+          >
+          <HtmlLabel
+            active={currentDemand.id == demand.id}
+            demand={currentDemand}
+            setDemand={setDemand}
+          />
         </group>
-        <group
-          position={[0, 45, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <HtmlLabel number={2} text={"Financial Analysis"} />
-        </group>
-        <group
-          position={[25, 35, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <HtmlLabel number={3} text={"Marketing Department"} />
-        </group>
-        <group
-          position={[-10, 25, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <HtmlLabel number={4} text={"Research Lab"} />
-        </group>
-        <group
-          position={[50, 20, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <HtmlLabel number={5} text={"Refinery"} />
-        </group>
-        <group
-          position={[-40, 10, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <HtmlLabel number={6} text={"Community"} />
-        </group>
-        <group
-          position={[5, 5, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <HtmlLabel number={7} text={"Lobby"} />
-        </group>
+      ))}
       </group>
     </group>
   )
