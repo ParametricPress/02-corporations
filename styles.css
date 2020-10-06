@@ -145,3 +145,8 @@ button.outro-scene-label {
 button.outro-scene-label.outro-scene-label-active {
   background: #d8ffa2;
 }
+
+/* Hack for author names in header */
+.parametric-header-metadata-component > div > *{
+  margin-right: 0.5em;
+}

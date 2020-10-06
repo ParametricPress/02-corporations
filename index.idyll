@@ -10,7 +10,7 @@
 [Header
   title:`["Corporate Cause"]`
   longTitle:`["Corporate Cause"]`
-  date:"May 15, 2020"
+  date:"October 2020"
   dek:"The fossil fuels companies behind climate change"
   fullWidth:true
   authors:`[{
@@ -174,7 +174,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
   # Tracing corporate emissions
 
     What does it mean, exactly, for a company to be associated with CO₂ emissions? Let’s explore this question by focusing on a single company: ExxonMobil, one of the largest publicly traded oil and gas companies in the world.
-    
+
     Exxon’s emissions footprint falls into two categories: downstream emissions and direct emissions.
   [/Step]
   [Step]
@@ -184,7 +184,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
     [/ParametricGraphic]
 
     Most of the emissions linked to Exxon are **downstream emissions**: the combustion of fossil fuels sold by the company, for powering things like cars and factories.
-    
+
     Exxon’s 2015 downstream emissions were estimated at 523 million tons of CO₂ equivalent (MtCO₂e), making up about 90% of its total emissions.
   [/Step]
   [Step]
@@ -193,7 +193,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
     [/ParametricGraphic]
 
     A secondary category is direct emissions from the process of fossil fuel extraction and production itself. This includes flaring and venting: burning or releasing unwanted gases into the atmosphere as part of the production process. It also includes other energy like electricity used in the oil extraction process, with corresponding upstream emissions.
-    
+
     Exxon’s 2015 direct emissions were estimated at 54 million tons of CO₂e—an order of magnitude smaller than their downstream emissions, but still significant.
   [/Step]
   [Step]
@@ -208,7 +208,7 @@ Putting the spotlight on these companies emphasizes their historical culpability
     # Ownership structures
 
     Now that we see the origins of the data, let's return to the full list of the top 20 corporations.
-    
+
     When considering vectors for influencing the behavior of these companies, it's important to consider their ownership, distinguishing between state-owned and investor-owned corporations.
   [/Step]
 
