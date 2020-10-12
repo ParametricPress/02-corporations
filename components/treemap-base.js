@@ -174,6 +174,7 @@ function TreemapNormalRowText({ text, width, detailText, status }) {
         dy={ROW_LINE_HEIGHT}
         fontSize={`var(--row-font-size)`}
         opacity={`var(--text-opacity)`}
+        pointerEvents="none"
       >
         {text}
       </text>
@@ -184,6 +185,7 @@ function TreemapNormalRowText({ text, width, detailText, status }) {
         fontSize={`var(--row-detail-font-size)`}
         textAnchor="end"
         opacity={`var(--text-opacity)`}
+        pointerEvents="none"
       >
         {detailText}
       </text>
@@ -200,6 +202,7 @@ function TreemapLargeRowText({ text, width, height, detailText, status }) {
       fontSize={`var(--large-row-font-size)`}
       textAnchor="middle"
       opacity={`var(--text-opacity)`}
+      pointerEvents="none"
     >
       <tspan>{text}</tspan>
       <tspan
@@ -225,6 +228,7 @@ function TreemapRotatedRowText({ width, height, detailText, status }) {
       textAnchor="middle"
       opacity={`var(--text-opacity)`}
       transform="translate(-62, 95) rotate(270)"
+      pointerEvents="none"
     >
       <tspan>Top 20 corporations</tspan>
     </text>
@@ -262,7 +266,7 @@ function TreemapRow({
       data,
     });
   };
-  const handleMouseOut = () => {
+  const handleMouseLeave = () => {
     setIsHovered(false);
     setActiveRow(null);
   };
@@ -276,7 +280,7 @@ function TreemapRow({
       }
       {...props}
       onMouseEnter={handleMouseEnter}
-      onMouseOut={handleMouseOut}
+      onMouseLeave={handleMouseLeave}
     >
       <animated.rect
         width={fillWidth}
