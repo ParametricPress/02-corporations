@@ -2421,6 +2421,7 @@ rather than behind the text which is the default behavior */
 
 .idyll-sticky-side-scroll .idyll-scroll-graphic {
   flex: 1;
+  max-width: 600px;
 }
 
 .idyll-sticky-side-scroll .idyll-text-container {
@@ -2465,8 +2466,9 @@ svg.emissions-treemap {
 }
 
 .idyll-scroll-graphic > div {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: inherit;
 }
 
 .idyll-step h1 {
