@@ -218,11 +218,10 @@ function TreemapLargeRowText({ text, width, height, detailText, status }) {
   );
 }
 
-function TreemapRotatedRowText({ width, height, detailText, status }) {
+function TreemapRotatedRowText({ height, status }) {
   return (
     <text
       fill={`var(--${status}-text)`}
-      dx={width / 2}
       dy={height / 2}
       fontSize={`var(--row-font-size)`}
       textAnchor="middle"
