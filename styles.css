@@ -63,6 +63,14 @@ rather than behind the text which is the default behavior */
   margin-bottom: 20vh;
 }
 
+/* Give more space between text and vis on superwide screens.
+   Not particularly principled, but it gets the job done. */
+@media only screen and (min-width: 1280px) {
+  .treemap-container {
+    padding-left: 15%;
+  }
+}
+
 svg.emissions-treemap {
   max-width: 500px;
   max-height: calc(100vh - 150px);
