@@ -2451,9 +2451,17 @@ rather than behind the text which is the default behavior */
   margin-bottom: 20vh;
 }
 
+/* Give more space between text and vis on superwide screens.
+   Not particularly principled, but it gets the job done. */
+@media only screen and (min-width: 1280px) {
+  .treemap-container {
+    padding-left: 15%;
+  }
+}
+
 svg.emissions-treemap {
   max-width: 500px;
-  max-height: calc(100vh - 85px);
+  max-height: calc(100vh - 150px);
 }
 
 .idyll-scroll-graphic > div {
@@ -2545,7 +2553,12 @@ button.outro-scene-label.outro-scene-label-active {
 canvas:focus {
   outline: none;
 }
+
+.parametric-header-metadata-component {
+  flex-wrap: wrap;
+}
+
 /* Hack for author names in header */
-.parametric-header-metadata-component > div > *{
+.parametric-header-metadata-component > div > * {
   margin-right: 0.5em;
 }
