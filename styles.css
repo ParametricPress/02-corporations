@@ -65,7 +65,7 @@ rather than behind the text which is the default behavior */
 
 svg.emissions-treemap {
   max-width: 500px;
-  max-height: calc(100vh - 85px);
+  max-height: calc(100vh - 150px);
 }
 
 .idyll-scroll-graphic > div {
@@ -158,6 +158,6 @@ canvas:focus {
   outline: none;
 }
 /* Hack for author names in header */
-.parametric-header-metadata-component > div > *{
+.parametric-header-metadata-component > div > * {
   margin-right: 0.5em;
 }

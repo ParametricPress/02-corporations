@@ -171,9 +171,8 @@ function TreemapNormalRowText({ text, width, detailText, status }) {
       <text
         fill={`var(--${status}-text)`}
         dx={TEXT_PADDING}
-        dy={TEXT_PADDING}
+        dy={ROW_LINE_HEIGHT}
         fontSize={`var(--row-font-size)`}
-        dominantBaseline="hanging"
         opacity={`var(--text-opacity)`}
       >
         {text}
@@ -181,10 +180,9 @@ function TreemapNormalRowText({ text, width, detailText, status }) {
       <text
         fill={`var(--${status}-detail-text)`}
         dx={width - TEXT_PADDING}
-        dy={TEXT_PADDING}
+        dy={ROW_LINE_HEIGHT}
         fontSize={`var(--row-detail-font-size)`}
         textAnchor="end"
-        dominantBaseline="hanging"
         opacity={`var(--text-opacity)`}
       >
         {detailText}
