@@ -1008,15 +1008,15 @@ h2 {
 
 button, input[type=submit] {
   display: block;
-  margin: 1em auto;
+  margin: 0.5em auto;
   background: #adadad;
-  font-family: Silkscreen;
+  font-family: 'Editorial New';
   border: none;
   box-shadow: none;
   border-radius: 0px;
   color: white;
-  font-size: 14px;
-  padding: 1em 2em;
+  font-size: 18px;
+  padding: 0.5em 2em;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1483,8 +1483,16 @@ a {
 .parametric-recirc-article {
   background: #D8FFA2;
   box-shadow: 8px 8px 0 black;
-  padding: 0.5em 1em;
+  padding: 0.5em;
   margin: 1em 0;
+}
+
+.parametric-recirc-article a {
+  text-decoration: none;
+}
+
+.parametric-recirc-article a:hover {
+  text-decoration: underline;
 }
 
 .parametric-header-text {
