@@ -30,8 +30,8 @@
     "idyll": "^4.12.1",
     "idyll-d3-component": "^2.0.0",
     "lodash": "^4.17.20",
-    "parametric-components": "^2.1.23",
-    "parametric-styles": "^2.2.12",
+    "parametric-components": "^2.1.24",
+    "parametric-styles": "^2.2.14",
     "react-spring": "^8.0.27",
     "react-three-fiber": "^4.2.21",
     "three": "^0.120.1"
