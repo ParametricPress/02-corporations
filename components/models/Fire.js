@@ -7,7 +7,7 @@ export default function Fire({color, ...props}) {
   const [clock] = useState(() => new THREE.Clock())
   const fire = useRef();
   const material = useRef();
-  const fireTex = useLoader(THREE.TextureLoader, '/static/textures/fire.png');
+  const fireTex = useLoader(THREE.TextureLoader, './static/textures/fire.png');
  
   fireTex.magFilter = fireTex.minFilter = THREE.LinearFilter;
   fireTex.wrapS = fireTex.wrapT = THREE.ClampToEdgeWrapping;
