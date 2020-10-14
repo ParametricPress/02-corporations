@@ -6,43 +6,43 @@ const data = [
     id: 'board-room',
     location: 'Board Room',
     text: 'Proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, renewable fuel standards, and direct emission regulation.',
-    position: [25, 55, 0]
+    position: [3, 20, 4.5]
   },
   {
     id: 'financial-analysis',
     location: 'Financial Analysis',
     text: 'Update financial models to plan for low-carbon technologies and a divestment from fossil fuels, disclose to the SEC the risks that climate change poses to the business.',
-    position: [0, 45, 0]
+    position: [-6, 13, 4.5]
   },
   {
     id: 'marketing-department',
     location: 'Marketing Department',
     text: 'Stop misinforming the public about the severity of climate change, stop funding front groups or spin doctors to divert responsibility from the problem.',
-    position: [25, 35, 0]
+    position: [4.5, 10, 4.5]
   },
   {
     id: 'research-lab',
     location: 'Research Lab',
     text: 'Support and fund science and technological expertise that promotes low-carbon energy technologies.',
-    position: [-10, 25, 0]
+    position: [-6, 7, 4.5]
   },
   {
     id: 'refinery',
     location: 'Refinery',
     text: 'Cut emissions from current operations and stop flaring natural gas immediately.',
-    position: [50, 20, 0]
+    position: [25, 7, 20]
   },
   {
     id: 'community',
     location: 'Community',
     text: 'Support communities disproportionately affected by climate change and pay reparations for climate damages.',
-    position: [-40, 10, 0]
+    position: [-32, 10, 22]
   },
   {
     id: 'lobby',
     location: 'Lobby',
     text: 'Publicly accept responsibility for current and past emissions and their direct contribution to global warming.',
-    position: [5, 5, 0]
+    position: [0, 0, 1.5]
   }
 ];
 

@@ -1,32 +1,38 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useRef, useEffect } from 'react'
 import * as THREE from 'three'
-import { Canvas } from 'react-three-fiber'
+import { Canvas, useFrame, useThree } from 'react-three-fiber'
 import { OrbitControls, Stats } from 'drei';
-import CorporateScene from '../models/CorporateScene'
+import CorporateBuilding from '../models/CorporateBuilding'
 
 function Scene({...props}) {
+
+  const camera = useRef();
+
+  const { setDefaultCamera } = useThree();
+
+  useEffect(() => {
+    setDefaultCamera(camera.current);
+  }, [camera.current]);
+
   return (
     <React.Fragment>
-      <OrbitControls
-        target={[20, 30, 0]}
-        enablePan={false}
-        enableZoom={false}
-        minPolarAngle={Math.PI / 2 - Math.PI / 48}
-        maxPolarAngle={Math.PI / 2 + Math.PI / 48}
-        minAzimuthAngle={- Math.PI / 48}
-        maxAzimuthAngle={Math.PI / 48}
+      <perspectiveCamera
+        ref={camera}
+        position={[0, 2.5, 28]}
+        rotation={[0.261799, 0, 0]}
+        fov={52.411668340213666}
       />
       <Suspense fallback={null}>
-        <CorporateScene {...props} />
-      </Suspense>    
+        <CorporateBuilding {...props} />
+      </Suspense>
     </React.Fragment>  
   )
 }
 
 export default function Outro({...props}) {
+
   return (
     <Canvas
-      camera={{ position: [20, 30, 120], fov: 35 }}
       colorManagement
     >
       <Scene {...props} />

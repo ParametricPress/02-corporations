@@ -65,5 +65,6 @@ bpy.ops.export_scene.gltf(
 	export_morph=shouldExportAnimations,
 	export_morph_normal=shouldExportAnimations,
     export_apply=True,
+    export_cameras=True,
 	filepath=outputFilename
 )
