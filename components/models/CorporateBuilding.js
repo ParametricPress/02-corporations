@@ -7,6 +7,7 @@ import { useLoader } from 'react-three-fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { meshopt } from '../../lib/meshopt'
 import { Html } from 'drei'
+import Fire from './Fire'
 
 function HtmlLabel({active, demand, setDemand}) {
   return (
@@ -25,8 +26,6 @@ export default function Model({ demands, demand, setDemand, ...props }) {
   const group = useRef()
   const { nodes, materials, cameras } = useLoader(GLTFLoader, './static/gltf/corporate-building.glb', meshopt())
 
-  console.log(cameras);
-
   return (
     <group ref={group} {...props}>
       <group position={[7.048502, -0.1523998, -1.2957768]}>
@@ -38,38 +37,7 @@ export default function Model({ demands, demand, setDemand, ...props }) {
           <mesh material={materials.Houses} geometry={nodes.mesh_0_4.geometry} />
         </group>
       </group>
-      <group position={[-21.310915, 1.7957656, -1.9220421]} scale={[1.0140398, 1.0140398, 1.0140398]}>
-        <mesh
-          material={materials['Fire.001']}
-          geometry={nodes.mesh_1.geometry}
-          position={[-52.5731583, -1, -30.7363758]}
-          scale={[0.0056811, 0.0056811, 0.0056811]}
-        />
-      </group>
-      <group position={[-20.7159252, 3.8683631, -14.1254005]} scale={[0.9779791, 0.9779791, 0.9779791]}>
-        <mesh
-          material={materials['Fire.001']}
-          geometry={nodes.mesh_2.geometry}
-          position={[-52.5731583, -1, -30.7363758]}
-          scale={[0.0056811, 0.0056811, 0.0056811]}
-        />
-      </group>
-      <group position={[-28.7889996, 8.4553471, -20.2464752]} scale={[1.07244, 1.07244, 1.07244]}>
-        <mesh
-          material={materials['Fire.001']}
-          geometry={nodes.mesh_3.geometry}
-          position={[-52.5731583, -1, -30.7363758]}
-          scale={[0.0056811, 0.0056811, 0.0056811]}
-        />
-      </group>
-      <group position={[-41.6630135, 15.7238789, -26.5504494]} scale={[0.5855824, 0.5855824, 0.5855824]}>
-        <mesh
-          material={materials['Fire.001']}
-          geometry={nodes.mesh_4.geometry}
-          position={[-52.5731583, -1, -30.7363758]}
-          scale={[0.0056811, 0.0056811, 0.0056811]}
-        />
-      </group>
+      <Fire position={[-21.310915, 3, -1.9220421]} scale={[5, 5, 5]} />
       <group>
         {demands.list().map(currentDemand => (
           <group
