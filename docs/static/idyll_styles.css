@@ -1454,12 +1454,13 @@ a {
   border-top: 1px solid #2C2C2C;
   justify-content: space-between;
   margin-top: 40px;
-  padding-top: 20px;
+  padding-top: 5px;
   color: #7e7e7e;
 }
 
 .parametric-graphic-source-label-wrapper {
   display: flex;
+  align-items: center;
 }
 
 .parametric-graphic-source-label {
@@ -1478,6 +1479,7 @@ a {
   font-size: 14px;
   font-weight: 600;
 }
+
 
 
 .parametric-recirc-article {
@@ -1861,6 +1863,18 @@ button {
   color: #222222;
 }
 
+.idyll-root .parametric-author-bio {
+  font-family: 'Graphik Web';
+  font-size: 16px;
+  line-height: 1.1;
+  margin: 3em 0 2em;
+}
+.idyll-root .parametric-author-bio p {
+  font-family: 'Graphik Web';
+  font-size: 16px;
+  line-height: 1.1;
+  margin: 3em 0 2em;
+}
 
 .parametric-author-bio a {
   color: #ADADAD;
