@@ -16,7 +16,7 @@ function HtmlLabel({active, demand, setDemand}) {
         className={`outro-scene-label${ active ? ' outro-scene-label-active' : '' }`}
         onClick={() => setDemand(demand)}
       >
-        <span className="outro-scene-label-number">{demand.index + 1}.</span> {demand.location}
+        {demand.title}
       </button>
     </Html>
   )

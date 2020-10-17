@@ -18,10 +18,10 @@ function OutroIllustration() {
         <Outro demands={demands} demand={demand} setDemand={setDemand} />
       </div>
       <div className="outro-scene-title">
-        <h5>8 Simple Demands for Fossil Fuel Corporations</h5>
+        <h5>7 Simple Demands for Fossil Fuel Corporations</h5>
       </div>
       <div className="outro-scene-caption">
-        <div className="outro-scene-caption-title">{demand.index + 1}. {demand.location}</div>
+        <div className="outro-scene-caption-title">{demand.title}</div>
         <div className="outro-scene-caption-body">{demand.text}</div>
         <div className="outro-scene-caption-controls">
           <div className="outro-scene-back">
