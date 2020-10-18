@@ -176,3 +176,9 @@ canvas:focus {
 .parametric-header-metadata-component > div > * {
   margin-right: 0.5em;
 }
+
+/* Parametric graphic hack */
+.parametric-graphic {
+  padding: 0;
+  margin-bottom: 1em;
+}
