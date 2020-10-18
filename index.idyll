@@ -38,8 +38,7 @@
 
 **Who is responsible for climate change?** There is no simple answer; global warming is a complex, systemic problem. And yet, responsibility matters—not just for assigning blame, but for finding strategic levers for future change.
 
-
-Although we frequently discuss how individual consumers and national governments can combat climate change, we rarely shift the burden of responsibility to **fossil fuel companies**. But the data suggest that a relatively small number of companies are to blame for a staggering share of emissions: just 20 corporations are behind a third of all human CO₂ emissions.
+Although we frequently discuss how individual consumers and national governments can combat climate change, we rarely shift the burden of responsibility to **fossil fuel companies**. But the data suggest that a small number of companies are associated with a staggering share of emissions: just 20 corporations are behind 30% of all human CO₂ emissions.
 
 [Desktop]
   [Aside]
@@ -139,13 +138,29 @@ Highlighting and quantifying these companies’ emissions is the first step towa
   [Step]
     # 1.5 trillion tons of CO₂
 
-    This figure represents all historical man-made carbon dioxide (CO₂) emissions up to 2016: approximately 1.5 trillion tons. Let’s explore some different approaches to dividing this enormous quantity of emissions and attributing responsibility across different categories of producers.
+    This figure represents all historical man-made carbon dioxide (CO₂) emissions up to 2016: approximately 1.5 trillion tons [Cite 
+  authors:"Boden, T.A., G. Marland, and R.J. Andres"
+  title:"Global, Regional, and National Fossil-Fuel CO2 Emissions"
+  venue: "Carbon Dioxide Information Analysis Center at Appalachian State University, Boone North Carolina"
+  url:"https://energy.appstate.edu/research/work-areas/cdiac-appstate" 
+  id:"total"
+/]. Let’s explore some different approaches to dividing this enormous quantity of emissions and attributing responsibility across different categories of producers.
   [/Step]
 
   [Step]
     ## Individual Emissions
 
-    At one end of the spectrum is the individual and their personal carbon footprint. The average person alive today is responsible for about 300 tons of CO₂ over the course of their lifespan. If drawn to scale, each individual’s emissions would be much smaller than a single pixel. The figure at right approximates this method of representation.
+    At one end of the spectrum is the individual and their personal carbon footprint. The average person alive today is responsible for about 350 tons of CO₂ over the course of their lifespan [Cite 
+  authors: "Carbon Dioxide Information Analysis Center, Environmental Sciences Division, Oak Ridge National Laboratory, Tennessee, United States."
+  title:"CO2 emissions (metric tons per capita)"
+  url:"https://data.worldbank.org/indicator/EN.ATM.CO2E.PC?end=2014&start=1960&view=chart" 
+  id:"percapita"
+/] [Cite 
+  authors: "World Health Organization"
+  title:"Mortality and global health estimates"
+  url:"https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates" 
+  id:"lifespan"
+/]. If drawn to scale, each individual’s emissions would be much smaller than a single pixel. The figure at right approximates this method of representation.
 
     People can and should take steps to curb their personal emissions, especially the wealthiest 10% who disproportionately account for half of all individual emissions. There is a tempting immediacy in personal action, with no gatekeeper to convince but ourselves.
   [/Step]
@@ -171,7 +186,7 @@ Highlighting and quantifying these companies’ emissions is the first step towa
   [/Step]
 
   [Step]
-    This figure highlights those 20 corporations along with their associated emissions. Hovering over each company will reveal more information about their business.
+    This figure highlights those 20 corporations along with their associated emissions. Hovering over each company reveals more information about their business.
 
     Focusing on these corporate actors offers a new lens on the problem of climate change. Each of these companies offers a leverage point—a non-governmental entity with unilateral control over a massive portfolio of emissions activity.
 
@@ -207,7 +222,7 @@ Highlighting and quantifying these companies’ emissions is the first step towa
   [Step]
     You might ask whether it’s fair to attribute downstream emissions to fossil fuel companies. After all, if Exxon hadn’t sold these fuels, wouldn’t another company have taken their place?
 
-    It’s true that Exxon doesn’t bear *sole* responsibility for these emissions, but the company still exercises enormous control over the rate of production, the size of oil reserves, and the downstream cost of the commodity. Their marketing, lobbying, and investment arms play a role in perpetuating oil dependence globally; as we’ll see later, Exxon and other companies have a history of deceiving the public about the realities of climate change. Exxon’s future research investments can also offer alternative energy sources to fossil fuels.
+    It’s true that Exxon doesn’t bear *sole* responsibility for these emissions, but the company still exercises enormous control over the rate of production and the size of their oil reserves. Their marketing, lobbying, and investment arms play a role in perpetuating oil dependence globally; as we’ll see later, Exxon and other companies have a history of deceiving the public about the realities of climate change. Exxon’s future research investments can also offer alternative energy sources to fossil fuels.
 
     Companies like Exxon can’t solve climate change on their own, but their massive emissions portfolios represent a unique opportunity to move the needle unilaterally.
   [/Step]
@@ -233,7 +248,7 @@ Highlighting and quantifying these companies’ emissions is the first step towa
 
     The rest of the top 20 are investor-owned. Crucially, these companies are vulnerable to additional forms of leverage by nature of their commitments to investors.
 
-    Investor-owned companies have historically been major players in the emission of greenhouse gases given that they often operate with lighter regulation than their nationally-owned counterparts. By the late 1990s, non-OPEC corporations greatly increased their production of fossil fuels and many state-owned companies were privatized. In general, investor-owned companies enjoy certain operational efficiencies derived from their lack of government political control.
+    Investor-owned companies have historically been major players in the emission of greenhouse gases given that they often operate with lighter regulation than their nationally-owned counterparts. By the late 1990s, non-OPEC corporations greatly increased their production of fossil fuels and many state-owned companies were privatized. In general, investor-owned companies enjoy certain operational efficiencies derived from their lack of government control.
 
     In the past decade, throughout the corporate landscape there has been growing climate consciousness from shareholders and a shift in the balance of power between shareholders and boards of directors. Not only do individual shareholders have the ability to make their voice heard in strategic decisions and governance by-laws, but large blocs of shareholders can vote to replace board members and influence the composition of the board itself.
 
@@ -277,11 +292,11 @@ Ultimately, we present the above data in an effort to shift the conversation for
   [/Aside]
 [/Desktop]
 
-First and foremost, fossil fuel corporations must make immediate commitments to curb greenhouse gas emissions and set aggressive dates by which they will ensure their entire operations and end-to-end supply chain are carbon neutral.
+First and foremost, fossil fuel corporations should make immediate commitments to curb greenhouse gas emissions and set aggressive dates by which they will ensure their entire operations and end-to-end supply chain are carbon neutral.
 
-Combating rising global temperatures will require systemic change from the boardroom to the marketing department. From participating constructively in environmental policy and legislation to investing in research on carbon abatement and alternative energy technologies, companies must restructure their businesses around the reality of climate change.
+Combating rising global temperatures will require systemic change from the boardroom to the marketing department. From participating constructively in environmental policy and legislation to investing in research on carbon abatement and alternative energy technologies, companies should restructure their businesses around the reality of climate change.
 
-In recognition of their historical culpability, fossil fuel companies should pay reparations to the marginalized communities around the world that are currently most affected and least able to afford the catastrophic costs of climate change. 
+In recognition of their historical culpability, fossil fuel companies should also pay reparations to the marginalized communities around the world that are currently most affected and least able to afford the catastrophic costs of climate change. 
 
 Borrowing the visual language of educational posters showing individual tips for reducing personal emissions, we have helpfully compiled 7 concrete demands for fossil fuel companies into the following interactive graphic. We hope that it provides a useful roadmap to the executives, boards of directors, and investors who are responsible for their corporations’ enormous historic CO₂ emissions.
 
@@ -297,6 +312,8 @@ Borrowing the visual language of educational posters showing individual tips for
 
 // Edited by TK editor list.
 [/AuthorBio]
+
+[Cite.References/]
 
 [NextArticle slug:parametricSlug fullWidth:true /]
 
