@@ -1010,13 +1010,13 @@ button, input[type=submit] {
   display: block;
   margin: 0.5em auto;
   background: #adadad;
-  font-family: 'Editorial New';
+  font-family: 'Graphik Web';
   border: none;
   box-shadow: none;
   border-radius: 0px;
   color: white;
   font-size: 18px;
-  padding: 0.5em 2em;
+  padding: 0.65em 2em;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1286,8 +1286,11 @@ a {
 }
 
 .parametric-caption a {
-  color: #D8FFA2;
+  color: #adadad;
   text-decoration: underline;
+}
+.parametric-caption a:hover {
+  color: #D8FFA2;
 }
 
 .parametric-tooltip-trigger {
@@ -1851,6 +1854,12 @@ body {
 .idyll-text-container p {
   color: #ADADAD;
 }
+
+.idyll-text-container p strong,
+.idyll-text-container p b {
+  color: #BEBEBE;
+}
+
 .idyll-text-container p a,
 aside a, a {
   color: #ADADAD;
