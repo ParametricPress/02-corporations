@@ -3,45 +3,45 @@ import findIndex from 'lodash/findIndex'
 
 const data = [
   {
-    id: 'board-room',
-    location: 'Board Room',
-    title: 'Support climate policy',
-    text: 'Proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, renewable fuel standards, and direct emission regulation.',
+    id: 'boardroom',
+    location: 'Boardroom',
+    title: 'Set environmental policy',
+    text: 'Proactively support high-level initiatives to reduce emissions, including carbon pricing, cap-and-trade, renewable energy standards, and direct emissions regulation.',
     position: [3, 18, 4.5]
   },
   {
-    id: 'financial-analysis',
-    location: 'Financial Analysis',
-    title: 'Divest from fossil fuels',
-    text: 'Update financial models to plan for low-carbon technologies and a divestment from fossil fuels, disclose to the SEC the risks that climate change poses to the business.',
+    id: 'finance-department',
+    location: 'Finance Department',
+    title: 'Update financial models',
+    text: 'Update financial models to account for a carbon-neutral future, divest from fossil fuels, and disclose climate change risks to investors.',
     position: [-6, 13, 4.5]
   },
   {
     id: 'marketing-department',
     location: 'Marketing Department',
     title: 'Create demand for green products',
-    text: 'Stop misinforming the public about the severity of climate change, stop funding front groups or spin doctors to divert responsibility from the problem.',
+    text: 'Create demand for green consumer products and stop misinforming the public about the severity of climate change.',
     position: [4.5, 10.5, 4.5]
   },
   {
     id: 'research-lab',
     location: 'Research Lab',
-    title: 'Research low-carbon technology',
-    text: 'Support and fund science and technological expertise that promotes low-carbon energy technologies.',
+    title: 'Research alternative energy',
+    text: 'Fund research into alternative energy technologies, carbon abatement technology, and other green technology solutions.',
     position: [-6, 8, 4.5]
   },
   {
     id: 'refinery',
     location: 'Refinery',
-    title: 'Set carbon neutral targets',
-    text: 'Cut emissions from current operations and stop flaring natural gas immediately.',
+    title: 'Set carbon-neutral target',
+    text: 'Set aggresive targets for cutting direct emissions and reaching an end-to-end carbon-neutral supply chain.',
     position: [12, 8, 4.5]
   },
   {
     id: 'global',
     location: 'Global',
     title: 'Support affected communities',
-    text: 'Support communities disproportionately affected by climate change and pay reparations for climate damages.',
+    text: 'Pay reparations to the marginalized communities who are most affected and least able to afford the catastrophic costs of climate change.',
     position: [-15, 8, 4.5]
   },
   {
