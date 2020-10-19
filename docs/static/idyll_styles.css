@@ -2551,6 +2551,7 @@ svg.emissions-treemap {
 
 .outro-scene-title h5 {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .outro-scene-caption {
@@ -2572,6 +2573,11 @@ svg.emissions-treemap {
 
 .outro-scene-caption-title {
   font-weight: 600;
+}
+
+.outro-scene-caption-location {
+  font-weight: 600;
+  opacity: 60%;
 }
 
 .outro-scene-caption-controls {
@@ -2600,6 +2606,23 @@ button.outro-scene-label {
 button.outro-scene-label.outro-scene-label-active {
   background: #d8ffa2;
 }
+
+@media (max-width: 720px) {
+  .outro-scene-title,
+  .outro-scene-caption {
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .outro-scene-caption {
+    padding: 0.5rem 1rem;
+  }
+}
+
 
 canvas:focus {
   outline: none;
