@@ -137,6 +137,11 @@ svg.emissions-treemap {
   font-weight: 600;
 }
 
+.outro-scene-caption-location {
+  font-weight: 600;
+  opacity: 60%;
+}
+
 .outro-scene-caption-controls {
   margin-top: 16px;
   display: flex;

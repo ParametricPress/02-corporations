@@ -21,7 +21,7 @@ function OutroIllustration() {
         <h5>{demands.list().length} Simple Demands for Fossil Fuel Corporations</h5>
       </div>
       <div className="outro-scene-caption">
-        <div className="outro-scene-caption-title">{demand.title}</div>
+    <div className="outro-scene-caption-title">{demand.title} <span className="outro-scene-caption-location">• {demand.location}</span></div>
         <div className="outro-scene-caption-body">{demand.text}</div>
         <div className="outro-scene-caption-controls">
           <div className="outro-scene-back">
