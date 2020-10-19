@@ -2,7 +2,7 @@
 
 *Seven simple demands to hold fossil fuel companies accountable.*
 
-https://preview.parametric.press/issue-02/corporations/
+https://parametric.press/issue-02/corporations/
 
 ## Local Setup
 
