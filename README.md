@@ -1,6 +1,8 @@
-# Carbon Majors
+# The Corporations Behind Climate Change
 
-When we measure greenhouse gas emissions, we tend to aggregate the data by the countries where the emissions occurred. But what about the _producers_: the companies that extracted the fossil fuels in the first place?
+*Seven simple demands to hold fossil fuel companies accountable.*
+
+https://preview.parametric.press/issue-02/corporations/
 
 ## Local Setup
 
