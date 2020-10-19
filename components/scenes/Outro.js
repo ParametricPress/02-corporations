@@ -41,7 +41,9 @@ function Scene({...props}) {
 
   useFrame(() => {
     const [x, y] = parallax.getValue();
-    camera.current.lookAt(x, 10.655 + y, 0);
+    camera.current.position.x = 28 * Math.sin(0.3 * x);
+    camera.current.position.z = 28 * Math.cos(0.3 * x);
+    camera.current.lookAt(0, 10.655, 0);
     camera.current.updateWorldMatrix();
   })
 
@@ -50,7 +52,6 @@ function Scene({...props}) {
       <perspectiveCamera
         ref={camera}
         position={[0, 2.5, 28]}
-        rotation={[0.261799, 0, 0]}
         fov={52.411668340213666}
       />
       <Suspense fallback={null}>

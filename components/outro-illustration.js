@@ -13,7 +13,7 @@ function OutroIllustration() {
         "bottom": 0,
         "left": 0,
         "right": 0,
-        "background": "linear-gradient(45deg, #e47f1e, #393642 75%)"
+        "background": "linear-gradient(45deg, #e47f1e, #1e1d2f 50%)"
       }}>
         <Outro demands={demands} demand={demand} setDemand={setDemand} />
       </div>

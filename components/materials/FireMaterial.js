@@ -4,8 +4,9 @@ import { shaderMaterial } from "drei"
 
 const FireMaterial = shaderMaterial(
   {
-    fireTex: null,
-    color: null,
+    flameTexture: null,
+    color: new THREE.Color(0xff7c39),
+    intensity: 1.0,
     time: 0.0,
     seed: 0.0,
     invModelMatrix: new THREE.Matrix4(),
@@ -13,15 +14,19 @@ const FireMaterial = shaderMaterial(
     noiseScale: new THREE.Vector4(1, 2, 1, 0.3),
     magnitude: 1.3,
     lacunarity: 2.0,
-    gain: 0.5
+    gain: 0.5,
+    transparent: true,
+    blending: THREE.CustomBlending,
+    blendEquation: THREE.AddEquation,
+    blendSrc: THREE.OneFactor,
+    blendDst: THREE.OneMinusSrcAlphaFactor
   },
   `varying vec3 vWorldPos;
   void main() {
     vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }`,
-  `uniform vec3 color;
-  uniform float time;
+  `uniform float time;
   uniform float seed;
   uniform mat4 invModelMatrix;
   uniform vec3 scale;
@@ -31,7 +36,9 @@ const FireMaterial = shaderMaterial(
   uniform float lacunarity;
   uniform float gain;
 
-  uniform sampler2D fireTex;
+  uniform sampler2D flameTexture;
+  uniform float intensity;
+  uniform vec3 color;
 
   varying vec3 vWorldPos;
 
@@ -140,7 +147,9 @@ const FireMaterial = shaderMaterial(
 
     if(st.y <= 0.0 || st.y >= 1.0) return vec4(0.0);
 
-    return texture2D(fireTex, st);
+
+    float alpha = texture2D(flameTexture, st).r;
+    return vec4(color * alpha, alpha) * intensity;
   }
 
   vec3 localize(vec3 p) {
@@ -164,10 +173,10 @@ const FireMaterial = shaderMaterial(
       col += samplerFire(lp, noiseScale);
     }
     
-    col.a = col.r;
-
     gl_FragColor = col;
   }`
-)
+);
 
-extend({ FireMaterial })
+extend({ FireMaterial });
+
+export default FireMaterial;
