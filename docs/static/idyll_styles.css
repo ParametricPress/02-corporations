@@ -2129,8 +2129,7 @@ button {
   }
 
   .idyll-scroll {
-    /* disable scroller responsive formatting for our piece */
-    /* transform: translateX(-1em); */
+    transform: translateX(-1em);
   }
 }
 
