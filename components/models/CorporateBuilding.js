@@ -10,14 +10,14 @@ import { Html } from 'drei'
 import Fire from './Fire'
 import Smoke from './Smoke'
 
-function HtmlLabel({active, demand, setDemand}) {
+function HtmlLabel({active, demand, setDemand, isMobile}) {
   return (
     <Html zIndexRange={[950, 0]} style={{position: "relative"}}>
       <button 
         className={`outro-scene-label${ active ? ' outro-scene-label-active' : '' }`}
         onClick={() => setDemand(demand)}
       >
-        {demand.index + 1}. {demand.title}
+        {isMobile ? demand.index + 1 : `${demand.index + 1}. ${demand.title}`}
       </button>
     </Html>
   )
@@ -75,7 +75,7 @@ function Rooms({ name, emptyPattern, nodes, materials, ...props }) {
 }
 
 
-export default function Model({ demands, demand, setDemand, ...props }) {
+export default function Model({ isMobile, demands, demand, setDemand, ...props }) {
   const group = useRef()
   const { nodes, materials, cameras } = useLoader(GLTFLoader, './static/gltf/corporate-building.glb', meshopt())
 
@@ -180,7 +180,7 @@ export default function Model({ demands, demand, setDemand, ...props }) {
         <Smoke position={nodes.emptySmoke.position} scale={[6, 30, 6]} />
         <Smoke position={nodes.emptySmoke001.position} scale={[6, 30, 6]} />
       </group>
-      <group>
+      <group scale-x={isMobile ? 0.5 : 1} >
         {demands.list().map(currentDemand => (
           <group
             key={currentDemand.id}
@@ -191,6 +191,7 @@ export default function Model({ demands, demand, setDemand, ...props }) {
             active={currentDemand.id == demand.id}
             demand={currentDemand}
             setDemand={setDemand}
+            isMobile={isMobile}
           />
         </group>
       ))}

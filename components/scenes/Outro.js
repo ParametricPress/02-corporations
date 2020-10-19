@@ -28,7 +28,9 @@ export const useParallax = (amount = 0.5) => {
   return parallax;
 }
 
-function Scene({...props}) {
+function Scene({ isMobile, ...props }) {
+
+  const cameraDistance = isMobile ? 40 : 28;
 
   const camera = useRef();
   const { setDefaultCamera } = useThree();
@@ -41,8 +43,8 @@ function Scene({...props}) {
 
   useFrame(() => {
     const [x, y] = parallax.getValue();
-    camera.current.position.x = 28 * Math.sin(0.3 * x);
-    camera.current.position.z = 28 * Math.cos(0.3 * x);
+    camera.current.position.x = cameraDistance * Math.sin(0.3 * x);
+    camera.current.position.z = cameraDistance * Math.cos(0.3 * x);
     camera.current.lookAt(0, 10.655, 0);
     camera.current.updateWorldMatrix();
   })
@@ -51,11 +53,11 @@ function Scene({...props}) {
     <React.Fragment>
       <perspectiveCamera
         ref={camera}
-        position={[0, 2.5, 28]}
+        position={[0, 2.5, cameraDistance]}
         fov={52.411668340213666}
       />
       <Suspense fallback={null}>
-        <CorporateBuilding {...props} />
+        <CorporateBuilding {...props} isMobile={isMobile} />
       </Suspense>
     </React.Fragment>  
   )
