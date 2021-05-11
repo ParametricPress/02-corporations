@@ -29,7 +29,7 @@
     "drei": "^1.5.6",
     "idyll": "^4.12.1",
     "idyll-d3-component": "^2.0.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "parametric-components": "^2.1.40",
     "parametric-styles": "^2.2.31",
     "react-spring": "^8.0.27",
