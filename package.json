@@ -34,7 +34,7 @@
     "parametric-styles": "^2.2.31",
     "react-spring": "^8.0.27",
     "react-three-fiber": "^4.2.21",
-    "three": "^0.120.1"
+    "three": "^0.137.0"
   },
   "devDependencies": {
     "chalk": "^4.1.0",
