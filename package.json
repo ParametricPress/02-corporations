@@ -42,7 +42,7 @@
     "execa": "^4.0.3",
     "gltfpack": "^0.14.0",
     "make-dir": "^3.1.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "ora": "^5.1.0",
     "pretty-bytes": "^5.4.1",
     "tempy": "^0.6.0",
